@@ -30,7 +30,7 @@ const Header = () => {
               <StarBorder as="a" href="#app-tour-section" color="red" speed="4s">
                 QUERO SABER MAIS
               </StarBorder>
-              <StarBorder as="a" href="#cta-form-section" color="red" speed="4s">
+              <StarBorder as="a" href="#contato-section" color="red" speed="4s">
                 ENTRE EM CONTATO
               </StarBorder>
             </div>

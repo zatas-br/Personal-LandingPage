@@ -27,10 +27,10 @@ const testimonialsData = [
 const ResultsSection = () => {
   return (
     <section className="results-section">
-      <h2 className="scroll-animate fade-in">Resultados que falam por si</h2>
+      <h2 className="scroll-animate slide-up">Resultados que falam por si</h2>
       <div className="results-grid">
         {testimonialsData.map((testimonial, index) => (
-          <div key={index} className={`result-card scroll-animate scale-in delay-${index}`}>
+          <div key={index} className={`result-card scroll-animate slide-up delay-${index}`}>
             <img src={testimonial.photoUrl} alt={`Foto de ${testimonial.name}`} className="result-photo" />
             <div className="result-card-content">
               <h4>{testimonial.name}</h4>

@@ -12,47 +12,6 @@ import Footer from './components/Footer';
 
 function App() {
   useEffect(() => {
-    // Event delegation for smooth scrolling
-    const handleSmoothScroll = (e) => {
-      const link = e.target.closest('a[href^="#"]');
-      if (link) {
-        e.preventDefault();
-        const targetId = link.getAttribute('href').substring(1);
-        const targetElement = document.getElementById(targetId);
-        if (targetElement) {
-          targetElement.scrollIntoView({
-            behavior: 'smooth'
-          });
-        }
-      }
-    };
-
-    document.addEventListener('click', handleSmoothScroll);
-
-    return () => {
-      document.removeEventListener('click', handleSmoothScroll);
-    };
-  }, []); // Run only once on mount
-
-  useEffect(() => {
-    const handleGlowScroll = () => {
-      const glowContainer = document.querySelector('.glow-container');
-      if (glowContainer) {
-        const scrollY = window.scrollY;
-        // This will move the glow down as the user scrolls down
-        const glowYOffset = scrollY * 0.5; // Adjust multiplier for speed
-        glowContainer.style.setProperty('--glow-y-offset', `${glowYOffset}px`);
-      }
-    };
-
-    window.addEventListener('scroll', handleGlowScroll);
-
-    return () => {
-      window.removeEventListener('scroll', handleGlowScroll);
-    };
-  }, []);
-
-  useEffect(() => {
     // This logic is adapted from the original animations.js file
     const scrollAnimateElements = document.querySelectorAll('.scroll-animate');
 
@@ -95,7 +54,7 @@ function App() {
 
   return (
     <>
-      <div className="glow-container">
+      <div className="top-sections-wrapper">
         <Header />
         <InfoBlocksSection />
       </div>

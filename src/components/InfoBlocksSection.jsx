@@ -1,10 +1,11 @@
 import React from 'react';
 import logo from '../assets/logo.png';
 import appMockupImage from '../assets/playstoryapp.png';
+import ShinyText from './ShinyText';
 
 const InfoBlocksSection = () => {
   return (
-    <section className="info-blocks-section">
+    <section className="info-blocks-section" id="treino-section">
       <div className="info-block scroll-animate slide-left">
         <h2>Seu Treino na Palma da Mão</h2>
         <p>Acompanhamento completo, treinos personalizados, metas e mais. Tudo o que você precisa para alcançar seus resultados em um só lugar.</p>
@@ -13,7 +14,7 @@ const InfoBlocksSection = () => {
         </div>
       </div>
       <div className="info-block dedication-block scroll-animate slide-right">
-        <img src={logo} alt="Logo" className="logo" style={{ marginBottom: '20px', width: '450px' }} />
+        <img src={logo} alt="Logo" className="logo" />
         <p>
           Mais que um personal trainer, sou um arquiteto de transformações. Com anos de experiência internacional e uma metodologia baseada em dados precisos, desenvolvo estratégias personalizadas que transcendem os limites convencionais do fitness.
         </p>
@@ -28,11 +29,15 @@ const InfoBlocksSection = () => {
         </p>
         <div className="stats-container">
           <div className="stat-item">
-            <h3>200+</h3>
+            <h3 className="text-red">
+              <ShinyText text="200+" speed={2} />
+            </h3>
             <p>transformações</p>
           </div>
           <div className="stat-item">
-            <h3>7+</h3>
+            <h3 className="text-red">
+              <ShinyText text="7+" speed={2} />
+            </h3>
             <p>países atendidos</p>
           </div>
         </div>

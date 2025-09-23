@@ -34,22 +34,26 @@ const FaqItem = ({ faq, index, isOpen, toggleFaq }) => {
 };
 
 const FaqSection = () => {
-  const [openFaq, setOpenFaq] = useState(null);
+  const [openFaqs, setOpenFaqs] = useState([]);
 
   const toggleFaq = (index) => {
-    setOpenFaq(openFaq === index ? null : index);
+    setOpenFaqs(prevOpenFaqs =>
+      prevOpenFaqs.includes(index)
+        ? prevOpenFaqs.filter(i => i !== index) // Fecha o FAQ se já estiver aberto
+        : [...prevOpenFaqs, index] // Abre o FAQ se estiver fechado
+    );
   };
 
   return (
     <section className="faq-section">
-      <h2 className="scroll-animate fade-in">Perguntas Frequentes</h2>
-      <div className="faq-container scroll-animate slide-up">
+      <h2 className="scroll-animate slide-up">Perguntas Frequentes</h2>
+      <div className="faq-container scroll-animate slide-up delay-1">
         {faqData.map((faq, index) => (
           <FaqItem
             key={index}
             faq={faq}
             index={index}
-            isOpen={openFaq === index}
+            isOpen={openFaqs.includes(index)}
             toggleFaq={toggleFaq}
           />
         ))}

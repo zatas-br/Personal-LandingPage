@@ -55,10 +55,10 @@ const plansData = [
 const PricingSection = () => {
   return (
     <section className="pricing-section">
-      <h2 className="scroll-animate fade-in">Escolha o plano da sua transformação</h2>
+      <h2 className="scroll-animate slide-up">Escolha o plano da sua transformação</h2>
       <div className="pricing-grid">
         {plansData.map((plan, index) => (
-          <div key={index} className={`pricing-card ${plan.highlight ? 'highlight' : ''} scroll-animate flip-in delay-${index}`}>
+          <div key={index} className={`pricing-card ${plan.highlight ? 'highlight' : ''} scroll-animate slide-up delay-${index}`}>
             <h3>{plan.title}</h3>
             <p className="pricing-price">{plan.price}</p>
             <ul className="pricing-features">
