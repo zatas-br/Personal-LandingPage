@@ -59,7 +59,7 @@ export function TestimonialsSection() {
   }, [])
 
   return (
-    <section ref={sectionRef} className="py-20">
+    <section ref={sectionRef} className="custom-section-padding">
       <div className="container mx-auto px-4">
         <div className={`transition-all duration-1000 ${isVisible ? "animate-fade-in-up" : "opacity-0"}`}>
           <div className="text-center mb-16">
@@ -69,7 +69,7 @@ export function TestimonialsSection() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-6">
+          <div className="grid md:grid-cols-2 custom-item-gap">
             {testimonials.map((testimonial, index) => (
               <Card
                 key={index}

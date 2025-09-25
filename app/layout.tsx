@@ -10,6 +10,8 @@ export const metadata: Metadata = {
   generator: 'v0.app',
 }
 
+import { AppProvider } from "@/components/app-provider"
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -18,8 +20,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`font-sans ${GeistSans.variable} ${GeistMono.variable}`}>
-        {children}
-        <Analytics />
+        <AppProvider>
+          {children}
+          <Analytics />
+        </AppProvider>
       </body>
     </html>
   )

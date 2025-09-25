@@ -305,12 +305,22 @@
   --color-sidebar-ring: var(--sidebar-ring);
 }
 
+html {
+  /* Aplica a escala de tamanho da fonte e a altura da linha */
+  font-size: calc(16px * var(--font-size-scale, 1));
+  line-height: var(--line-height, 1.5);
+}
+
 @layer base {
   * {
     @apply border-border outline-ring/50;
   }
   body {
     @apply bg-background text-foreground;
+    /* Define a fonte padrão usando a variável CSS */
+    font-family: var(--font-family, "Geist Sans", sans-serif);
+    /* Define o peso da fonte usando a variável CSS */
+    font-weight: var(--font-weight, 400);
   }
 }
 
@@ -394,4 +404,14 @@
 .section-animate.in-view {
   opacity: 1;
   transform: translateY(0);
+}
+
+/* Classes customizadas para espaçamento dinâmico */
+.custom-section-padding {
+  padding-top: var(--section-padding-y, 8rem);
+  padding-bottom: var(--section-padding-y, 8rem);
+}
+
+.custom-item-gap {
+  gap: var(--item-gap, 2rem);
 }

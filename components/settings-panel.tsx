@@ -20,9 +20,15 @@ export function SettingsPanel() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8">
-            {/* Seletor de Temas */}
-            <div className="bg-background rounded-lg p-6 border shadow-sm">
+import { TypographySettings } from "@/components/typography-settings"
+import { SpacingSettings } from "@/components/spacing-settings"
+import { ComponentStyleSettings } from "@/components/component-style-settings"
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 items-start">
+            {/* Coluna 1: Controles Principais */}
+            <div className="space-y-8">
+              {/* Seletor de Temas */}
+              <div className="bg-background rounded-lg p-6 border shadow-sm">
               <div className="flex items-center gap-2 mb-4">
                 <Palette className="w-5 h-5 text-primary" />
                 <h4 className="font-semibold">Paleta de Cores</h4>
@@ -31,18 +37,28 @@ export function SettingsPanel() {
                 Escolha a paleta de cores que melhor representa sua marca
               </p>
               <ThemeSelector />
+              </div>
+              {/* Configurações de Estilo de Componente */}
+              <ComponentStyleSettings />
             </div>
 
-            {/* Controle de Seções */}
-            <div className="bg-background rounded-lg p-6 border shadow-sm">
-              <div className="flex items-center gap-2 mb-4">
-                <Eye className="w-5 h-5 text-primary" />
-                <h4 className="font-semibold">Seções Visíveis</h4>
+            {/* Coluna 2: Tipografia */}
+            <div className="lg:col-span-1">
+              <TypographySettings />
+            </div>
+
+            {/* Coluna 3: Seções */}
+            <div className="lg:col-span-1">
+               <div className="bg-background rounded-lg p-6 border shadow-sm h-full">
+                <div className="flex items-center gap-2 mb-4">
+                  <Eye className="w-5 h-5 text-primary" />
+                  <h4 className="font-semibold">Seções Visíveis</h4>
+                </div>
+                <p className="text-muted-foreground text-sm mb-4">
+                  Ative ou desative seções conforme o tipo do seu negócio
+                </p>
+                <SectionToggle />
               </div>
-              <p className="text-muted-foreground text-sm mb-4">
-                Ative ou desative seções conforme o tipo do seu negócio
-              </p>
-              <SectionToggle />
             </div>
           </div>
 

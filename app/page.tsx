@@ -1,3 +1,6 @@
+"use client"
+
+import { useSettings } from "@/hooks/use-settings"
 import { NotificationBar } from "@/components/notification-bar"
 import { HeroSection } from "@/components/hero-section"
 import { AboutSection } from "@/components/about-section"
@@ -17,56 +20,32 @@ import { Footer } from "@/components/footer"
 import { SettingsPanel } from "@/components/settings-panel"
 
 export default function HomePage() {
+  const { settings } = useSettings()
+
+  // Função auxiliar para verificar se a seção está habilitada
+  const isSectionEnabled = (id: string) => {
+    const section = settings.sections.find((s) => s.id === id)
+    return section ? section.enabled : true // Renderiza por padrão se não for encontrado
+  }
+
   return (
     <main className="min-h-screen">
       <NotificationBar />
 
-      <div id="section-hero">
-        <HeroSection />
-      </div>
-      <div id="section-about">
-        <AboutSection />
-      </div>
-      <div id="section-technology">
-        <TechnologySection />
-      </div>
-      <div id="section-app">
-        <AppShowcaseSection />
-      </div>
-
-      <div id="section-partners">
-        <PartnersSection />
-      </div>
-      <div id="section-how-it-works">
-        <HowItWorksSection />
-      </div>
-      <div id="section-features">
-        <FeaturesSection />
-      </div>
-
-      <div id="section-results">
-        <ResultsSection />
-      </div>
-      <div id="section-testimonials">
-        <TestimonialsSection />
-      </div>
-      <div id="section-pricing">
-        <PricingSection />
-      </div>
-
-      <div id="section-guarantee">
-        <GuaranteeSection />
-      </div>
-      <div id="section-faq">
-        <FaqSection />
-      </div>
-      <div id="section-newsletter">
-        <NewsletterSection />
-      </div>
-
-      <div id="section-contact">
-        <ContactSection />
-      </div>
+      {isSectionEnabled("hero") && <HeroSection />}
+      {isSectionEnabled("about") && <AboutSection />}
+      {isSectionEnabled("technology") && <TechnologySection />}
+      {isSectionEnabled("app") && <AppShowcaseSection />}
+      {isSectionEnabled("partners") && <PartnersSection />}
+      {isSectionEnabled("how-it-works") && <HowItWorksSection />}
+      {isSectionEnabled("features") && <FeaturesSection />}
+      {isSectionEnabled("results") && <ResultsSection />}
+      {isSectionEnabled("testimonials") && <TestimonialsSection />}
+      {isSectionEnabled("pricing") && <PricingSection />}
+      {isSectionEnabled("guarantee") && <GuaranteeSection />}
+      {isSectionEnabled("faq") && <FaqSection />}
+      {isSectionEnabled("newsletter") && <NewsletterSection />}
+      {isSectionEnabled("contact") && <ContactSection />}
 
       <Footer />
       <SettingsPanel />
