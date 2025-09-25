@@ -24,7 +24,7 @@ export function HeroSection() {
 
       <div className="container mx-auto px-4 text-center relative z-10">
         <div className={`transition-all duration-1000 ${isVisible ? "animate-fade-in-up" : "opacity-0"}`}>
-          <div className="inline-flex items-center gap-2 bg-accent/10 text-accent-foreground px-4 py-2 rounded-full text-sm font-medium mb-6">
+          <div className="inline-flex items-center gap-2 bg-accent text-accent-foreground px-4 py-2 rounded-full text-sm font-semibold mb-6">
             <Sparkles className="h-4 w-4" />
             Transforme seu negócio hoje mesmo
           </div>

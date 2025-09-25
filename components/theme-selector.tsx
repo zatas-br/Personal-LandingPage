@@ -16,6 +16,7 @@ const themes = [
   { value: "theme-indigo", label: "Índigo Elegante", class: "theme-indigo" },
   { value: "theme-yellow", label: "Amarelo Vibrante", class: "theme-yellow" },
   { value: "theme-dark", label: "Modo Escuro", class: "theme-dark" },
+  { value: "theme-vibrant-red", label: "Vermelho Vibrante", class: "theme-vibrant-red" },
   { value: "theme-gradient", label: "Gradiente Futurista", class: "theme-gradient" },
 ]
 
