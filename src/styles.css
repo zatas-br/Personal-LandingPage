@@ -169,6 +169,12 @@ p {
     gap: 0.5em;
 }
 
+.subtitle-red {
+    background-color: var(--color-primary);
+    padding: 1%;
+    border-radius: 6px;
+}
+
 .rotating-text-background {
     background-color: var(--color-primary);
     padding: 4px 12px;
@@ -859,7 +865,7 @@ section.info-blocks-section::before {
 
 .footer-top {
     display: flex;
-    justify-content: flex-end; /* Alinha itens à direita */
+    justify-content: space-between; /* Alinha itens à direita */
     align-items: center;
     gap: 30px;
     margin-bottom: 30px;
