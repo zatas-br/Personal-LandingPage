@@ -37,9 +37,25 @@ const Header = () => {
           </div>
           <div className="hero-card-swap">
             <CardSwap width={600} height={480}>
-              <Card><h3><FiUser /> <span>Sobre o Deusmar</span></h3></Card>
-              <Card><h3><FiSmartphone /> <span>Sobre o APP</span></h3></Card>
-              <Card><h3><FiStar /> <span>Avaliações de outros alunos</span></h3></Card>
+              <Card>
+                <img
+                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ4M7nZjgoZAoxHYQi_kKvCnWceK3LWl92uXQ&s"
+                  alt="Plano de fundo"
+                  className="card-bg"
+                />
+                <h3><FiUser /> <span>Sobre o Deusmar</span></h3></Card>
+              <Card><img
+                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ4M7nZjgoZAoxHYQi_kKvCnWceK3LWl92uXQ&s"
+                  alt="Plano de fundo"
+                  className="card-bg"
+                />
+                <h3><FiSmartphone /> <span>Sobre o APP</span></h3></Card>
+              <Card><img
+                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ4M7nZjgoZAoxHYQi_kKvCnWceK3LWl92uXQ&s"
+                  alt="Plano de fundo"
+                  className="card-bg"
+                />
+                <h3><FiStar /> <span>Avaliações de outros alunos</span></h3></Card>
             </CardSwap>
           </div>
         </div>
