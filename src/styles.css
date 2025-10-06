@@ -19,6 +19,7 @@ body {
     margin: 0;
     line-height: 1.6;
     position: relative; /* Necessário para o posicionamento do pseudo-elemento */
+    overflow-x: hidden;
 }
 
 
@@ -75,7 +76,7 @@ p {
 
 /* Header (Seção Hero) */
 .hero-section {
-    padding: clamp(80px, 10vh, 120px) clamp(20px, 5vw, 50px);
+    padding: 10px clamp(20px, 5vw, 50px);
     text-align: center;
     position: relative;
     min-height: 100vh; /* Altura mínima para a seção hero */
@@ -133,16 +134,24 @@ p {
 .hero-layout {
     display: flex;
     align-items: center;
-    justify-content: center; /* Centraliza os itens */
+    justify-content: flex-start; /* Alinha os itens à esquerda */
     width: 100%;
     gap: 80px; /* Aumenta o espaço entre o texto e o card */
-    padding-left: 10%; /* Desloca o conteúdo para a direita */
+    padding-left: 0; /* Remove o deslocamento do conteúdo */
 }
 
 .hero-text-content {
     flex: 1;
     text-align: left;
     max-width: 50%;
+}
+
+.hero-buttons-container {
+    display: flex;
+    justify-content: flex-start;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 20px;
 }
 
 .hero-card-swap {
@@ -1012,6 +1021,10 @@ section.info-blocks-section::before {
 }
 
 @media (max-width: 768px) {
+    .hero-buttons-container {
+        justify-content: center;
+    }
+
     .footer-top {
         flex-direction: column;
         justify-content: center;
