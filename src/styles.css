@@ -17,7 +17,6 @@ body {
     color: var(--color-white);
     background-color: var(--color-black);
     margin: 0;
-    overflow-x: hidden; /* Evita scroll horizontal indesejado */
     line-height: 1.6;
     position: relative; /* Necessário para o posicionamento do pseudo-elemento */
 }
@@ -636,6 +635,9 @@ section.info-blocks-section::before {
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
     gap: 40px;
     align-items: stretch;
+    justify-content: center;
+    max-width: 1280px; /* Define uma largura máxima para o grid */
+    margin: 0 auto; /* Centraliza o grid na seção */
 }
 
 .pricing-card {
@@ -648,7 +650,6 @@ section.info-blocks-section::before {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
     border: 2px solid transparent;
 }
 
@@ -676,6 +677,7 @@ section.info-blocks-section::before {
     padding: 0;
     margin: 0 0 40px 0;
     text-align: left;
+    flex-grow: 1;
 }
 
 .pricing-features li {
@@ -808,13 +810,20 @@ section.info-blocks-section::before {
     color: var(--color-white);
     border: 2px solid transparent;
     transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
-    padding: 18px 35px;
+    padding: 0 25px; /* Apenas padding horizontal */
     text-align: center;
     display: flex;
     align-items: center;
     justify-content: center;
     box-sizing: border-box;
     width: 100%;
+    margin: 0; /* Remove a margem padrão */
+    height: 60px; /* Altura fixa para ambos os botões */
+    border-radius: 8px;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 1rem; /* Define um tamanho de fonte explícito */
+    letter-spacing: 1.5px;
 }
 
 .cta-form-section .cta-button:hover {
@@ -946,6 +955,10 @@ section.info-blocks-section::before {
 
 /* Responsividade */
 @media (max-width: 1024px) {
+    .top-sections-wrapper::before {
+        max-width: 100%;
+    }
+
     .hero-layout {
         flex-direction: column;
         text-align: center;
@@ -955,6 +968,13 @@ section.info-blocks-section::before {
     .hero-text-content {
         text-align: center;
         max-width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .subtitle {
+        justify-content: center;
     }
     .hero-card-swap {
         display: none; /* Hide on smaller screens for simplicity */
@@ -970,6 +990,11 @@ section.info-blocks-section::before {
     .video-container { height: 400px; }
 
     /* App Tour Responsive */
+    .app-tour-section::before,
+    .app-tour-section::after {
+        max-width: 100%;
+    }
+
     .app-tour-layout {
         flex-direction: column;
         gap: 50px;
@@ -987,15 +1012,27 @@ section.info-blocks-section::before {
 }
 
 @media (max-width: 768px) {
+    .footer-top {
+        flex-direction: column;
+        justify-content: center;
+        gap: 25px;
+    }
+
     h1 { font-size: 2rem; letter-spacing: 1px; }
     h2 { font-size: 1.8rem; }
     .subtitle { font-size: 1rem; }
     .hero-section { padding: 80px 20px; min-height: 90vh; }
     .logo { width: 70px; }
     .hero-logo {
-        width: 300px;
+        width: 231px; /* Original size 210px + 10% = 231px */
     }
     .logo-text { font-size: 1rem; }
+    .hero-section .cta-button {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 300px; /* Adjust width for mobile */
+    }
     .cta-button { padding: 15px 25px; font-size: 0.9rem; }
     section { padding: 60px 20px; }
     .info-blocks-section, .features-grid, .results-grid, .pricing-grid {
@@ -1010,7 +1047,7 @@ section.info-blocks-section::before {
         max-width: 100%;
     }
     .dedication-block .logo {
-        width: 280px !important;
+        width: 196px !important; /* Reduced by approx. 30% */
     }
     .app-image { width: 200px; }
     .testimonial { flex-direction: column; text-align: center; }

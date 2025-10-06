@@ -137,28 +137,46 @@ const CardSwap = ({
       });
     };
 
-    swap();
-    intervalRef.current = window.setInterval(swap, delay);
+    let lastSwapTime = 0;
+    let animationFrameId;
+    let isPaused = false;
+
+    const animationLoop = (timestamp) => {
+      if (!isPaused) {
+        if (timestamp - lastSwapTime > delay) {
+          lastSwapTime = timestamp;
+          swap();
+        }
+        animationFrameId = requestAnimationFrame(animationLoop);
+      }
+    };
+
+    swap(); // Initial swap
+    lastSwapTime = performance.now();
+    animationFrameId = requestAnimationFrame(animationLoop);
 
     if (pauseOnHover) {
       const node = container.current;
       const pause = () => {
+        isPaused = true;
         tlRef.current.pause();
-        clearInterval(intervalRef.current);
       };
       const resume = () => {
+        isPaused = false;
+        lastSwapTime = performance.now(); // Reset timer on resume
         tlRef.current.play();
-        intervalRef.current = window.setInterval(swap, delay);
+        animationFrameId = requestAnimationFrame(animationLoop);
       };
       node.addEventListener('mouseenter', pause);
       node.addEventListener('mouseleave', resume);
       return () => {
         node.removeEventListener('mouseenter', pause);
         node.removeEventListener('mouseleave', resume);
-        clearInterval(intervalRef.current);
+        cancelAnimationFrame(animationFrameId);
       };
     }
-    return () => clearInterval(intervalRef.current);
+
+    return () => cancelAnimationFrame(animationFrameId);
   }, [cardDistance, verticalDistance, delay, pauseOnHover, skewAmount, easing]);
 
   const rendered = childArr.map((child, i) =>
