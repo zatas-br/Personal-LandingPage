@@ -20,7 +20,11 @@ const Header = () => {
   <img src={logo} alt="Deusmar Personal Trainer" className="hero-logo" />
             <div className="subtitle">
               <span>Transforme</span>
-              <span className="subtitle-red">Sua Realidade</span>
+              <RotatingText
+                texts={['Seu Corpo', 'Sua Vida']}
+                mainClassName="rotating-text-background"
+                splitBy="words"
+              />
             </div>
             <div className="hero-buttons-container">
               <StarBorder as="a" href="#app-tour-section" color="red" speed="4s">
@@ -31,7 +35,29 @@ const Header = () => {
               </StarBorder>
             </div>
           </div>
-
+          <div className="hero-card-swap">
+            <CardSwap width={600} height={480}>
+              <Card>
+                <img
+                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ4M7nZjgoZAoxHYQi_kKvCnWceK3LWl92uXQ&s"
+                  alt="Plano de fundo"
+                  className="card-bg"
+                />
+                <h3><FiUser /> <span>Sobre o Deusmar</span></h3></Card>
+              <Card><img
+                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ4M7nZjgoZAoxHYQi_kKvCnWceK3LWl92uXQ&s"
+                  alt="Plano de fundo"
+                  className="card-bg"
+                />
+                <h3><FiSmartphone /> <span>Sobre o APP</span></h3></Card>
+              <Card><img
+                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ4M7nZjgoZAoxHYQi_kKvCnWceK3LWl92uXQ&s"
+                  alt="Plano de fundo"
+                  className="card-bg"
+                />
+                <h3><FiStar /> <span>Avaliações de outros alunos</span></h3></Card>
+            </CardSwap>
+          </div>
         </div>
       </div>
     </header>
