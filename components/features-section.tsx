@@ -14,8 +14,12 @@ import {
   Heart,
   Star,
 } from "lucide-react"
+import { useSettings } from "@/hooks/use-settings"
 
 export function FeaturesSection() {
+  const { settings } = useSettings()
+  const layout = settings.sections.find((s) => s.id === "features")?.layout || "layout1"
+
   const features = [
     {
       icon: Shield,
@@ -89,20 +93,41 @@ export function FeaturesSection() {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 custom-item-gap">
-          {features.map((feature, index) => (
-            <div
-              key={index}
-              className="bg-background p-6 rounded-lg shadow-sm border hover:shadow-md transition-shadow"
-            >
-              <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
-                <feature.icon className="w-6 h-6 text-primary" />
+        {layout === "layout2" ? (
+          // Layout 2: List View (2 Columns wide)
+          <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+            {features.map((feature, index) => (
+              <div
+                key={index}
+                className="bg-background p-6 rounded-lg shadow-sm border hover:shadow-md transition-shadow flex items-start gap-4"
+              >
+                <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <feature.icon className="w-6 h-6 text-primary" />
+                </div>
+                <div>
+                  <h3 className="font-semibold mb-1 text-lg">{feature.title}</h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed">{feature.description}</p>
+                </div>
               </div>
-              <h3 className="font-semibold mb-2">{feature.title}</h3>
-              <p className="text-sm text-muted-foreground leading-relaxed">{feature.description}</p>
-            </div>
-          ))}
-        </div>
+            ))}
+          </div>
+        ) : (
+          // Layout 1: Grid View (Default)
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 custom-item-gap">
+            {features.map((feature, index) => (
+              <div
+                key={index}
+                className="bg-background p-6 rounded-lg shadow-sm border hover:shadow-md transition-shadow"
+              >
+                <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
+                  <feature.icon className="w-6 h-6 text-primary" />
+                </div>
+                <h3 className="font-semibold mb-2">{feature.title}</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">{feature.description}</p>
+              </div>
+            ))}
+          </div>
+        )}
       </div>
     </section>
   )

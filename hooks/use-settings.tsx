@@ -6,6 +6,7 @@ import { createContext, useContext, useState, useEffect, ReactNode } from "react
 interface SectionConfig {
   id: string
   enabled: boolean
+  layout?: "layout1" | "layout2"
 }
 
 // 1. Definir a estrutura das configurações (expandida)
@@ -44,6 +45,7 @@ interface SettingsContextType {
   settings: SettingsState
   setTheme: (theme: string) => void
   toggleSection: (sectionId: string) => void
+  setSectionLayout: (sectionId: string, layout: "layout1" | "layout2") => void
   setTypography: (typography: Partial<TypographyConfig>) => void
   setSpacing: (spacing: Partial<SpacingConfig>) => void
   setComponentStyle: (style: Partial<ComponentStyleConfig>) => void
@@ -52,20 +54,20 @@ interface SettingsContextType {
 
 // 3. Valores iniciais (padrão)
 const initialSections: SectionConfig[] = [
-  { id: "hero", enabled: true },
-  { id: "about", enabled: true },
-  { id: "technology", enabled: true },
-  { id: "app", enabled: true },
-  { id: "partners", enabled: true },
-  { id: "how-it-works", enabled: true },
-  { id: "features", enabled: true },
-  { id: "results", enabled: true },
-  { id: "testimonials", enabled: true },
-  { id: "pricing", enabled: true },
-  { id: "guarantee", enabled: true },
-  { id: "faq", enabled: true },
-  { id: "newsletter", enabled: true },
-  { id: "contact", enabled: true },
+  { id: "hero", enabled: true, layout: "layout1" },
+  { id: "about", enabled: true, layout: "layout1" },
+  { id: "technology", enabled: true, layout: "layout1" },
+  { id: "app", enabled: true, layout: "layout1" },
+  { id: "partners", enabled: true, layout: "layout1" },
+  { id: "how-it-works", enabled: true, layout: "layout1" },
+  { id: "features", enabled: true, layout: "layout1" },
+  { id: "results", enabled: true, layout: "layout1" },
+  { id: "testimonials", enabled: true, layout: "layout1" },
+  { id: "pricing", enabled: true, layout: "layout1" },
+  { id: "guarantee", enabled: true, layout: "layout1" },
+  { id: "faq", enabled: true, layout: "layout1" },
+  { id: "newsletter", enabled: true, layout: "layout1" },
+  { id: "contact", enabled: true, layout: "layout1" },
 ]
 
 const initialState: SettingsState = {
@@ -141,6 +143,13 @@ export function SettingsProvider({ children }: { children: ReactNode }) {
     }))
   }
 
+  const setSectionLayout = (sectionId: string, layout: "layout1" | "layout2") => {
+    setSettings((prev) => ({
+      ...prev,
+      sections: prev.sections.map((section) => (section.id === sectionId ? { ...section, layout } : section)),
+    }))
+  }
+
   const setTypography = (typography: Partial<TypographyConfig>) => {
     setSettings((prev) => ({
       ...prev,
@@ -169,7 +178,16 @@ export function SettingsProvider({ children }: { children: ReactNode }) {
     }))
   }
 
-  const value = { settings, setTheme, toggleSection, setTypography, setSpacing, setComponentStyle, setWhatsapp }
+  const value = {
+    settings,
+    setTheme,
+    toggleSection,
+    setSectionLayout,
+    setTypography,
+    setSpacing,
+    setComponentStyle,
+    setWhatsapp,
+  }
 
   return <SettingsContext.Provider value={value}>{children}</SettingsContext.Provider>
 }
