@@ -4,6 +4,9 @@ import { ThemeSelector } from "@/components/theme-selector"
 import { SectionToggle } from "@/components/section-toggle"
 import { Settings, Palette, Eye } from "lucide-react"
 import { Separator } from "@/components/ui/separator"
+import { TypographySettings } from "@/components/typography-settings"
+import { SpacingSettings } from "@/components/spacing-settings"
+import { ComponentStyleSettings } from "@/components/component-style-settings"
 
 export function SettingsPanel() {
   return (
@@ -19,10 +22,6 @@ export function SettingsPanel() {
               Personalize a aparência e o conteúdo da landing page conforme suas necessidades
             </p>
           </div>
-
-import { TypographySettings } from "@/components/typography-settings"
-import { SpacingSettings } from "@/components/spacing-settings"
-import { ComponentStyleSettings } from "@/components/component-style-settings"
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 items-start">
             {/* Coluna 1: Controles Principais */}
