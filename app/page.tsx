@@ -17,7 +17,8 @@ import { FaqSection } from "@/components/faq-section"
 import { NewsletterSection } from "@/components/newsletter-section"
 import { ContactSection } from "@/components/contact-section"
 import { Footer } from "@/components/footer"
-import { SettingsPanel } from "@/components/settings-panel"
+import { AdminControls } from "@/components/admin-controls"
+import { FloatingWhatsapp } from "@/components/floating-whatsapp"
 
 export default function HomePage() {
   const { settings } = useSettings()
@@ -48,7 +49,8 @@ export default function HomePage() {
       {isSectionEnabled("contact") && <ContactSection />}
 
       <Footer />
-      <SettingsPanel />
+      <AdminControls />
+      <FloatingWhatsapp />
     </main>
   )
 }

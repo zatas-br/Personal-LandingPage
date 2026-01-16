@@ -25,12 +25,18 @@ interface ComponentStyleConfig {
   borderRadius: number // em rem
 }
 
+interface WhatsappConfig {
+  enabled: boolean
+  number: string
+}
+
 interface SettingsState {
   theme: string
   sections: SectionConfig[]
   typography: TypographyConfig
   spacing: SpacingConfig
   componentStyle: ComponentStyleConfig
+  whatsapp: WhatsappConfig
 }
 
 // 2. Definir a estrutura do contexto (expandida)
@@ -41,6 +47,7 @@ interface SettingsContextType {
   setTypography: (typography: Partial<TypographyConfig>) => void
   setSpacing: (spacing: Partial<SpacingConfig>) => void
   setComponentStyle: (style: Partial<ComponentStyleConfig>) => void
+  setWhatsapp: (whatsapp: Partial<WhatsappConfig>) => void
 }
 
 // 3. Valores iniciais (padrão)
@@ -76,6 +83,10 @@ const initialState: SettingsState = {
   },
   componentStyle: {
     borderRadius: 0.625, // rem
+  },
+  whatsapp: {
+    enabled: false,
+    number: "",
   },
 }
 
@@ -151,7 +162,14 @@ export function SettingsProvider({ children }: { children: ReactNode }) {
     }))
   }
 
-  const value = { settings, setTheme, toggleSection, setTypography, setSpacing, setComponentStyle }
+  const setWhatsapp = (whatsapp: Partial<WhatsappConfig>) => {
+    setSettings((prev) => ({
+      ...prev,
+      whatsapp: { ...prev.whatsapp, ...whatsapp },
+    }))
+  }
+
+  const value = { settings, setTheme, toggleSection, setTypography, setSpacing, setComponentStyle, setWhatsapp }
 
   return <SettingsContext.Provider value={value}>{children}</SettingsContext.Provider>
 }
