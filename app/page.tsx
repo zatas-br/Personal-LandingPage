@@ -25,9 +25,14 @@ export default function HomePage() {
 
   // Função auxiliar para verificar se a seção está habilitada
   const isSectionEnabled = (id: string) => {
+    // Verificação de segurança caso settings ainda esteja carregando
+    if (!settings?.sections) return true;
+    
     const section = settings.sections.find((s) => s.id === id)
-    return section ? section.enabled : true // Renderiza por padrão se não for encontrado
+    return section ? section.enabled : true 
   }
+
+  if (!settings) return null;
 
   return (
     <main className="min-h-screen">

@@ -1,16 +1,24 @@
-import type { Metadata } from 'next'
-import { GeistSans } from 'geist/font/sans'
-import { GeistMono } from 'geist/font/mono'
-import { Analytics } from '@vercel/analytics/next'
-import './globals.css'
+import type { Metadata } from "next"
+import { Inter, Manrope } from "next/font/google"
+import "./globals.css"
+import { Providers } from "@/components/providers"
+
+const inter = Inter({ 
+  subsets: ["latin"], 
+  variable: "--font-inter",
+  display: "swap",
+})
+
+const manrope = Manrope({ 
+  subsets: ["latin"], 
+  variable: "--font-manrope", 
+  display: "swap",
+})
 
 export const metadata: Metadata = {
-  title: 'v0 App',
-  description: 'Created with v0',
-  generator: 'v0.app',
+  title: "Landing Page Personalizável",
+  description: "Template profissional com configurações visuais completas.",
 }
-
-import { AppProvider } from "@/components/app-provider"
 
 export default function RootLayout({
   children,
@@ -18,12 +26,12 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en">
-      <body className={`font-sans ${GeistSans.variable} ${GeistMono.variable}`}>
-        <AppProvider>
+    <html lang="pt-BR" suppressHydrationWarning>
+      <head />
+      <body className={`${inter.variable} ${manrope.variable} font-sans antialiased min-h-screen bg-background text-foreground`}>
+        <Providers>
           {children}
-          <Analytics />
-        </AppProvider>
+        </Providers>
       </body>
     </html>
   )

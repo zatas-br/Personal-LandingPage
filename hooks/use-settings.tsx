@@ -1,202 +1,140 @@
 "use client"
 
-import { createContext, useContext, useState, useEffect, ReactNode } from "react"
+import * as React from "react"
 
-// 1. Definir a estrutura das configurações
-interface SectionConfig {
+export type Theme = "dark" | "light"
+
+export interface SectionConfig {
   id: string
   enabled: boolean
-  layout?: "layout1" | "layout2"
+  label?: string
 }
 
-// 1. Definir a estrutura das configurações (expandida)
-interface TypographyConfig {
-  fontFamily: string
-  fontSizeScale: number
-  lineHeight: number
-  fontWeight: number
-}
-
-interface SpacingConfig {
-  sectionPadding: number // em rem
-  itemGap: number // em rem
-}
-
-interface ComponentStyleConfig {
-  borderRadius: number // em rem
-}
-
-interface WhatsappConfig {
+export interface WhatsappConfig {
   enabled: boolean
   number: string
 }
 
-interface SettingsState {
-  theme: string
+export interface Settings {
+  // Estilo Visual
+  theme: Theme
+  radius: number
+  fontFamily: string
+  baseFontSize: number
+  containerWidth: number
+  sectionSpacing: number
+  
+  // Estrutura da Página
   sections: SectionConfig[]
-  typography: TypographyConfig
-  spacing: SpacingConfig
-  componentStyle: ComponentStyleConfig
   whatsapp: WhatsappConfig
 }
 
-// 2. Definir a estrutura do contexto (expandida)
 interface SettingsContextType {
-  settings: SettingsState
-  setTheme: (theme: string) => void
-  toggleSection: (sectionId: string) => void
-  setSectionLayout: (sectionId: string, layout: "layout1" | "layout2") => void
-  setTypography: (typography: Partial<TypographyConfig>) => void
-  setSpacing: (spacing: Partial<SpacingConfig>) => void
-  setComponentStyle: (style: Partial<ComponentStyleConfig>) => void
-  setWhatsapp: (whatsapp: Partial<WhatsappConfig>) => void
+  settings: Settings
+  updateSettings: (newSettings: Partial<Settings>) => void
+  toggleSection: (id: string) => void // Função auxiliar específica
+  resetSettings: () => void
 }
 
-// 3. Valores iniciais (padrão)
-const initialSections: SectionConfig[] = [
-  { id: "hero", enabled: true, layout: "layout1" },
-  { id: "about", enabled: true, layout: "layout1" },
-  { id: "technology", enabled: true, layout: "layout1" },
-  { id: "app", enabled: true, layout: "layout1" },
-  { id: "partners", enabled: true, layout: "layout1" },
-  { id: "how-it-works", enabled: true, layout: "layout1" },
-  { id: "features", enabled: true, layout: "layout1" },
-  { id: "results", enabled: true, layout: "layout1" },
-  { id: "testimonials", enabled: true, layout: "layout1" },
-  { id: "pricing", enabled: true, layout: "layout1" },
-  { id: "guarantee", enabled: true, layout: "layout1" },
-  { id: "faq", enabled: true, layout: "layout1" },
-  { id: "newsletter", enabled: true, layout: "layout1" },
-  { id: "contact", enabled: true, layout: "layout1" },
+const defaultSections: SectionConfig[] = [
+  { id: "hero", enabled: true, label: "Hero (Início)" },
+  { id: "about", enabled: true, label: "Sobre" },
+  { id: "technology", enabled: true, label: "Tecnologias" },
+  { id: "app", enabled: true, label: "App Showcase" },
+  { id: "partners", enabled: true, label: "Parceiros" },
+  { id: "how-it-works", enabled: true, label: "Como Funciona" },
+  { id: "features", enabled: true, label: "Recursos" },
+  { id: "results", enabled: true, label: "Resultados" },
+  { id: "testimonials", enabled: true, label: "Depoimentos" },
+  { id: "pricing", enabled: true, label: "Preços" },
+  { id: "guarantee", enabled: true, label: "Garantia" },
+  { id: "faq", enabled: true, label: "FAQ" },
+  { id: "newsletter", enabled: true, label: "Newsletter" },
+  { id: "contact", enabled: true, label: "Contato" },
 ]
 
-const initialState: SettingsState = {
-  theme: "default",
-  sections: initialSections,
-  typography: {
-    fontFamily: "Geist Sans", // Padrão do template
-    fontSizeScale: 1.0, // 100%
-    lineHeight: 1.5,
-    fontWeight: 400, // Normal
-  },
-  spacing: {
-    sectionPadding: 8, // 8rem (py-32)
-    itemGap: 2, // 2rem (gap-8)
-  },
-  componentStyle: {
-    borderRadius: 0.625, // rem
-  },
+const defaultSettings: Settings = {
+  theme: "light",
+  radius: 0.5,
+  fontFamily: "inter",
+  baseFontSize: 16,
+  containerWidth: 1200,
+  sectionSpacing: 4,
+  sections: defaultSections,
   whatsapp: {
     enabled: false,
     number: "",
   },
 }
 
-// 4. Criar o Contexto
-const SettingsContext = createContext<SettingsContextType | undefined>(undefined)
+const SettingsContext = React.createContext<SettingsContextType | undefined>(undefined)
 
-// 5. Criar o Provedor (Provider)
-export function SettingsProvider({ children }: { children: ReactNode }) {
-  const [settings, setSettings] = useState<SettingsState>(initialState)
-  const [isInitialized, setIsInitialized] = useState(false)
+export function SettingsProvider({ children }: { children: React.ReactNode }) {
+  const [settings, setSettings] = React.useState<Settings>(defaultSettings)
+  const [mounted, setMounted] = React.useState(false)
 
-  // Efeito para carregar as configurações do localStorage na inicialização
-  useEffect(() => {
-    try {
-      const storedSettings = localStorage.getItem("landing-page-settings")
-      if (storedSettings) {
-        const parsedSettings = JSON.parse(storedSettings)
-        // Mescla as seções salvas com as seções padrão para evitar quebras se novas seções forem adicionadas
-        const mergedSections = initialSections.map((defaultSection) => {
-          const storedSection = parsedSettings.sections?.find((s: SectionConfig) => s.id === defaultSection.id)
-          return storedSection ? storedSection : defaultSection
-        })
-        setSettings({ ...parsedSettings, sections: mergedSections })
+  React.useEffect(() => {
+    setMounted(true)
+    const saved = localStorage.getItem("landing-page-settings")
+    if (saved) {
+      try {
+        const parsed = JSON.parse(saved)
+        // Mescla para garantir que novos campos no código não quebrem configurações antigas
+        setSettings((prev) => ({
+          ...prev,
+          ...parsed,
+          sections: parsed.sections || prev.sections, // Garante que sections exista
+        }))
+      } catch (e) {
+        console.error("Erro ao carregar configurações", e)
       }
-    } catch (error) {
-      console.error("Failed to load settings from localStorage", error)
     }
-    setIsInitialized(true)
   }, [])
 
-  // Efeito para salvar as configurações no localStorage sempre que mudarem
-  useEffect(() => {
-    if (isInitialized) {
-      try {
-        localStorage.setItem("landing-page-settings", JSON.stringify(settings))
-      } catch (error) {
-        console.error("Failed to save settings to localStorage", error)
+  React.useEffect(() => {
+    if (mounted) {
+      localStorage.setItem("landing-page-settings", JSON.stringify(settings))
+      
+      // Aplica tema
+      if (settings.theme === "dark") {
+        document.documentElement.classList.add("dark")
+      } else {
+        document.documentElement.classList.remove("dark")
       }
+      
+      // Aplica variáveis CSS
+      document.documentElement.style.setProperty("--radius", `${settings.radius}rem`)
     }
-  }, [settings, isInitialized])
+  }, [settings, mounted])
 
-  const setTheme = (theme: string) => {
-    setSettings((prev) => ({ ...prev, theme }))
+  const updateSettings = (newSettings: Partial<Settings>) => {
+    setSettings((prev) => ({ ...prev, ...newSettings }))
   }
 
-  const toggleSection = (sectionId: string) => {
+  const toggleSection = (id: string) => {
     setSettings((prev) => ({
       ...prev,
-      sections: prev.sections.map((section) =>
-        section.id === sectionId ? { ...section, enabled: !section.enabled } : section,
-      ),
+      sections: prev.sections.map((s) => 
+        s.id === id ? { ...s, enabled: !s.enabled } : s
+      )
     }))
   }
 
-  const setSectionLayout = (sectionId: string, layout: "layout1" | "layout2") => {
-    setSettings((prev) => ({
-      ...prev,
-      sections: prev.sections.map((section) => (section.id === sectionId ? { ...section, layout } : section)),
-    }))
+  const resetSettings = () => {
+    setSettings(defaultSettings)
   }
 
-  const setTypography = (typography: Partial<TypographyConfig>) => {
-    setSettings((prev) => ({
-      ...prev,
-      typography: { ...prev.typography, ...typography },
-    }))
-  }
-
-  const setSpacing = (spacing: Partial<SpacingConfig>) => {
-    setSettings((prev) => ({
-      ...prev,
-      spacing: { ...prev.spacing, ...spacing },
-    }))
-  }
-
-  const setComponentStyle = (style: Partial<ComponentStyleConfig>) => {
-    setSettings((prev) => ({
-      ...prev,
-      componentStyle: { ...prev.componentStyle, ...style },
-    }))
-  }
-
-  const setWhatsapp = (whatsapp: Partial<WhatsappConfig>) => {
-    setSettings((prev) => ({
-      ...prev,
-      whatsapp: { ...prev.whatsapp, ...whatsapp },
-    }))
-  }
-
-  const value = {
-    settings,
-    setTheme,
-    toggleSection,
-    setSectionLayout,
-    setTypography,
-    setSpacing,
-    setComponentStyle,
-    setWhatsapp,
-  }
-
-  return <SettingsContext.Provider value={value}>{children}</SettingsContext.Provider>
+  return (
+    <SettingsContext.Provider value={{ settings, updateSettings, toggleSection, resetSettings }}>
+      {children}
+    </SettingsContext.Provider>
+  )
 }
 
-// 6. Criar o Hook customizado
 export function useSettings() {
-  const context = useContext(SettingsContext)
-  if (context === undefined) {
-    throw new Error("useSettings must be used within a SettingsProvider")
+  const context = React.useContext(SettingsContext)
+  if (!context) {
+    throw new Error("useSettings deve ser usado dentro de um SettingsProvider")
   }
   return context
 }
