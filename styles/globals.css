@@ -123,3 +123,14 @@
     @apply bg-background text-foreground;
   }
 }
+
+/* Ocultar barra de rolagem padrão */
+::-webkit-scrollbar {
+  width: 0px;
+  background: transparent; /* Opcional: torna o fundo transparente */
+}
+
+html {
+  -ms-overflow-style: none;  /* Internet Explorer e Edge */
+  scrollbar-width: none;  /* Firefox */
+}

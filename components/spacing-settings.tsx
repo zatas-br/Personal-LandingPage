@@ -4,6 +4,7 @@ import { useSettings } from "@/hooks/use-settings"
 import { Label } from "@/components/ui/label"
 import { Slider } from "@/components/ui/slider"
 import { Card, CardContent } from "@/components/ui/card"
+import { Separator } from "@/components/ui/separator" // Adicionada a importação que faltava
 
 export function SpacingSettings() {
   const { settings, updateSettings } = useSettings()
