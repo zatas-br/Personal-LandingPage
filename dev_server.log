@@ -6,26 +6,39 @@
   - Local:        http://localhost:3000
 
  ✓ Starting...
- ✓ Ready in 3.6s
+ ✓ Ready in 1779ms
  ○ Compiling / ...
- ✓ Compiled / in 10.8s (876 modules)
- GET / 200 in 11548ms
- ✓ Compiled in 276ms (437 modules)
- ✓ Compiled in 2.2s (437 modules)
- ✓ Compiled in 719ms (437 modules)
- ✓ Compiled in 473ms (437 modules)
- ✓ Compiled in 1979ms (442 modules)
- ✓ Compiled in 563ms (442 modules)
- ✓ Compiled in 350ms (444 modules)
- ✓ Compiled in 275ms (444 modules)
- ○ Compiling / ...
- ✓ Compiled / in 809ms (428 modules)
- GET / 200 in 1208ms
- ✓ Compiled in 393ms (444 modules)
- GET / 200 in 117ms
- ✓ Compiled in 265ms (444 modules)
- ✓ Compiled in 202ms (444 modules)
- ✓ Compiled in 3.4s (872 modules)
- GET / 200 in 812ms
- GET / 200 in 129ms
- GET / 200 in 80ms
+ ✓ Compiled / in 5.8s (637 modules)
+ GET / 200 in 6353ms
+ ✓ Compiled in 459ms (319 modules)
+ GET / 200 in 83ms
+ ○ Compiling /landing-page ...
+ ✓ Compiled /landing-page in 3.8s (929 modules)
+ ✓ Compiled in 272ms (480 modules)
+ ✓ Compiled in 243ms (480 modules)
+ ✓ Compiled in 602ms (480 modules)
+ ✓ Compiled in 3.4s (480 modules)
+ ✓ Compiled in 282ms (480 modules)
+ ✓ Compiled in 278ms (480 modules)
+ ✓ Compiled in 421ms (480 modules)
+ ✓ Compiled in 358ms (480 modules)
+ ✓ Compiled in 368ms (480 modules)
+ ✓ Compiled in 395ms (466 modules)
+ ✓ Compiled in 133ms (466 modules)
+ ✓ Compiled in 366ms (480 modules)
+ ✓ Compiled / in 465ms (300 modules)
+ GET / 200 in 776ms
+ ✓ Compiled in 268ms (480 modules)
+ GET / 200 in 44ms
+ ○ Compiling /login-auth ...
+ ✓ Compiled /login-auth in 4.6s (1633 modules)
+ ✓ Compiled in 311ms (886 modules)
+ ✓ Compiled in 285ms (886 modules)
+ ✓ Compiled in 451ms (886 modules)
+ GET / 200 in 186ms
+ ✓ Compiled in 384ms (886 modules)
+ ✓ Compiled in 295ms (886 modules)
+ ✓ Compiled in 289ms (886 modules)
+ ✓ Compiled in 286ms (886 modules)
+ ✓ Compiled in 272ms (886 modules)
+ ✓ Compiled in 278ms (886 modules)
