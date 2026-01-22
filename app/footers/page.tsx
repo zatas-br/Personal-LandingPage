@@ -1,7 +1,7 @@
 "use client"
 
 import * as React from "react"
-import { ArrowLeft, Layout, Menu, Palette } from "lucide-react"
+import { ArrowLeft, Layout, Menu, Palette, PanelBottom } from "lucide-react"
 import Link from "next/link"
 
 import { Button } from "@/components/ui/button"
@@ -23,13 +23,13 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet"
 
-import { SidebarClassic } from "@/components/dashboard-templates/sidebar-classic"
-import { SidebarFloating } from "@/components/dashboard-templates/sidebar-floating"
-import { SidebarBento } from "@/components/dashboard-templates/sidebar-bento"
+import { FooterMinimal } from "@/components/footer-templates/footer-minimal"
+import { FooterSitemap } from "@/components/footer-templates/footer-sitemap"
+import { FooterNewsletter } from "@/components/footer-templates/footer-newsletter"
 import { TooltipProvider } from "@/components/ui/tooltip"
 
-export default function DashboardPage() {
-  const [activeTemplate, setActiveTemplate] = React.useState("classic")
+export default function FootersPage() {
+  const [activeTemplate, setActiveTemplate] = React.useState("minimal")
   const [activeColor, setActiveColor] = React.useState("blue")
 
   const colorClasses = {
@@ -68,9 +68,9 @@ export default function DashboardPage() {
             <SelectValue placeholder="Template" />
           </SelectTrigger>
           <SelectContent>
-            <SelectItem value="classic">Clássico Lateral</SelectItem>
-            <SelectItem value="floating">Moderno Flutuante</SelectItem>
-            <SelectItem value="bento">Compacto / Bento</SelectItem>
+            <SelectItem value="minimal">Minimalista</SelectItem>
+            <SelectItem value="sitemap">Sitemap Completo</SelectItem>
+            <SelectItem value="newsletter">Foco em Newsletter</SelectItem>
           </SelectContent>
         </Select>
       </div>
@@ -90,7 +90,7 @@ export default function DashboardPage() {
                   <span className="hidden sm:inline">Voltar</span>
                 </Link>
               </Button>
-              <h1 className="text-lg font-semibold truncate hidden md:block">Dashboards Admin</h1>
+              <h1 className="text-lg font-semibold truncate hidden md:block">Footers</h1>
             </div>
 
             {/* Desktop Controls */}
@@ -110,7 +110,7 @@ export default function DashboardPage() {
                   <SheetHeader>
                     <SheetTitle>Configurações</SheetTitle>
                     <SheetDescription>
-                      Personalize o layout do dashboard.
+                      Personalize o layout do footer.
                     </SheetDescription>
                   </SheetHeader>
                   <div className="mt-6">
@@ -123,12 +123,22 @@ export default function DashboardPage() {
         </header>
 
         {/* Main Content Area */}
-        <div className="flex-1 overflow-hidden">
-          <div className="h-[calc(100vh-3.5rem)] w-full relative overflow-y-auto">
-              {activeTemplate === "classic" && <SidebarClassic />}
-              {activeTemplate === "floating" && <SidebarFloating />}
-              {activeTemplate === "bento" && <SidebarBento />}
-          </div>
+        <div className="flex-1 overflow-y-auto bg-muted/20">
+            <div className="container py-12 space-y-8 flex flex-col min-h-[calc(100vh-3.5rem)]">
+                <div className="text-center space-y-2 mb-8 flex-1 flex flex-col justify-center items-center">
+                   <h2 className="text-3xl font-bold">Visualização do Footer</h2>
+                   <p className="text-muted-foreground">O footer selecionado está fixado na base do container abaixo.</p>
+                   <div className="h-32 w-full max-w-2xl bg-muted/30 border border-dashed rounded-lg mt-8 flex items-center justify-center text-muted-foreground">
+                      Conteúdo da Página (Simulação de Scroll)
+                   </div>
+                </div>
+
+                <div className="border rounded-xl shadow-sm bg-background overflow-hidden">
+                   {activeTemplate === "minimal" && <FooterMinimal />}
+                   {activeTemplate === "sitemap" && <FooterSitemap />}
+                   {activeTemplate === "newsletter" && <FooterNewsletter />}
+                </div>
+            </div>
         </div>
       </div>
     </TooltipProvider>

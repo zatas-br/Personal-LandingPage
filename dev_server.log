@@ -88,3 +88,69 @@
  ✓ Compiled in 454ms (1436 modules)
  ✓ Compiled in 312ms (1436 modules)
  ✓ Compiled in 560ms (1436 modules)
+ ✓ Compiled in 16.1s (2754 modules)
+ ✓ Compiled in 3.5s (2754 modules)
+ ✓ Compiled in 710ms (2754 modules)
+ ✓ Compiled in 806ms (2754 modules)
+ ✓ Compiled in 871ms (2754 modules)
+ ✓ Compiled in 4.2s (2754 modules)
+ ✓ Compiled in 1639ms (2754 modules)
+ ✓ Compiled in 908ms (2754 modules)
+ ✓ Compiled in 670ms (2754 modules)
+ ✓ Compiled in 335ms (1422 modules)
+ ✓ Compiled in 441ms (1436 modules)
+ GET /dashboard 200 in 668ms
+ GET /login-auth 200 in 256ms
+ ✓ Compiled in 652ms (1436 modules)
+ GET /login-auth 200 in 576ms
+ ✓ Compiled in 1552ms (1436 modules)
+ ✓ Compiled in 402ms (1436 modules)
+ ✓ Compiled in 356ms (1436 modules)
+ ✓ Compiled in 16.8s (2754 modules)
+ ✓ Compiled in 1861ms (1436 modules)
+ ✓ Compiled in 1006ms (2740 modules)
+ ✓ Compiled in 770ms (1436 modules)
+ ✓ Compiled in 658ms (1436 modules)
+ ✓ Compiled in 504ms (1436 modules)
+ GET / 200 in 351ms
+ GET / 200 in 43ms
+ GET / 200 in 46ms
+ ○ Compiling /_not-found ...
+ ✓ Compiled /_not-found in 2.4s (2743 modules)
+ GET / 200 in 1526ms
+ GET /_next/webpack-hmr 404 in 2959ms
+ GET / 200 in 38ms
+ GET / 200 in 42ms
+ GET / 200 in 66ms
+ GET / 200 in 50ms
+ GET / 200 in 39ms
+ GET / 200 in 50ms
+ GET / 200 in 51ms
+ ✓ Compiled in 960ms (2757 modules)
+ ✓ Compiled in 438ms (1436 modules)
+ ✓ Compiled in 897ms (2740 modules)
+ ✓ Compiled in 640ms (1436 modules)
+ ✓ Compiled in 522ms (1436 modules)
+ ✓ Compiled in 482ms (1436 modules)
+ ✓ Compiled in 3s (2740 modules)
+ ✓ Compiled in 697ms (1436 modules)
+ ✓ Compiled in 481ms (1436 modules)
+ ✓ Compiled in 765ms (1436 modules)
+ ✓ Compiled in 3.3s (2754 modules)
+ ✓ Compiled in 797ms (1436 modules)
+ ✓ Compiled in 235ms (1422 modules)
+ ✓ Compiled in 733ms (1436 modules)
+ ○ Compiling /commercial ...
+ ✓ Compiled /commercial in 5.9s (2776 modules)
+ GET /commercial 200 in 6257ms
+ ○ Compiling /headers ...
+ ✓ Compiled /headers in 2.3s (2799 modules)
+ GET /headers 200 in 2779ms
+ ○ Compiling /footers ...
+ ✓ Compiled /footers in 1196ms (2815 modules)
+ GET /footers 200 in 1352ms
+ ○ Compiling /modals ...
+ ✓ Compiled /modals in 1520ms (2835 modules)
+ GET /modals 200 in 1737ms
+ ✓ Compiled in 536ms (1474 modules)
+ ✓ Compiled in 811ms (1474 modules)

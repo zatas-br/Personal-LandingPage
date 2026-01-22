@@ -137,10 +137,10 @@ export default function LoginAuthPage() {
             </Badge>
           </div>
 
-          <div className="rounded-xl border bg-card text-card-foreground shadow-sm overflow-hidden min-h-[600px] flex flex-col">
-            {activeTemplate === "simple" && <SimpleAuth />}
-            {activeTemplate === "split" && <SplitAuth />}
-            {activeTemplate === "glass" && <GlassAuth />}
+          <div className="rounded-xl border bg-card text-card-foreground shadow-sm overflow-hidden flex flex-col flex-1 min-h-[calc(100vh-12rem)] md:min-h-[600px]">
+            {activeTemplate === "simple" && <div className="flex-1 flex flex-col"><SimpleAuth /></div>}
+            {activeTemplate === "split" && <div className="flex-1 flex flex-col"><SplitAuth /></div>}
+            {activeTemplate === "glass" && <div className="flex-1 flex flex-col"><GlassAuth /></div>}
           </div>
         </div>
       </main>

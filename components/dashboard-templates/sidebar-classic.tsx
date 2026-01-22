@@ -38,7 +38,7 @@ const data = [
 
 export function SidebarClassic() {
   return (
-    <div className="grid min-h-full w-full md:grid-cols-[220px_1fr] lg:grid-cols-[280px_1fr]">
+    <div className="grid min-h-full w-full md:grid-cols-[220px_1fr] lg:grid-cols-[280px_1fr] pb-10 md:pb-0">
       {/* Sidebar Desktop */}
       <div className="hidden border-r bg-muted/40 md:block overflow-y-auto">
         <div className="flex h-full max-h-screen flex-col gap-2">

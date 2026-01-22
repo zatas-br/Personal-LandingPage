@@ -10,7 +10,7 @@ export function SplitAuth() {
   const [isLogin, setIsLogin] = React.useState(true)
 
   return (
-    <div className="grid min-h-[600px] w-full grid-cols-1 lg:grid-cols-2">
+    <div className="grid w-full flex-1 grid-cols-1 lg:grid-cols-2 min-h-full">
       <div className="relative hidden flex-col bg-muted p-10 text-white lg:flex dark:border-r">
         <div className="absolute inset-0 bg-zinc-900" />
         <div className="relative z-20 flex items-center text-lg font-medium">

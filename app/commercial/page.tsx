@@ -23,13 +23,13 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet"
 
-import { SidebarClassic } from "@/components/dashboard-templates/sidebar-classic"
-import { SidebarFloating } from "@/components/dashboard-templates/sidebar-floating"
-import { SidebarBento } from "@/components/dashboard-templates/sidebar-bento"
+import { SaasLanding } from "@/components/commercial-templates/saas-landing"
+import { EcommerceProduct } from "@/components/commercial-templates/ecommerce-product"
+import { AgencyPortfolio } from "@/components/commercial-templates/agency-portfolio"
 import { TooltipProvider } from "@/components/ui/tooltip"
 
-export default function DashboardPage() {
-  const [activeTemplate, setActiveTemplate] = React.useState("classic")
+export default function CommercialPage() {
+  const [activeTemplate, setActiveTemplate] = React.useState("saas")
   const [activeColor, setActiveColor] = React.useState("blue")
 
   const colorClasses = {
@@ -68,9 +68,9 @@ export default function DashboardPage() {
             <SelectValue placeholder="Template" />
           </SelectTrigger>
           <SelectContent>
-            <SelectItem value="classic">Clássico Lateral</SelectItem>
-            <SelectItem value="floating">Moderno Flutuante</SelectItem>
-            <SelectItem value="bento">Compacto / Bento</SelectItem>
+            <SelectItem value="saas">SaaS Landing</SelectItem>
+            <SelectItem value="ecommerce">E-commerce</SelectItem>
+            <SelectItem value="agency">Agência / Portfolio</SelectItem>
           </SelectContent>
         </Select>
       </div>
@@ -90,7 +90,7 @@ export default function DashboardPage() {
                   <span className="hidden sm:inline">Voltar</span>
                 </Link>
               </Button>
-              <h1 className="text-lg font-semibold truncate hidden md:block">Dashboards Admin</h1>
+              <h1 className="text-lg font-semibold truncate hidden md:block">Páginas Comerciais</h1>
             </div>
 
             {/* Desktop Controls */}
@@ -110,7 +110,7 @@ export default function DashboardPage() {
                   <SheetHeader>
                     <SheetTitle>Configurações</SheetTitle>
                     <SheetDescription>
-                      Personalize o layout do dashboard.
+                      Personalize o layout da página.
                     </SheetDescription>
                   </SheetHeader>
                   <div className="mt-6">
@@ -123,12 +123,10 @@ export default function DashboardPage() {
         </header>
 
         {/* Main Content Area */}
-        <div className="flex-1 overflow-hidden">
-          <div className="h-[calc(100vh-3.5rem)] w-full relative overflow-y-auto">
-              {activeTemplate === "classic" && <SidebarClassic />}
-              {activeTemplate === "floating" && <SidebarFloating />}
-              {activeTemplate === "bento" && <SidebarBento />}
-          </div>
+        <div className="flex-1 overflow-y-auto">
+          {activeTemplate === "saas" && <SaasLanding />}
+          {activeTemplate === "ecommerce" && <EcommerceProduct />}
+          {activeTemplate === "agency" && <AgencyPortfolio />}
         </div>
       </div>
     </TooltipProvider>

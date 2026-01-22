@@ -9,7 +9,7 @@ export function GlassAuth() {
   const [isLogin, setIsLogin] = React.useState(true)
 
   return (
-    <div className="relative flex min-h-[600px] w-full flex-col items-center justify-center overflow-hidden bg-background md:shadow-xl">
+    <div className="relative flex flex-1 w-full flex-col items-center justify-center overflow-hidden bg-background md:shadow-xl min-h-full">
       {/* Background with abstract shapes */}
       <div className="absolute inset-0 w-full h-full bg-slate-950 overflow-hidden">
         <div className="absolute top-0 -left-4 w-72 h-72 bg-purple-500 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob"></div>

@@ -10,7 +10,7 @@ export function SimpleAuth() {
   const [isLogin, setIsLogin] = React.useState(true)
 
   return (
-    <div className="flex min-h-[600px] items-center justify-center bg-muted/40 p-4">
+    <div className="flex flex-1 items-center justify-center bg-muted/40 p-4 min-h-full">
       <Card className="w-full max-w-md overflow-hidden">
         <CardHeader className="text-center">
           <CardTitle className="text-2xl font-bold">

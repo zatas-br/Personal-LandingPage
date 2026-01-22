@@ -1,7 +1,7 @@
 "use client"
 
 import * as React from "react"
-import { ArrowLeft, Layout, Menu, Palette } from "lucide-react"
+import { ArrowLeft, Layout, Menu, Palette, PanelTop } from "lucide-react"
 import Link from "next/link"
 
 import { Button } from "@/components/ui/button"
@@ -23,13 +23,13 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet"
 
-import { SidebarClassic } from "@/components/dashboard-templates/sidebar-classic"
-import { SidebarFloating } from "@/components/dashboard-templates/sidebar-floating"
-import { SidebarBento } from "@/components/dashboard-templates/sidebar-bento"
+import { HeaderSimple } from "@/components/header-templates/header-simple"
+import { HeaderCentered } from "@/components/header-templates/header-centered"
+import { HeaderMega } from "@/components/header-templates/header-mega"
 import { TooltipProvider } from "@/components/ui/tooltip"
 
-export default function DashboardPage() {
-  const [activeTemplate, setActiveTemplate] = React.useState("classic")
+export default function HeadersPage() {
+  const [activeTemplate, setActiveTemplate] = React.useState("simple")
   const [activeColor, setActiveColor] = React.useState("blue")
 
   const colorClasses = {
@@ -68,9 +68,9 @@ export default function DashboardPage() {
             <SelectValue placeholder="Template" />
           </SelectTrigger>
           <SelectContent>
-            <SelectItem value="classic">Clássico Lateral</SelectItem>
-            <SelectItem value="floating">Moderno Flutuante</SelectItem>
-            <SelectItem value="bento">Compacto / Bento</SelectItem>
+            <SelectItem value="simple">Simples & Clean</SelectItem>
+            <SelectItem value="centered">Navegação Central</SelectItem>
+            <SelectItem value="mega">Mega Menu / Complex</SelectItem>
           </SelectContent>
         </Select>
       </div>
@@ -90,7 +90,7 @@ export default function DashboardPage() {
                   <span className="hidden sm:inline">Voltar</span>
                 </Link>
               </Button>
-              <h1 className="text-lg font-semibold truncate hidden md:block">Dashboards Admin</h1>
+              <h1 className="text-lg font-semibold truncate hidden md:block">Headers & Nav</h1>
             </div>
 
             {/* Desktop Controls */}
@@ -110,7 +110,7 @@ export default function DashboardPage() {
                   <SheetHeader>
                     <SheetTitle>Configurações</SheetTitle>
                     <SheetDescription>
-                      Personalize o layout do dashboard.
+                      Personalize o layout do header.
                     </SheetDescription>
                   </SheetHeader>
                   <div className="mt-6">
@@ -123,12 +123,33 @@ export default function DashboardPage() {
         </header>
 
         {/* Main Content Area */}
-        <div className="flex-1 overflow-hidden">
-          <div className="h-[calc(100vh-3.5rem)] w-full relative overflow-y-auto">
-              {activeTemplate === "classic" && <SidebarClassic />}
-              {activeTemplate === "floating" && <SidebarFloating />}
-              {activeTemplate === "bento" && <SidebarBento />}
-          </div>
+        <div className="flex-1 overflow-y-auto bg-muted/20">
+            <div className="container py-12 space-y-8">
+                <div className="text-center space-y-2 mb-12">
+                   <h2 className="text-3xl font-bold">Visualização do Header</h2>
+                   <p className="text-muted-foreground">O header selecionado está fixado no topo do container abaixo.</p>
+                </div>
+
+                <div className="border rounded-xl shadow-sm bg-background overflow-hidden min-h-[500px] relative flex flex-col">
+                   {/* This container simulates a browser window */}
+
+                   {activeTemplate === "simple" && <HeaderSimple />}
+                   {activeTemplate === "centered" && <HeaderCentered />}
+                   {activeTemplate === "mega" && <HeaderMega />}
+
+                   <div className="flex-1 p-8 space-y-8">
+                      <div className="h-64 rounded-lg bg-muted/30 border border-dashed flex items-center justify-center text-muted-foreground">
+                         Conteúdo da Página
+                      </div>
+                      <div className="space-y-4">
+                         <div className="h-4 w-2/3 bg-muted/30 rounded" />
+                         <div className="h-4 w-full bg-muted/30 rounded" />
+                         <div className="h-4 w-full bg-muted/30 rounded" />
+                         <div className="h-4 w-1/2 bg-muted/30 rounded" />
+                      </div>
+                   </div>
+                </div>
+            </div>
         </div>
       </div>
     </TooltipProvider>
