@@ -42,3 +42,49 @@
  ✓ Compiled in 286ms (886 modules)
  ✓ Compiled in 272ms (886 modules)
  ✓ Compiled in 278ms (886 modules)
+ ✓ Compiled in 15.4s (1653 modules)
+ ✓ Compiled in 747ms (1653 modules)
+ ✓ Compiled in 399ms (888 modules)
+ ✓ Compiled in 616ms (1639 modules)
+ ✓ Compiled in 555ms (888 modules)
+ ✓ Compiled in 427ms (888 modules)
+ ✓ Compiled in 866ms (888 modules)
+ ✓ Compiled in 471ms (888 modules)
+ ✓ Compiled in 136ms (874 modules)
+ ✓ Compiled in 366ms (888 modules)
+ GET /login-auth 200 in 527ms
+ ○ Compiling /dashboard ...
+ ✓ Compiled /dashboard in 7.6s (2740 modules)
+ GET /dashboard 200 in 7990ms
+ ✓ Compiled in 411ms (1436 modules)
+ ✓ Compiled in 506ms (1436 modules)
+ GET /login-auth 200 in 109ms
+ GET /dashboard 200 in 289ms
+ ✓ Compiled in 489ms (1436 modules)
+ ✓ Compiled in 340ms (1436 modules)
+ ✓ Compiled in 343ms (1436 modules)
+ GET /login-auth 200 in 34ms
+ GET /dashboard 200 in 121ms
+ ✓ Compiled in 437ms (1436 modules)
+ ✓ Compiled in 359ms (1436 modules)
+ ✓ Compiled in 1013ms (1436 modules)
+ GET /login-auth 200 in 67ms
+ GET /dashboard 200 in 259ms
+ ✓ Compiled in 456ms (1436 modules)
+ ✓ Compiled in 321ms (1436 modules)
+ ✓ Compiled in 418ms (1436 modules)
+ GET /login-auth 200 in 64ms
+ GET /dashboard 200 in 585ms
+ ✓ Compiled in 883ms (1436 modules)
+ ✓ Compiled in 333ms (1436 modules)
+ ✓ Compiled in 382ms (1436 modules)
+ GET /login-auth 200 in 38ms
+ GET /dashboard 200 in 277ms
+ ✓ Compiled in 471ms (1436 modules)
+ ✓ Compiled in 305ms (1436 modules)
+ ✓ Compiled in 436ms (1436 modules)
+ GET /login-auth 200 in 41ms
+ GET /dashboard 200 in 257ms
+ ✓ Compiled in 454ms (1436 modules)
+ ✓ Compiled in 312ms (1436 modules)
+ ✓ Compiled in 560ms (1436 modules)

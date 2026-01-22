@@ -36,9 +36,9 @@ export default function TemplateSelector() {
       title: "Dashboard Admin",
       description: "Painel administrativo completo com gráficos e tabelas.",
       icon: LayoutDashboard,
-      href: "#",
-      active: false,
-      tag: "Em breve",
+      href: "/dashboard",
+      active: true,
+      tag: "Disponível",
     },
     {
       title: "Páginas Comerciais",

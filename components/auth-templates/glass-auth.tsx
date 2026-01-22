@@ -9,17 +9,17 @@ export function GlassAuth() {
   const [isLogin, setIsLogin] = React.useState(true)
 
   return (
-    <div className="relative flex min-h-[600px] w-full flex-col items-center justify-center overflow-hidden rounded-lg border bg-background md:shadow-xl">
+    <div className="relative flex min-h-[600px] w-full flex-col items-center justify-center overflow-hidden bg-background md:shadow-xl">
       {/* Background with abstract shapes */}
-      <div className="absolute inset-0 w-full h-full bg-slate-950">
+      <div className="absolute inset-0 w-full h-full bg-slate-950 overflow-hidden">
         <div className="absolute top-0 -left-4 w-72 h-72 bg-purple-500 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob"></div>
         <div className="absolute top-0 -right-4 w-72 h-72 bg-yellow-500 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-2000"></div>
         <div className="absolute -bottom-8 left-20 w-72 h-72 bg-pink-500 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-4000"></div>
       </div>
 
-      <div className="relative z-10 w-full max-w-md p-6">
-        <div className="backdrop-blur-xl bg-white/10 border border-white/20 rounded-2xl shadow-2xl p-8 text-white">
-          <div className="mb-8 text-center">
+      <div className="relative z-10 w-full max-w-md p-4 sm:p-6">
+        <div className="backdrop-blur-xl bg-white/10 border border-white/20 rounded-2xl shadow-2xl p-6 sm:p-8 text-white">
+          <div className="mb-6 sm:mb-8 text-center">
             <h2 className="text-3xl font-bold tracking-tight mb-2">
               {isLogin ? "Olá Novamente!" : "Junte-se a Nós"}
             </h2>
