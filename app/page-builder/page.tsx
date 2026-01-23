@@ -9,11 +9,11 @@ import {
   Menu,
   Footprints,
   Maximize2,
-  Undo2
+  Undo2,
+  Palette
 } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
-import { Separator } from "@/components/ui/separator"
 import { Label } from "@/components/ui/label"
 import {
   Select,
@@ -45,7 +45,7 @@ export default function PageBuilder() {
     features: "layout1",
     footer: "minimal"
   })
-
+  const [theme, setTheme] = useState("theme-blue")
   const [sidebarOpen, setSidebarOpen] = useState(true)
 
   const renderHeader = () => {
@@ -67,9 +67,9 @@ export default function PageBuilder() {
   }
 
   return (
-    <div className="min-h-screen flex flex-col overflow-hidden">
+    <div className={`min-h-screen flex flex-col overflow-hidden ${theme}`}>
       {/* Top Bar */}
-      <header className="h-14 border-b bg-background flex items-center justify-between px-4 z-50">
+      <header className="h-14 border-b bg-background flex items-center justify-between px-4 z-50 sticky top-0 shrink-0">
         <div className="flex items-center gap-4">
           <Button variant="ghost" size="icon" onClick={() => setSidebarOpen(!sidebarOpen)}>
             <PanelLeft className="h-5 w-5" />
@@ -93,15 +93,42 @@ export default function PageBuilder() {
       </header>
 
       <div className="flex-1 flex overflow-hidden">
-        {/* Sidebar Controls */}
+        {/* Sidebar Controls - Fixed height due to parent flex/overflow-hidden */}
         <aside
           className={`
-            bg-muted/30 border-r transition-all duration-300 ease-in-out flex flex-col
+            bg-muted/30 border-r transition-all duration-300 ease-in-out flex flex-col h-full
             ${sidebarOpen ? "w-80 translate-x-0" : "w-0 -translate-x-full opacity-0 overflow-hidden"}
           `}
         >
           <ScrollArea className="flex-1">
             <div className="p-6 space-y-8">
+
+              <div className="space-y-4">
+                <div className="flex items-center gap-2 pb-2 border-b">
+                  <Palette className="h-4 w-4 text-primary" />
+                  <h3 className="font-medium">Cores do Tema</h3>
+                </div>
+                <div className="space-y-3">
+                  <Label>Selecione uma paleta</Label>
+                  <Select value={theme} onValueChange={setTheme}>
+                    <SelectTrigger>
+                      <SelectValue />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="theme-blue">Azul Profissional</SelectItem>
+                      <SelectItem value="theme-green">Verde Natureza</SelectItem>
+                      <SelectItem value="theme-purple">Roxo Criativo</SelectItem>
+                      <SelectItem value="theme-orange">Laranja Energético</SelectItem>
+                      <SelectItem value="theme-red">Vermelho Dinâmico</SelectItem>
+                      <SelectItem value="theme-pink">Rosa Moderno</SelectItem>
+                      <SelectItem value="theme-teal">Azul Turquesa</SelectItem>
+                      <SelectItem value="theme-indigo">Índigo Elegante</SelectItem>
+                      <SelectItem value="theme-yellow">Amarelo Vibrante</SelectItem>
+                      <SelectItem value="theme-dark">Modo Escuro</SelectItem>
+                    </SelectContent>
+                  </Select>
+                </div>
+              </div>
 
               <div className="space-y-4">
                 <div className="flex items-center gap-2 pb-2 border-b">
@@ -198,7 +225,7 @@ export default function PageBuilder() {
         </aside>
 
         {/* Preview Area */}
-        <main className="flex-1 bg-muted/10 overflow-auto relative">
+        <main className="flex-1 bg-muted/10 overflow-auto relative h-full">
            {!sidebarOpen && (
              <Button
                 variant="outline"

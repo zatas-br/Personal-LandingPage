@@ -80,3 +80,91 @@ Check the top-level render call using <tbody>. See https://reactjs.org/link/warn
  GET / 200 in 820ms
  ✓ Compiled in 207ms (452 modules)
  ✓ Compiled in 443ms (452 modules)
+ ✓ Compiled in 6.8s (753 modules)
+ ✓ Compiled in 619ms (453 modules)
+ ✓ Compiled in 613ms (453 modules)
+ ✓ Compiled in 586ms (453 modules)
+ ✓ Compiled in 3.6s (782 modules)
+ ✓ Compiled in 313ms (467 modules)
+ ✓ Compiled in 655ms (467 modules)
+ ✓ Compiled in 1099ms (467 modules)
+ ✓ Compiled in 337ms (467 modules)
+ ✓ Compiled in 290ms (467 modules)
+ ✓ Compiled in 376ms (467 modules)
+ ✓ Compiled in 441ms (467 modules)
+ ✓ Compiled in 296ms (467 modules)
+ ✓ Compiled in 104ms (453 modules)
+ ✓ Compiled in 280ms (467 modules)
+ ○ Compiling /page-builder ...
+ ✓ Compiled /page-builder in 988ms (418 modules)
+ GET /page-builder 200 in 1409ms
+ GET /blog 200 in 318ms
+ ✓ Compiled in 342ms (467 modules)
+ ✓ Compiled in 245ms (467 modules)
+ ✓ Compiled in 328ms (467 modules)
+ ○ Compiling /profile ...
+ ✓ Compiled /profile in 857ms (912 modules)
+ GET /profile 200 in 1072ms
+ ✓ Compiled in 303ms (478 modules)
+ ✓ Compiled in 257ms (478 modules)
+ ○ Compiling /pricing ...
+ ✓ Compiled /pricing in 1337ms (943 modules)
+Warning: Each child in a list should have a unique "key" prop.
+
+Check the top-level render call using <tbody>. See https://reactjs.org/link/warning-keys for more information.
+    at DetailedPricing
+    at div
+    at div
+    at PricingPage (webpack-internal:///(ssr)/./app/pricing/page.tsx:27:80)
+    at ClientPageRoot (webpack-internal:///(ssr)/./node_modules/.pnpm/next@14.2.16_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/client/components/client-page.js:14:11)
+    at Lazy
+    at InnerLayoutRouter (webpack-internal:///(ssr)/./node_modules/.pnpm/next@14.2.16_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/client/components/layout-router.js:242:11)
+    at RedirectErrorBoundary (webpack-internal:///(ssr)/./node_modules/.pnpm/next@14.2.16_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/client/components/redirect-boundary.js:73:9)
+    at RedirectBoundary (webpack-internal:///(ssr)/./node_modules/.pnpm/next@14.2.16_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/client/components/redirect-boundary.js:81:11)
+    at NotFoundBoundary (webpack-internal:///(ssr)/./node_modules/.pnpm/next@14.2.16_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/client/components/not-found-boundary.js:84:11)
+    at LoadingBoundary (webpack-internal:///(ssr)/./node_modules/.pnpm/next@14.2.16_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/client/components/layout-router.js:347:11)
+    at ErrorBoundary (webpack-internal:///(ssr)/./node_modules/.pnpm/next@14.2.16_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/client/components/error-boundary.js:158:11)
+    at InnerScrollAndFocusHandler (webpack-internal:///(ssr)/./node_modules/.pnpm/next@14.2.16_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/client/components/layout-router.js:153:9)
+    at ScrollAndFocusHandler (webpack-internal:///(ssr)/./node_modules/.pnpm/next@14.2.16_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/client/components/layout-router.js:228:11)
+    at RenderFromTemplateContext (webpack-internal:///(ssr)/./node_modules/.pnpm/next@14.2.16_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/client/components/render-from-template-context.js:16:44)
+    at Lazy
+    at OuterLayoutRouter (webpack-internal:///(ssr)/./node_modules/.pnpm/next@14.2.16_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/client/components/layout-router.js:367:11)
+    at Lazy
+    at InnerLayoutRouter (webpack-internal:///(ssr)/./node_modules/.pnpm/next@14.2.16_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/client/components/layout-router.js:242:11)
+    at RedirectErrorBoundary (webpack-internal:///(ssr)/./node_modules/.pnpm/next@14.2.16_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/client/components/redirect-boundary.js:73:9)
+    at RedirectBoundary (webpack-internal:///(ssr)/./node_modules/.pnpm/next@14.2.16_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/client/components/redirect-boundary.js:81:11)
+    at NotFoundErrorBoundary (webpack-internal:///(ssr)/./node_modules/.pnpm/next@14.2.16_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/client/components/not-found-boundary.js:76:9)
+    at NotFoundBoundary (webpack-internal:///(ssr)/./node_modules/.pnpm/next@14.2.16_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/client/components/not-found-boundary.js:84:11)
+    at LoadingBoundary (webpack-internal:///(ssr)/./node_modules/.pnpm/next@14.2.16_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/client/components/layout-router.js:347:11)
+    at ErrorBoundary (webpack-internal:///(ssr)/./node_modules/.pnpm/next@14.2.16_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/client/components/error-boundary.js:158:11)
+    at InnerScrollAndFocusHandler (webpack-internal:///(ssr)/./node_modules/.pnpm/next@14.2.16_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/client/components/layout-router.js:153:9)
+    at ScrollAndFocusHandler (webpack-internal:///(ssr)/./node_modules/.pnpm/next@14.2.16_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/client/components/layout-router.js:228:11)
+    at RenderFromTemplateContext (webpack-internal:///(ssr)/./node_modules/.pnpm/next@14.2.16_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/client/components/render-from-template-context.js:16:44)
+    at Lazy
+    at OuterLayoutRouter (webpack-internal:///(ssr)/./node_modules/.pnpm/next@14.2.16_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/client/components/layout-router.js:367:11)
+    at Lazy
+    at Provider (webpack-internal:///(ssr)/./node_modules/.pnpm/@radix-ui+react-context@1.1.1_@types+react@18.3.27_react@18.3.1/node_modules/@radix-ui/react-context/dist/index.mjs:34:15)
+    at TooltipProvider (webpack-internal:///(ssr)/./node_modules/.pnpm/@radix-ui+react-tooltip@1.1.6_@types+react-dom@18.3.7_@types+react@18.3.27__@types+reac_6d96b1e242e5a8271df115067fa2d975/node_modules/@radix-ui/react-tooltip/dist/index.mjs:56:13)
+    at TooltipProvider (webpack-internal:///(ssr)/./components/ui/tooltip.tsx:18:28)
+    at AppProvider (webpack-internal:///(ssr)/./components/app-provider.tsx:19:24)
+    at SettingsProvider (webpack-internal:///(ssr)/./hooks/use-settings.tsx:98:29)
+    at Providers (webpack-internal:///(ssr)/./components/providers.tsx:15:22)
+    at Lazy
+    at body
+    at html
+    at RedirectErrorBoundary (webpack-internal:///(ssr)/./node_modules/.pnpm/next@14.2.16_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/client/components/redirect-boundary.js:73:9)
+    at RedirectBoundary (webpack-internal:///(ssr)/./node_modules/.pnpm/next@14.2.16_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/client/components/redirect-boundary.js:81:11)
+    at ReactDevOverlay (webpack-internal:///(ssr)/./node_modules/.pnpm/next@14.2.16_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/client/components/react-dev-overlay/app/ReactDevOverlay.js:87:9)
+    at HotReload (webpack-internal:///(ssr)/./node_modules/.pnpm/next@14.2.16_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:322:11)
+    at Router (webpack-internal:///(ssr)/./node_modules/.pnpm/next@14.2.16_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/client/components/app-router.js:202:11)
+    at ErrorBoundaryHandler (webpack-internal:///(ssr)/./node_modules/.pnpm/next@14.2.16_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/client/components/error-boundary.js:112:9)
+    at ErrorBoundary (webpack-internal:///(ssr)/./node_modules/.pnpm/next@14.2.16_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/client/components/error-boundary.js:158:11)
+    at AppRouter (webpack-internal:///(ssr)/./node_modules/.pnpm/next@14.2.16_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/client/components/app-router.js:564:13)
+    at Lazy
+    at r6 (/app/node_modules/.pnpm/next@14.2.16_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:39:19009)
+    at r6 (/app/node_modules/.pnpm/next@14.2.16_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:39:19009)
+    at ServerInsertedHTMLProvider (/app/node_modules/.pnpm/next@14.2.16_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:39:24756)
+ GET /pricing 200 in 1529ms
+ ✓ Compiled in 263ms (490 modules)
+ ✓ Compiled in 223ms (490 modules)
+ ✓ Compiled in 267ms (490 modules)
