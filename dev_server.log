@@ -6,151 +6,77 @@
   - Local:        http://localhost:3000
 
  ✓ Starting...
- ✓ Ready in 1779ms
+Attention: Next.js now collects completely anonymous telemetry regarding usage.
+This information is used to shape Next.js' roadmap and prioritize features.
+You can learn more, including how to opt-out if you'd not like to participate in this anonymous program, by visiting the following URL:
+https://nextjs.org/telemetry
+
+ ✓ Ready in 1797ms
+ ○ Compiling /blog ...
+ ✓ Compiled /blog in 5.6s (636 modules)
+ GET /blog 200 in 5961ms
+ ○ Compiling /profile ...
+ ✓ Compiled /profile in 5.5s (745 modules)
+ GET /profile 200 in 5807ms
+ ○ Compiling /pricing ...
+ ✓ Compiled /pricing in 627ms (756 modules)
+Warning: Each child in a list should have a unique "key" prop.
+
+Check the top-level render call using <tbody>. See https://reactjs.org/link/warning-keys for more information.
+    at DetailedPricing
+    at Lazy
+    at InnerLayoutRouter (webpack-internal:///(ssr)/./node_modules/.pnpm/next@14.2.16_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/client/components/layout-router.js:242:11)
+    at RedirectErrorBoundary (webpack-internal:///(ssr)/./node_modules/.pnpm/next@14.2.16_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/client/components/redirect-boundary.js:73:9)
+    at RedirectBoundary (webpack-internal:///(ssr)/./node_modules/.pnpm/next@14.2.16_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/client/components/redirect-boundary.js:81:11)
+    at NotFoundBoundary (webpack-internal:///(ssr)/./node_modules/.pnpm/next@14.2.16_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/client/components/not-found-boundary.js:84:11)
+    at LoadingBoundary (webpack-internal:///(ssr)/./node_modules/.pnpm/next@14.2.16_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/client/components/layout-router.js:347:11)
+    at ErrorBoundary (webpack-internal:///(ssr)/./node_modules/.pnpm/next@14.2.16_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/client/components/error-boundary.js:158:11)
+    at InnerScrollAndFocusHandler (webpack-internal:///(ssr)/./node_modules/.pnpm/next@14.2.16_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/client/components/layout-router.js:153:9)
+    at ScrollAndFocusHandler (webpack-internal:///(ssr)/./node_modules/.pnpm/next@14.2.16_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/client/components/layout-router.js:228:11)
+    at RenderFromTemplateContext (webpack-internal:///(ssr)/./node_modules/.pnpm/next@14.2.16_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/client/components/render-from-template-context.js:16:44)
+    at Lazy
+    at OuterLayoutRouter (webpack-internal:///(ssr)/./node_modules/.pnpm/next@14.2.16_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/client/components/layout-router.js:367:11)
+    at Lazy
+    at InnerLayoutRouter (webpack-internal:///(ssr)/./node_modules/.pnpm/next@14.2.16_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/client/components/layout-router.js:242:11)
+    at RedirectErrorBoundary (webpack-internal:///(ssr)/./node_modules/.pnpm/next@14.2.16_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/client/components/redirect-boundary.js:73:9)
+    at RedirectBoundary (webpack-internal:///(ssr)/./node_modules/.pnpm/next@14.2.16_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/client/components/redirect-boundary.js:81:11)
+    at NotFoundErrorBoundary (webpack-internal:///(ssr)/./node_modules/.pnpm/next@14.2.16_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/client/components/not-found-boundary.js:76:9)
+    at NotFoundBoundary (webpack-internal:///(ssr)/./node_modules/.pnpm/next@14.2.16_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/client/components/not-found-boundary.js:84:11)
+    at LoadingBoundary (webpack-internal:///(ssr)/./node_modules/.pnpm/next@14.2.16_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/client/components/layout-router.js:347:11)
+    at ErrorBoundary (webpack-internal:///(ssr)/./node_modules/.pnpm/next@14.2.16_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/client/components/error-boundary.js:158:11)
+    at InnerScrollAndFocusHandler (webpack-internal:///(ssr)/./node_modules/.pnpm/next@14.2.16_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/client/components/layout-router.js:153:9)
+    at ScrollAndFocusHandler (webpack-internal:///(ssr)/./node_modules/.pnpm/next@14.2.16_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/client/components/layout-router.js:228:11)
+    at RenderFromTemplateContext (webpack-internal:///(ssr)/./node_modules/.pnpm/next@14.2.16_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/client/components/render-from-template-context.js:16:44)
+    at Lazy
+    at OuterLayoutRouter (webpack-internal:///(ssr)/./node_modules/.pnpm/next@14.2.16_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/client/components/layout-router.js:367:11)
+    at Lazy
+    at Provider (webpack-internal:///(ssr)/./node_modules/.pnpm/@radix-ui+react-context@1.1.1_@types+react@18.3.27_react@18.3.1/node_modules/@radix-ui/react-context/dist/index.mjs:34:15)
+    at TooltipProvider (webpack-internal:///(ssr)/./node_modules/.pnpm/@radix-ui+react-tooltip@1.1.6_@types+react-dom@18.3.7_@types+react@18.3.27__@types+reac_6d96b1e242e5a8271df115067fa2d975/node_modules/@radix-ui/react-tooltip/dist/index.mjs:56:13)
+    at TooltipProvider (webpack-internal:///(ssr)/./components/ui/tooltip.tsx:18:28)
+    at AppProvider (webpack-internal:///(ssr)/./components/app-provider.tsx:19:24)
+    at SettingsProvider (webpack-internal:///(ssr)/./hooks/use-settings.tsx:98:29)
+    at Providers (webpack-internal:///(ssr)/./components/providers.tsx:15:22)
+    at Lazy
+    at body
+    at html
+    at RedirectErrorBoundary (webpack-internal:///(ssr)/./node_modules/.pnpm/next@14.2.16_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/client/components/redirect-boundary.js:73:9)
+    at RedirectBoundary (webpack-internal:///(ssr)/./node_modules/.pnpm/next@14.2.16_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/client/components/redirect-boundary.js:81:11)
+    at ReactDevOverlay (webpack-internal:///(ssr)/./node_modules/.pnpm/next@14.2.16_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/client/components/react-dev-overlay/app/ReactDevOverlay.js:87:9)
+    at HotReload (webpack-internal:///(ssr)/./node_modules/.pnpm/next@14.2.16_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:322:11)
+    at Router (webpack-internal:///(ssr)/./node_modules/.pnpm/next@14.2.16_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/client/components/app-router.js:202:11)
+    at ErrorBoundaryHandler (webpack-internal:///(ssr)/./node_modules/.pnpm/next@14.2.16_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/client/components/error-boundary.js:112:9)
+    at ErrorBoundary (webpack-internal:///(ssr)/./node_modules/.pnpm/next@14.2.16_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/client/components/error-boundary.js:158:11)
+    at AppRouter (webpack-internal:///(ssr)/./node_modules/.pnpm/next@14.2.16_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/client/components/app-router.js:564:13)
+    at Lazy
+    at r6 (/app/node_modules/.pnpm/next@14.2.16_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:39:19009)
+    at r6 (/app/node_modules/.pnpm/next@14.2.16_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:39:19009)
+    at ServerInsertedHTMLProvider (/app/node_modules/.pnpm/next@14.2.16_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:39:24756)
+ GET /pricing 200 in 741ms
+ ○ Compiling /page-builder ...
+ ✓ Compiled /page-builder in 1561ms (856 modules)
+ GET /page-builder 200 in 1702ms
  ○ Compiling / ...
- ✓ Compiled / in 5.8s (637 modules)
- GET / 200 in 6353ms
- ✓ Compiled in 459ms (319 modules)
- GET / 200 in 83ms
- ○ Compiling /landing-page ...
- ✓ Compiled /landing-page in 3.8s (929 modules)
- ✓ Compiled in 272ms (480 modules)
- ✓ Compiled in 243ms (480 modules)
- ✓ Compiled in 602ms (480 modules)
- ✓ Compiled in 3.4s (480 modules)
- ✓ Compiled in 282ms (480 modules)
- ✓ Compiled in 278ms (480 modules)
- ✓ Compiled in 421ms (480 modules)
- ✓ Compiled in 358ms (480 modules)
- ✓ Compiled in 368ms (480 modules)
- ✓ Compiled in 395ms (466 modules)
- ✓ Compiled in 133ms (466 modules)
- ✓ Compiled in 366ms (480 modules)
- ✓ Compiled / in 465ms (300 modules)
- GET / 200 in 776ms
- ✓ Compiled in 268ms (480 modules)
- GET / 200 in 44ms
- ○ Compiling /login-auth ...
- ✓ Compiled /login-auth in 4.6s (1633 modules)
- ✓ Compiled in 311ms (886 modules)
- ✓ Compiled in 285ms (886 modules)
- ✓ Compiled in 451ms (886 modules)
- GET / 200 in 186ms
- ✓ Compiled in 384ms (886 modules)
- ✓ Compiled in 295ms (886 modules)
- ✓ Compiled in 289ms (886 modules)
- ✓ Compiled in 286ms (886 modules)
- ✓ Compiled in 272ms (886 modules)
- ✓ Compiled in 278ms (886 modules)
- ✓ Compiled in 15.4s (1653 modules)
- ✓ Compiled in 747ms (1653 modules)
- ✓ Compiled in 399ms (888 modules)
- ✓ Compiled in 616ms (1639 modules)
- ✓ Compiled in 555ms (888 modules)
- ✓ Compiled in 427ms (888 modules)
- ✓ Compiled in 866ms (888 modules)
- ✓ Compiled in 471ms (888 modules)
- ✓ Compiled in 136ms (874 modules)
- ✓ Compiled in 366ms (888 modules)
- GET /login-auth 200 in 527ms
- ○ Compiling /dashboard ...
- ✓ Compiled /dashboard in 7.6s (2740 modules)
- GET /dashboard 200 in 7990ms
- ✓ Compiled in 411ms (1436 modules)
- ✓ Compiled in 506ms (1436 modules)
- GET /login-auth 200 in 109ms
- GET /dashboard 200 in 289ms
- ✓ Compiled in 489ms (1436 modules)
- ✓ Compiled in 340ms (1436 modules)
- ✓ Compiled in 343ms (1436 modules)
- GET /login-auth 200 in 34ms
- GET /dashboard 200 in 121ms
- ✓ Compiled in 437ms (1436 modules)
- ✓ Compiled in 359ms (1436 modules)
- ✓ Compiled in 1013ms (1436 modules)
- GET /login-auth 200 in 67ms
- GET /dashboard 200 in 259ms
- ✓ Compiled in 456ms (1436 modules)
- ✓ Compiled in 321ms (1436 modules)
- ✓ Compiled in 418ms (1436 modules)
- GET /login-auth 200 in 64ms
- GET /dashboard 200 in 585ms
- ✓ Compiled in 883ms (1436 modules)
- ✓ Compiled in 333ms (1436 modules)
- ✓ Compiled in 382ms (1436 modules)
- GET /login-auth 200 in 38ms
- GET /dashboard 200 in 277ms
- ✓ Compiled in 471ms (1436 modules)
- ✓ Compiled in 305ms (1436 modules)
- ✓ Compiled in 436ms (1436 modules)
- GET /login-auth 200 in 41ms
- GET /dashboard 200 in 257ms
- ✓ Compiled in 454ms (1436 modules)
- ✓ Compiled in 312ms (1436 modules)
- ✓ Compiled in 560ms (1436 modules)
- ✓ Compiled in 16.1s (2754 modules)
- ✓ Compiled in 3.5s (2754 modules)
- ✓ Compiled in 710ms (2754 modules)
- ✓ Compiled in 806ms (2754 modules)
- ✓ Compiled in 871ms (2754 modules)
- ✓ Compiled in 4.2s (2754 modules)
- ✓ Compiled in 1639ms (2754 modules)
- ✓ Compiled in 908ms (2754 modules)
- ✓ Compiled in 670ms (2754 modules)
- ✓ Compiled in 335ms (1422 modules)
- ✓ Compiled in 441ms (1436 modules)
- GET /dashboard 200 in 668ms
- GET /login-auth 200 in 256ms
- ✓ Compiled in 652ms (1436 modules)
- GET /login-auth 200 in 576ms
- ✓ Compiled in 1552ms (1436 modules)
- ✓ Compiled in 402ms (1436 modules)
- ✓ Compiled in 356ms (1436 modules)
- ✓ Compiled in 16.8s (2754 modules)
- ✓ Compiled in 1861ms (1436 modules)
- ✓ Compiled in 1006ms (2740 modules)
- ✓ Compiled in 770ms (1436 modules)
- ✓ Compiled in 658ms (1436 modules)
- ✓ Compiled in 504ms (1436 modules)
- GET / 200 in 351ms
- GET / 200 in 43ms
- GET / 200 in 46ms
- ○ Compiling /_not-found ...
- ✓ Compiled /_not-found in 2.4s (2743 modules)
- GET / 200 in 1526ms
- GET /_next/webpack-hmr 404 in 2959ms
- GET / 200 in 38ms
- GET / 200 in 42ms
- GET / 200 in 66ms
- GET / 200 in 50ms
- GET / 200 in 39ms
- GET / 200 in 50ms
- GET / 200 in 51ms
- ✓ Compiled in 960ms (2757 modules)
- ✓ Compiled in 438ms (1436 modules)
- ✓ Compiled in 897ms (2740 modules)
- ✓ Compiled in 640ms (1436 modules)
- ✓ Compiled in 522ms (1436 modules)
- ✓ Compiled in 482ms (1436 modules)
- ✓ Compiled in 3s (2740 modules)
- ✓ Compiled in 697ms (1436 modules)
- ✓ Compiled in 481ms (1436 modules)
- ✓ Compiled in 765ms (1436 modules)
- ✓ Compiled in 3.3s (2754 modules)
- ✓ Compiled in 797ms (1436 modules)
- ✓ Compiled in 235ms (1422 modules)
- ✓ Compiled in 733ms (1436 modules)
- ○ Compiling /commercial ...
- ✓ Compiled /commercial in 5.9s (2776 modules)
- GET /commercial 200 in 6257ms
- ○ Compiling /headers ...
- ✓ Compiled /headers in 2.3s (2799 modules)
- GET /headers 200 in 2779ms
- ○ Compiling /footers ...
- ✓ Compiled /footers in 1196ms (2815 modules)
- GET /footers 200 in 1352ms
- ○ Compiling /modals ...
- ✓ Compiled /modals in 1520ms (2835 modules)
- GET /modals 200 in 1737ms
- ✓ Compiled in 536ms (1474 modules)
- ✓ Compiled in 811ms (1474 modules)
+ ✓ Compiled / in 710ms (882 modules)
+ GET / 200 in 820ms
+ ✓ Compiled in 207ms (452 modules)
+ ✓ Compiled in 443ms (452 modules)

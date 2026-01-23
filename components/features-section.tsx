@@ -16,9 +16,13 @@ import {
 } from "lucide-react"
 import { useSettings } from "@/hooks/use-settings"
 
-export function FeaturesSection() {
+interface FeaturesSectionProps {
+  layout?: string
+}
+
+export function FeaturesSection({ layout: propLayout }: FeaturesSectionProps) {
   const { settings } = useSettings()
-  const layout = settings.sections.find((s) => s.id === "features")?.layout || "layout1"
+  const layout = propLayout || settings?.sections?.find((s) => s.id === "features")?.layout || "layout1"
 
   const features = [
     {

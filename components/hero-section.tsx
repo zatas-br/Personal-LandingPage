@@ -5,10 +5,15 @@ import { Button } from "@/components/ui/button"
 import { ArrowRight, Sparkles } from "lucide-react"
 import { useSettings } from "@/hooks/use-settings"
 
-export function HeroSection() {
+interface HeroSectionProps {
+  layout?: string
+}
+
+export function HeroSection({ layout: propLayout }: HeroSectionProps) {
   const [isVisible, setIsVisible] = useState(false)
   const { settings } = useSettings()
-  const layout = settings.sections.find((s) => s.id === "hero")?.layout || "layout1"
+  // Use prop layout if provided, otherwise fallback to settings
+  const layout = propLayout || settings?.sections?.find((s) => s.id === "hero")?.layout || "layout1"
 
   useEffect(() => {
     setIsVisible(true)

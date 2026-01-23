@@ -1,7 +1,20 @@
 "use client"
 
 import Link from "next/link"
-import { ArrowRight, Layout, LayoutDashboard, LogIn, Monitor, PanelTop, PanelBottom, AppWindow } from "lucide-react"
+import {
+  ArrowRight,
+  Layout,
+  LayoutDashboard,
+  LogIn,
+  Monitor,
+  PanelTop,
+  PanelBottom,
+  AppWindow,
+  BookOpen,
+  User,
+  CreditCard,
+  Hammer
+} from "lucide-react"
 
 import { Button } from "@/components/ui/button"
 import {
@@ -23,6 +36,38 @@ export default function TemplateSelector() {
       href: "/landing-page",
       active: true,
       tag: "Disponível",
+    },
+    {
+      title: "Blog & Conteúdo",
+      description: "Layouts para listagem de posts e leitura de artigos.",
+      icon: BookOpen,
+      href: "/blog",
+      active: true,
+      tag: "Novo",
+    },
+    {
+      title: "Perfil & Configurações",
+      description: "Telas de Minha Conta, uploads e preferências.",
+      icon: User,
+      href: "/profile",
+      active: true,
+      tag: "Novo",
+    },
+    {
+      title: "Pricing & Checkout",
+      description: "Planos detalhados e carrinho de compras.",
+      icon: CreditCard,
+      href: "/pricing",
+      active: true,
+      tag: "Novo",
+    },
+    {
+      title: "Page Builder",
+      description: "Monte sua página combinando componentes visualmente.",
+      icon: Hammer,
+      href: "/page-builder",
+      active: true,
+      tag: "Novo",
     },
     {
       title: "Login & Auth",
