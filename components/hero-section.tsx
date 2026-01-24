@@ -50,7 +50,7 @@ export function HeroSection({
                 {badge}
               </div>
 
-              <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold mb-6 text-balance leading-tight">
+              <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold mb-6 text-balance leading-tight break-words">
                 {titlePrefix}
                 <span className="text-primary relative inline-block">
                   {titleHighlight}
@@ -59,16 +59,16 @@ export function HeroSection({
                 {titleSuffix}
               </h1>
 
-              <p className="text-xl text-muted-foreground mb-8 max-w-lg text-pretty">
+              <p className="text-xl text-muted-foreground mb-8 max-w-lg text-pretty break-words">
                 {description}
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 justify-start">
-                <Button size="lg" className="text-lg px-8 py-6 group">
+                <Button size="lg" className="text-lg px-8 py-6 group w-full sm:w-auto">
                   {primaryCta}
                   <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
                 </Button>
-                <Button variant="outline" size="lg" className="text-lg px-8 py-6 bg-transparent">
+                <Button variant="outline" size="lg" className="text-lg px-8 py-6 bg-transparent w-full sm:w-auto">
                   {secondaryCta}
                 </Button>
               </div>
@@ -120,25 +120,25 @@ export function HeroSection({
             {badge}
           </div>
 
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 text-balance">
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 text-balance break-words">
             {titlePrefix}
-            <span className="text-primary relative">
+            <span className="text-primary relative inline-block sm:inline">
               {titleHighlight}
               <div className="absolute -bottom-2 left-0 right-0 h-1 bg-accent rounded-full" />
-            </span>
+            </span>{" "}
             {titleSuffix}
           </h1>
 
-          <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-3xl mx-auto text-pretty">
+          <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-3xl mx-auto text-pretty break-words">
             {description}
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <Button size="lg" className="text-lg px-8 py-6 group">
+            <Button size="lg" className="text-lg px-8 py-6 group w-full sm:w-auto">
               {primaryCta}
               <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
             </Button>
-            <Button variant="outline" size="lg" className="text-lg px-8 py-6 bg-transparent">
+            <Button variant="outline" size="lg" className="text-lg px-8 py-6 bg-transparent w-full sm:w-auto">
               {secondaryCta}
             </Button>
           </div>

@@ -10,7 +10,9 @@ import {
   GripVertical,
   Edit,
   Code2,
-  Download
+  Download,
+  Plus,
+  Trash2
 } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
@@ -47,13 +49,16 @@ import { HeaderSimple } from "@/components/header-templates/header-simple"
 
 import { HeroSection } from "@/components/hero-section"
 import { FeaturesSection } from "@/components/features-section"
+import { FaqSection } from "@/components/faq-section"
+import { PricingSection } from "@/components/pricing-section"
+import { TestimonialsSection } from "@/components/testimonials-section"
 
 import { FooterMinimal } from "@/components/footer-templates/footer-minimal"
 import { FooterNewsletter } from "@/components/footer-templates/footer-newsletter"
 import { FooterSitemap } from "@/components/footer-templates/footer-sitemap"
 
 // Types
-type SectionType = "header" | "hero" | "features" | "footer"
+type SectionType = "header" | "hero" | "features" | "faq" | "pricing" | "testimonials" | "footer"
 
 interface SectionData {
   id: string
@@ -79,11 +84,32 @@ const defaultContent = {
     title: "Recursos Completos",
     subtitle: "Tudo que você precisa para levar seu negócio ao próximo nível, em uma única plataforma"
   },
+  faq: {
+    title: "Perguntas Frequentes",
+    subtitle: "Encontre respostas para as dúvidas mais comuns",
+    contactText: "Não encontrou a resposta que procurava?"
+  },
+  pricing: {
+    title: "Escolha Seu Plano",
+    subtitle: "Soluções flexíveis para seu negócio"
+  },
+  testimonials: {
+    title: "O Que Dizem Nossos Clientes",
+    subtitle: "Depoimentos reais de quem confia em nós"
+  },
   footer: {
     companyName: "Acme Inc",
     copyrightText: "© 2024 Acme Inc. All rights reserved."
   }
 }
+
+const availableSections = [
+  { type: "hero", label: "Hero", icon: Layout },
+  { type: "features", label: "Recursos", icon: Layout },
+  { type: "pricing", label: "Preços", icon: Layout },
+  { type: "testimonials", label: "Depoimentos", icon: Layout },
+  { type: "faq", label: "FAQ", icon: Layout },
+]
 
 export default function PageBuilder() {
   const [theme, setTheme] = useState("theme-blue")
@@ -101,6 +127,7 @@ export default function PageBuilder() {
   const [editSectionId, setEditSectionId] = useState<string | null>(null)
   const [codeViewerData, setCodeViewerData] = useState<{ path: string, name: string, usage: string } | null>(null)
   const [exportOpen, setExportOpen] = useState(false)
+  const [addSectionOpen, setAddSectionOpen] = useState(false)
 
   // Update Section Helper
   const updateSection = (id: string, updates: Partial<SectionData>) => {
@@ -109,6 +136,32 @@ export default function PageBuilder() {
 
   const updateSectionContent = (id: string, field: string, value: string) => {
     setSections(prev => prev.map(s => s.id === id ? { ...s, content: { ...s.content, [field]: value } } : s))
+  }
+
+  const removeSection = (id: string) => {
+    setSections(prev => prev.filter(s => s.id !== id))
+  }
+
+  const addSection = (type: SectionType, label: string) => {
+    const newId = `${type}-${Date.now()}`
+    const newSection: SectionData = {
+      id: newId,
+      type,
+      variant: "layout1",
+      label,
+      content: defaultContent[type as keyof typeof defaultContent] || {}
+    }
+
+    // Insert before footer if exists
+    const footerIndex = sections.findIndex(s => s.type === "footer")
+    if (footerIndex !== -1) {
+      const newSections = [...sections]
+      newSections.splice(footerIndex, 0, newSection)
+      setSections(newSections)
+    } else {
+      setSections(prev => [...prev, newSection])
+    }
+    setAddSectionOpen(false)
   }
 
   // Render Logic
@@ -124,6 +177,12 @@ export default function PageBuilder() {
         return <HeroSection layout={section.variant} {...section.content} />
       case "features":
         return <FeaturesSection layout={section.variant} {...section.content} />
+      case "faq":
+        return <FaqSection {...section.content} />
+      case "pricing":
+        return <PricingSection layout={section.variant} {...section.content} />
+      case "testimonials":
+        return <TestimonialsSection layout={section.variant} {...section.content} />
       case "footer":
         switch (section.variant) {
           case "newsletter": return <FooterNewsletter />
@@ -152,6 +211,18 @@ export default function PageBuilder() {
       case "features":
         path = "features-section"
         usage = `<FeaturesSection layout="${section.variant}" title="${section.content.title}" subtitle="${section.content.subtitle}" />`
+        break
+      case "faq":
+        path = "faq-section"
+        usage = `<FaqSection title="${section.content.title}" subtitle="${section.content.subtitle}" />`
+        break
+      case "pricing":
+        path = "pricing-section"
+        usage = `<PricingSection layout="${section.variant}" title="${section.content.title}" subtitle="${section.content.subtitle}" />`
+        break
+      case "testimonials":
+        path = "testimonials-section"
+        usage = `<TestimonialsSection layout="${section.variant}" title="${section.content.title}" subtitle="${section.content.subtitle}" />`
         break
       case "footer":
         path = `footer-templates/footer-${section.variant}`
@@ -190,6 +261,18 @@ export default function PageBuilder() {
       } else if (s.type === "features") {
         componentName = "FeaturesSection"
         imports.add(`import { FeaturesSection } from "@/components/features-section"`)
+        props = `layout="${s.variant}" ` + Object.entries(s.content).map(([k,v]) => `${k}="${v}"`).join(" ")
+      } else if (s.type === "faq") {
+        componentName = "FaqSection"
+        imports.add(`import { FaqSection } from "@/components/faq-section"`)
+        props = Object.entries(s.content).map(([k,v]) => `${k}="${v}"`).join(" ")
+      } else if (s.type === "pricing") {
+        componentName = "PricingSection"
+        imports.add(`import { PricingSection } from "@/components/pricing-section"`)
+        props = `layout="${s.variant}" ` + Object.entries(s.content).map(([k,v]) => `${k}="${v}"`).join(" ")
+      } else if (s.type === "testimonials") {
+        componentName = "TestimonialsSection"
+        imports.add(`import { TestimonialsSection } from "@/components/testimonials-section"`)
         props = `layout="${s.variant}" ` + Object.entries(s.content).map(([k,v]) => `${k}="${v}"`).join(" ")
       }
 
@@ -271,11 +354,17 @@ export default function LandingPage() {
 
           <ScrollArea className="flex-1">
             <div className="p-4 space-y-4">
-              <h3 className="font-medium text-sm text-muted-foreground uppercase tracking-wider mb-2">Seções</h3>
+              <div className="flex items-center justify-between mb-2">
+                <h3 className="font-medium text-sm text-muted-foreground uppercase tracking-wider">Seções</h3>
+                <Button size="sm" variant="outline" className="h-7 text-xs" onClick={() => setAddSectionOpen(true)}>
+                  <Plus className="h-3 w-3 mr-1" />
+                  Add
+                </Button>
+              </div>
 
               <Reorder.Group axis="y" values={sections} onReorder={setSections} className="space-y-3">
                 {sections.map((section) => (
-                  <Reorder.Item key={section.id} value={section} className="bg-background border rounded-md p-3 shadow-sm">
+                  <Reorder.Item key={section.id} value={section} className="bg-background border rounded-md p-3 shadow-sm relative group">
                     <div className="flex items-center justify-between mb-3">
                       <div className="flex items-center gap-2 font-medium cursor-grab active:cursor-grabbing">
                         <GripVertical className="h-4 w-4 text-muted-foreground" />
@@ -288,47 +377,70 @@ export default function LandingPage() {
                         <Button variant="ghost" size="icon" className="h-8 w-8" onClick={() => setEditSectionId(section.id)} title="Editar Conteúdo">
                           <Edit className="h-4 w-4" />
                         </Button>
+                        {section.type !== "header" && section.type !== "footer" && (
+                          <Button variant="ghost" size="icon" className="h-8 w-8 text-destructive hover:text-destructive" onClick={() => removeSection(section.id)} title="Remover">
+                            <Trash2 className="h-4 w-4" />
+                          </Button>
+                        )}
                       </div>
                     </div>
 
                     <div className="space-y-2">
                        <Label className="text-xs text-muted-foreground">Variante</Label>
-                       <Select
-                          value={section.variant}
-                          onValueChange={(v) => updateSection(section.id, { variant: v })}
-                       >
-                         <SelectTrigger className="h-8 text-xs">
-                           <SelectValue />
-                         </SelectTrigger>
-                         <SelectContent>
-                           {section.type === "header" && (
-                             <>
-                               <SelectItem value="simple">Simples</SelectItem>
-                               <SelectItem value="centered">Centralizado</SelectItem>
-                               <SelectItem value="mega">Mega Menu</SelectItem>
-                             </>
-                           )}
-                           {section.type === "hero" && (
-                             <>
-                               <SelectItem value="layout1">Centralizado</SelectItem>
-                               <SelectItem value="layout2">Split</SelectItem>
-                             </>
-                           )}
-                           {section.type === "features" && (
-                             <>
-                               <SelectItem value="layout1">Grid</SelectItem>
-                               <SelectItem value="layout2">Lista</SelectItem>
-                             </>
-                           )}
-                           {section.type === "footer" && (
-                             <>
-                               <SelectItem value="minimal">Minimalista</SelectItem>
-                               <SelectItem value="newsletter">Newsletter</SelectItem>
-                               <SelectItem value="sitemap">Sitemap</SelectItem>
-                             </>
-                           )}
-                         </SelectContent>
-                       </Select>
+                       {section.type !== "faq" ? (
+                         <Select
+                            value={section.variant}
+                            onValueChange={(v) => updateSection(section.id, { variant: v })}
+                         >
+                           <SelectTrigger className="h-8 text-xs">
+                             <SelectValue />
+                           </SelectTrigger>
+                           <SelectContent>
+                             {section.type === "header" && (
+                               <>
+                                 <SelectItem value="simple">Simples</SelectItem>
+                                 <SelectItem value="centered">Centralizado</SelectItem>
+                                 <SelectItem value="mega">Mega Menu</SelectItem>
+                               </>
+                             )}
+                             {section.type === "hero" && (
+                               <>
+                                 <SelectItem value="layout1">Centralizado</SelectItem>
+                                 <SelectItem value="layout2">Split</SelectItem>
+                               </>
+                             )}
+                             {section.type === "features" && (
+                               <>
+                                 <SelectItem value="layout1">Grid</SelectItem>
+                                 <SelectItem value="layout2">Lista</SelectItem>
+                               </>
+                             )}
+                             {section.type === "pricing" && (
+                               <>
+                                 <SelectItem value="layout1">Cards</SelectItem>
+                                 <SelectItem value="layout2">Lista</SelectItem>
+                               </>
+                             )}
+                             {section.type === "testimonials" && (
+                               <>
+                                 <SelectItem value="layout1">Grid</SelectItem>
+                                 <SelectItem value="layout2">Carousel</SelectItem>
+                               </>
+                             )}
+                             {section.type === "footer" && (
+                               <>
+                                 <SelectItem value="minimal">Minimalista</SelectItem>
+                                 <SelectItem value="newsletter">Newsletter</SelectItem>
+                                 <SelectItem value="sitemap">Sitemap</SelectItem>
+                               </>
+                             )}
+                           </SelectContent>
+                         </Select>
+                       ) : (
+                         <div className="text-xs text-muted-foreground bg-muted p-1.5 rounded">
+                           Padrão
+                         </div>
+                       )}
                     </div>
                   </Reorder.Item>
                 ))}
@@ -428,7 +540,7 @@ export default function LandingPage() {
                  </>
                )}
 
-               {editingSection?.type === "features" && (
+               {(editingSection?.type === "features" || editingSection?.type === "pricing" || editingSection?.type === "testimonials") && (
                  <>
                    <div className="space-y-2">
                      <Label>Título</Label>
@@ -444,10 +556,33 @@ export default function LandingPage() {
                         onChange={(e) => updateSectionContent(editingSection.id, "subtitle", e.target.value)}
                      />
                    </div>
-                   <p className="text-xs text-muted-foreground italic mt-4">
-                     Nota: A edição dos itens individuais de recursos será adicionada em breve.
-                   </p>
                  </>
+               )}
+
+               {editingSection?.type === "faq" && (
+                  <>
+                   <div className="space-y-2">
+                     <Label>Título</Label>
+                     <Input
+                        value={editingSection.content.title || ""}
+                        onChange={(e) => updateSectionContent(editingSection.id, "title", e.target.value)}
+                     />
+                   </div>
+                   <div className="space-y-2">
+                     <Label>Subtítulo</Label>
+                     <Textarea
+                        value={editingSection.content.subtitle || ""}
+                        onChange={(e) => updateSectionContent(editingSection.id, "subtitle", e.target.value)}
+                     />
+                   </div>
+                   <div className="space-y-2">
+                     <Label>Texto de Contato</Label>
+                     <Input
+                        value={editingSection.content.contactText || ""}
+                        onChange={(e) => updateSectionContent(editingSection.id, "contactText", e.target.value)}
+                     />
+                   </div>
+                  </>
                )}
 
                {editingSection?.type === "footer" && editingSection?.variant === "minimal" && (
@@ -469,6 +604,31 @@ export default function LandingPage() {
                )}
              </div>
           </ScrollArea>
+        </DialogContent>
+      </Dialog>
+
+      {/* Add Section Dialog */}
+      <Dialog open={addSectionOpen} onOpenChange={setAddSectionOpen}>
+        <DialogContent>
+          <DialogHeader>
+            <DialogTitle>Adicionar Seção</DialogTitle>
+            <DialogDescription>
+              Escolha uma nova seção para adicionar à sua página.
+            </DialogDescription>
+          </DialogHeader>
+          <div className="grid grid-cols-2 gap-4 py-4">
+            {availableSections.map((item) => (
+              <Button
+                key={item.type}
+                variant="outline"
+                className="h-24 flex flex-col gap-2 hover:border-primary hover:text-primary transition-all"
+                onClick={() => addSection(item.type as SectionType, item.label)}
+              >
+                <item.icon className="h-6 w-6" />
+                {item.label}
+              </Button>
+            ))}
+          </div>
         </DialogContent>
       </Dialog>
 

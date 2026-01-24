@@ -55,13 +55,13 @@ export function PreviewContainer({ children }: { children: React.ReactNode }) {
       <div className="flex-1 overflow-y-auto overflow-x-hidden p-8 flex justify-center bg-zinc-100 dark:bg-zinc-950/50">
         <div
            className={cn(
-             "bg-background shadow-2xl transition-all duration-500 ease-in-out flex flex-col relative",
+             "bg-background shadow-2xl transition-all duration-500 ease-in-out flex flex-col relative mx-auto",
              mode !== "desktop" && "border ring-1 ring-border/10 rounded-sm my-4"
            )}
            style={{
              width: getWidth(),
              minHeight: '100%',
-             // Simulate device height constraints or let it grow? Let it grow for now.
+             maxWidth: '100%', // Ensure it doesn't overflow parent
            }}
         >
           {children}
