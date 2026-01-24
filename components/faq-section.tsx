@@ -2,8 +2,25 @@
 
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
 
-export function FaqSection() {
-  const faqs = [
+interface FaqItem {
+  question: string
+  answer: string
+}
+
+interface FaqSectionProps {
+  title?: string
+  subtitle?: string
+  contactText?: string
+  items?: FaqItem[]
+}
+
+export function FaqSection({
+  title = "Perguntas Frequentes",
+  subtitle = "Encontre respostas para as dúvidas mais comuns sobre nossa plataforma",
+  contactText = "Não encontrou a resposta que procurava?",
+  items
+}: FaqSectionProps) {
+  const defaultFaqs = [
     {
       question: "Como funciona o período de teste gratuito?",
       answer:
@@ -56,13 +73,15 @@ export function FaqSection() {
     },
   ]
 
+  const faqs = items || defaultFaqs
+
   return (
     <section className="py-16 bg-background">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-3xl font-bold mb-4">Perguntas Frequentes</h2>
+          <h2 className="text-3xl font-bold mb-4">{title}</h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            Encontre respostas para as dúvidas mais comuns sobre nossa plataforma
+            {subtitle}
           </p>
         </div>
 
@@ -80,7 +99,7 @@ export function FaqSection() {
         </div>
 
         <div className="text-center mt-12">
-          <p className="text-muted-foreground mb-4">Não encontrou a resposta que procurava?</p>
+          <p className="text-muted-foreground mb-4">{contactText}</p>
           <a href="#section-contact" className="text-primary hover:underline font-medium">
             Entre em contato conosco →
           </a>

@@ -1,5 +1,6 @@
 "use client"
 
+import * as React from "react"
 import { Check, X, HelpCircle } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip"
@@ -28,7 +29,15 @@ export function DetailedPricing() {
     },
   ]
 
-  const features = [
+  interface FeatureItem {
+    name: string
+    starter: string | boolean
+    pro: string | boolean
+    ent: string | boolean
+    tip?: string
+  }
+
+  const features: { category: string; items: FeatureItem[] }[] = [
     {
       category: "Recursos Principais",
       items: [
@@ -88,8 +97,8 @@ export function DetailedPricing() {
           </thead>
           <tbody>
             {features.map((section, sIdx) => (
-              <>
-                <tr key={`sec-${sIdx}`}>
+              <React.Fragment key={`sec-${sIdx}`}>
+                <tr>
                   <td colSpan={4} className="p-4 bg-muted/20 font-semibold text-sm uppercase tracking-wider text-muted-foreground mt-8">
                     {section.category}
                   </td>
@@ -111,7 +120,7 @@ export function DetailedPricing() {
                         </TooltipProvider>
                       )}
                     </td>
-                    <td className={`p-4 text-center ${sIdx === features.length - 1 && fIdx === section.items.length - 1 ? "" : ""} ${plans[0].popular ? "bg-primary/5 border-l border-r border-primary/20" : ""}`}>
+                    <td className={`p-4 text-center ${plans[0].popular ? "bg-primary/5 border-l border-r border-primary/20" : ""}`}>
                       {typeof feature.starter === "boolean" ? (
                         feature.starter ? <Check className="h-5 w-5 text-primary mx-auto" /> : <X className="h-5 w-5 text-muted-foreground/30 mx-auto" />
                       ) : (
@@ -134,7 +143,7 @@ export function DetailedPricing() {
                     </td>
                   </tr>
                 ))}
-              </>
+              </React.Fragment>
             ))}
           </tbody>
         </table>

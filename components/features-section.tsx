@@ -13,18 +13,33 @@ import {
   Rocket,
   Heart,
   Star,
+  LucideIcon,
 } from "lucide-react"
 import { useSettings } from "@/hooks/use-settings"
 
-interface FeaturesSectionProps {
-  layout?: string
+interface FeatureItem {
+  icon?: LucideIcon
+  title: string
+  description: string
 }
 
-export function FeaturesSection({ layout: propLayout }: FeaturesSectionProps) {
+interface FeaturesSectionProps {
+  layout?: string
+  title?: string
+  subtitle?: string
+  features?: FeatureItem[]
+}
+
+export function FeaturesSection({
+  layout: propLayout,
+  title = "Recursos Completos",
+  subtitle = "Tudo que você precisa para levar seu negócio ao próximo nível, em uma única plataforma",
+  features: propFeatures
+}: FeaturesSectionProps) {
   const { settings } = useSettings()
   const layout = propLayout || settings?.sections?.find((s) => s.id === "features")?.layout || "layout1"
 
-  const features = [
+  const defaultFeatures: FeatureItem[] = [
     {
       icon: Shield,
       title: "Segurança Avançada",
@@ -87,13 +102,22 @@ export function FeaturesSection({ layout: propLayout }: FeaturesSectionProps) {
     },
   ]
 
+  // If propFeatures is provided, merge with defaults to ensure icons exist if missing
+  const features = propFeatures
+    ? propFeatures.map((f, i) => ({
+        ...f,
+        // Preserve icon from default list if not provided, based on index
+        icon: f.icon || defaultFeatures[i % defaultFeatures.length].icon
+      }))
+    : defaultFeatures
+
   return (
     <section className="bg-muted/30 custom-section-padding">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-3xl font-bold mb-4">Recursos Completos</h2>
+          <h2 className="text-3xl font-bold mb-4">{title}</h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            Tudo que você precisa para levar seu negócio ao próximo nível, em uma única plataforma
+            {subtitle}
           </p>
         </div>
 
@@ -106,7 +130,7 @@ export function FeaturesSection({ layout: propLayout }: FeaturesSectionProps) {
                 className="bg-background p-6 rounded-lg shadow-sm border hover:shadow-md transition-shadow flex items-start gap-4"
               >
                 <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                  <feature.icon className="w-6 h-6 text-primary" />
+                  {feature.icon && <feature.icon className="w-6 h-6 text-primary" />}
                 </div>
                 <div>
                   <h3 className="font-semibold mb-1 text-lg">{feature.title}</h3>
@@ -124,7 +148,7 @@ export function FeaturesSection({ layout: propLayout }: FeaturesSectionProps) {
                 className="bg-background p-6 rounded-lg shadow-sm border hover:shadow-md transition-shadow"
               >
                 <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
-                  <feature.icon className="w-6 h-6 text-primary" />
+                  {feature.icon && <feature.icon className="w-6 h-6 text-primary" />}
                 </div>
                 <h3 className="font-semibold mb-2">{feature.title}</h3>
                 <p className="text-sm text-muted-foreground leading-relaxed">{feature.description}</p>

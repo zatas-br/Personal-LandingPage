@@ -7,44 +7,66 @@ import { useSettings } from "@/hooks/use-settings"
 import useEmblaCarousel from "embla-carousel-react"
 import { Button } from "@/components/ui/button"
 
-const testimonials = [
-  {
-    name: "Maria Santos",
-    role: "CEO, TechStart",
-    content:
-      "A solução transformou completamente nossa operação. Aumentamos nossa eficiência em 200% e reduzimos custos significativamente.",
-    rating: 5,
-    avatar: "/professional-woman-avatar.png",
-  },
-  {
-    name: "Carlos Oliveira",
-    role: "Diretor de Marketing, InnovaCorp",
-    content:
-      "Impressionante como conseguiram entender exatamente nossas necessidades. O ROI foi visível já no primeiro mês.",
-    rating: 5,
-    avatar: "/professional-man-avatar.png",
-  },
-  {
-    name: "Ana Costa",
-    role: "Fundadora, DigitalPlus",
-    content: "Profissionalismo excepcional e resultados que superaram todas as expectativas. Recomendo sem hesitação.",
-    rating: 5,
-    avatar: "/business-woman-avatar.png",
-  },
-  {
-    name: "Roberto Lima",
-    role: "CTO, FutureTech",
-    content: "A tecnologia implementada é de ponta. Nossa equipe ficou impressionada com a qualidade e performance.",
-    rating: 5,
-    avatar: "/tech-professional-avatar.png",
-  },
-]
+interface TestimonialItem {
+  name: string
+  role: string
+  content: string
+  rating: number
+  avatar: string
+}
 
-export function TestimonialsSection() {
+interface TestimonialsSectionProps {
+  layout?: string
+  title?: string
+  subtitle?: string
+  items?: TestimonialItem[]
+}
+
+export function TestimonialsSection({
+  layout: propLayout,
+  title = "O Que Dizem Nossos Clientes",
+  subtitle = "Depoimentos reais de quem já transformou seu negócio conosco",
+  items: propItems
+}: TestimonialsSectionProps) {
   const [isVisible, setIsVisible] = useState(false)
   const sectionRef = useRef<HTMLElement>(null)
   const { settings } = useSettings()
-  const layout = settings.sections.find((s) => s.id === "testimonials")?.layout || "layout1"
+  const layout = propLayout || settings?.sections?.find((s) => s.id === "testimonials")?.layout || "layout1"
+
+  const defaultTestimonials: TestimonialItem[] = [
+    {
+      name: "Maria Santos",
+      role: "CEO, TechStart",
+      content:
+        "A solução transformou completamente nossa operação. Aumentamos nossa eficiência em 200% e reduzimos custos significativamente.",
+      rating: 5,
+      avatar: "/professional-woman-avatar.png",
+    },
+    {
+      name: "Carlos Oliveira",
+      role: "Diretor de Marketing, InnovaCorp",
+      content:
+        "Impressionante como conseguiram entender exatamente nossas necessidades. O ROI foi visível já no primeiro mês.",
+      rating: 5,
+      avatar: "/professional-man-avatar.png",
+    },
+    {
+      name: "Ana Costa",
+      role: "Fundadora, DigitalPlus",
+      content: "Profissionalismo excepcional e resultados que superaram todas as expectativas. Recomendo sem hesitação.",
+      rating: 5,
+      avatar: "/business-woman-avatar.png",
+    },
+    {
+      name: "Roberto Lima",
+      role: "CTO, FutureTech",
+      content: "A tecnologia implementada é de ponta. Nossa equipe ficou impressionada com a qualidade e performance.",
+      rating: 5,
+      avatar: "/tech-professional-avatar.png",
+    },
+  ]
+
+  const testimonials = propItems || defaultTestimonials
 
   // Embla Carousel setup
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true, align: "start" })
@@ -73,9 +95,9 @@ export function TestimonialsSection() {
       <div className="container mx-auto px-4">
         <div className={`transition-all duration-1000 ${isVisible ? "animate-fade-in-up" : "opacity-0"}`}>
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-5xl font-bold mb-6">O Que Dizem Nossos Clientes</h2>
+            <h2 className="text-3xl md:text-5xl font-bold mb-6">{title}</h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto text-pretty">
-              Depoimentos reais de quem já transformou seu negócio conosco
+              {subtitle}
             </p>
           </div>
 

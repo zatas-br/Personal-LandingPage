@@ -6,60 +6,83 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Check, Star } from "lucide-react"
 import { useSettings } from "@/hooks/use-settings"
 
-const plans = [
-  {
-    name: "Starter",
-    price: "R$ 297",
-    period: "/mês",
-    description: "Perfeito para começar sua transformação digital",
-    features: [
-      "Consultoria inicial gratuita",
-      "Implementação básica",
-      "Suporte por email",
-      "Relatórios mensais",
-      "Integração com 3 ferramentas",
-    ],
-    popular: false,
-  },
-  {
-    name: "Professional",
-    price: "R$ 597",
-    period: "/mês",
-    description: "Para empresas que querem resultados acelerados",
-    features: [
-      "Tudo do plano Starter",
-      "Consultoria estratégica",
-      "Implementação avançada",
-      "Suporte prioritário 24/7",
-      "Relatórios semanais",
-      "Integração ilimitada",
-      "Treinamento da equipe",
-    ],
-    popular: true,
-  },
-  {
-    name: "Enterprise",
-    price: "Personalizado",
-    period: "",
-    description: "Solução completa para grandes empresas",
-    features: [
-      "Tudo do plano Professional",
-      "Desenvolvimento customizado",
-      "Gerente de conta dedicado",
-      "SLA garantido",
-      "Infraestrutura dedicada",
-      "Integração personalizada",
-      "Consultoria contínua",
-    ],
-    popular: false,
-  },
-]
+interface PlanItem {
+  name: string
+  price: string
+  period: string
+  description: string
+  features: string[]
+  popular: boolean
+}
 
-export function PricingSection() {
+interface PricingSectionProps {
+  layout?: string
+  title?: string
+  subtitle?: string
+  plans?: PlanItem[]
+}
+
+export function PricingSection({
+  layout: propLayout,
+  title = "Escolha Seu Plano",
+  subtitle = "Soluções flexíveis que se adaptam ao tamanho e necessidades do seu negócio",
+  plans: propPlans
+}: PricingSectionProps) {
   const [isVisible, setIsVisible] = useState(false)
   const sectionRef = useRef<HTMLElement>(null)
   const { settings } = useSettings()
-  const layout = settings.sections.find((s) => s.id === "pricing")?.layout || "layout1"
+  const layout = propLayout || settings?.sections?.find((s) => s.id === "pricing")?.layout || "layout1"
+
+  const defaultPlans: PlanItem[] = [
+    {
+      name: "Starter",
+      price: "R$ 297",
+      period: "/mês",
+      description: "Perfeito para começar sua transformação digital",
+      features: [
+        "Consultoria inicial gratuita",
+        "Implementação básica",
+        "Suporte por email",
+        "Relatórios mensais",
+        "Integração com 3 ferramentas",
+      ],
+      popular: false,
+    },
+    {
+      name: "Professional",
+      price: "R$ 597",
+      period: "/mês",
+      description: "Para empresas que querem resultados acelerados",
+      features: [
+        "Tudo do plano Starter",
+        "Consultoria estratégica",
+        "Implementação avançada",
+        "Suporte prioritário 24/7",
+        "Relatórios semanais",
+        "Integração ilimitada",
+        "Treinamento da equipe",
+      ],
+      popular: true,
+    },
+    {
+      name: "Enterprise",
+      price: "Personalizado",
+      period: "",
+      description: "Solução completa para grandes empresas",
+      features: [
+        "Tudo do plano Professional",
+        "Desenvolvimento customizado",
+        "Gerente de conta dedicado",
+        "SLA garantido",
+        "Infraestrutura dedicada",
+        "Integração personalizada",
+        "Consultoria contínua",
+      ],
+      popular: false,
+    },
+  ]
+
+  const plans = propPlans || defaultPlans
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -83,9 +106,9 @@ export function PricingSection() {
       <div className="container mx-auto px-4">
         <div className={`transition-all duration-1000 ${isVisible ? "animate-fade-in-up" : "opacity-0"}`}>
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-5xl font-bold mb-6">Escolha Seu Plano</h2>
+            <h2 className="text-3xl md:text-5xl font-bold mb-6">{title}</h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto text-pretty">
-              Soluções flexíveis que se adaptam ao tamanho e necessidades do seu negócio
+              {subtitle}
             </p>
           </div>
 

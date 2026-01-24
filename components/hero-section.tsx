@@ -7,9 +7,25 @@ import { useSettings } from "@/hooks/use-settings"
 
 interface HeroSectionProps {
   layout?: string
+  badge?: string
+  titlePrefix?: string
+  titleHighlight?: string
+  titleSuffix?: string
+  description?: string
+  primaryCta?: string
+  secondaryCta?: string
 }
 
-export function HeroSection({ layout: propLayout }: HeroSectionProps) {
+export function HeroSection({
+  layout: propLayout,
+  badge = "Transforme seu negócio hoje mesmo",
+  titlePrefix = "Soluções que ",
+  titleHighlight = "Impulsionam",
+  titleSuffix = " Resultados",
+  description = "Descubra como nossa tecnologia inovadora pode revolucionar sua empresa e levar seus resultados para o próximo nível.",
+  primaryCta = "Começar Agora",
+  secondaryCta = "Ver Demonstração"
+}: HeroSectionProps) {
   const [isVisible, setIsVisible] = useState(false)
   const { settings } = useSettings()
   // Use prop layout if provided, otherwise fallback to settings
@@ -31,30 +47,29 @@ export function HeroSection({ layout: propLayout }: HeroSectionProps) {
             >
               <div className="inline-flex items-center gap-2 bg-accent text-accent-foreground px-4 py-2 rounded-full text-sm font-semibold mb-6">
                 <Sparkles className="h-4 w-4" />
-                Transforme seu negócio hoje mesmo
+                {badge}
               </div>
 
-              <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold mb-6 text-balance leading-tight">
-                Soluções que{" "}
+              <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold mb-6 text-balance leading-tight break-words">
+                {titlePrefix}
                 <span className="text-primary relative inline-block">
-                  Impulsionam
+                  {titleHighlight}
                   <div className="absolute -bottom-2 left-0 right-0 h-1 bg-accent rounded-full" />
-                </span>{" "}
-                Resultados
+                </span>
+                {titleSuffix}
               </h1>
 
-              <p className="text-xl text-muted-foreground mb-8 max-w-lg text-pretty">
-                Descubra como nossa tecnologia inovadora pode revolucionar sua empresa e levar seus resultados para o
-                próximo nível.
+              <p className="text-xl text-muted-foreground mb-8 max-w-lg text-pretty break-words">
+                {description}
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 justify-start">
-                <Button size="lg" className="text-lg px-8 py-6 group">
-                  Começar Agora
+                <Button size="lg" className="text-lg px-8 py-6 group w-full sm:w-auto">
+                  {primaryCta}
                   <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
                 </Button>
-                <Button variant="outline" size="lg" className="text-lg px-8 py-6 bg-transparent">
-                  Ver Demonstração
+                <Button variant="outline" size="lg" className="text-lg px-8 py-6 bg-transparent w-full sm:w-auto">
+                  {secondaryCta}
                 </Button>
               </div>
             </div>
@@ -102,30 +117,29 @@ export function HeroSection({ layout: propLayout }: HeroSectionProps) {
         <div className={`transition-all duration-1000 ${isVisible ? "animate-fade-in-up" : "opacity-0"}`}>
           <div className="inline-flex items-center gap-2 bg-accent text-accent-foreground px-4 py-2 rounded-full text-sm font-semibold mb-6">
             <Sparkles className="h-4 w-4" />
-            Transforme seu negócio hoje mesmo
+            {badge}
           </div>
 
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 text-balance">
-            Soluções que{" "}
-            <span className="text-primary relative">
-              Impulsionam
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 text-balance break-words">
+            {titlePrefix}
+            <span className="text-primary relative inline-block sm:inline">
+              {titleHighlight}
               <div className="absolute -bottom-2 left-0 right-0 h-1 bg-accent rounded-full" />
             </span>{" "}
-            Resultados
+            {titleSuffix}
           </h1>
 
-          <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-3xl mx-auto text-pretty">
-            Descubra como nossa tecnologia inovadora pode revolucionar sua empresa e levar seus resultados para o
-            próximo nível.
+          <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-3xl mx-auto text-pretty break-words">
+            {description}
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <Button size="lg" className="text-lg px-8 py-6 group">
-              Começar Agora
+            <Button size="lg" className="text-lg px-8 py-6 group w-full sm:w-auto">
+              {primaryCta}
               <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
             </Button>
-            <Button variant="outline" size="lg" className="text-lg px-8 py-6 bg-transparent">
-              Ver Demonstração
+            <Button variant="outline" size="lg" className="text-lg px-8 py-6 bg-transparent w-full sm:w-auto">
+              {secondaryCta}
             </Button>
           </div>
         </div>

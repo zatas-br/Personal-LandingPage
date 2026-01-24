@@ -1,13 +1,21 @@
 import * as React from "react"
 import { Mountain, Twitter, Instagram, Linkedin } from "lucide-react"
 
-export function FooterMinimal() {
+interface FooterMinimalProps {
+  companyName?: string
+  copyrightText?: string
+}
+
+export function FooterMinimal({
+  companyName = "Acme Inc",
+  copyrightText = "© 2024 Acme Inc. All rights reserved."
+}: FooterMinimalProps) {
   return (
     <footer className="w-full border-t bg-background py-6">
       <div className="container flex flex-col items-center justify-between gap-4 md:h-16 md:flex-row px-4 md:px-6">
         <div className="flex items-center gap-2">
            <Mountain className="h-6 w-6" />
-           <p className="text-sm text-muted-foreground">© 2024 Acme Inc. All rights reserved.</p>
+           <p className="text-sm text-muted-foreground">{copyrightText}</p>
         </div>
         <div className="flex gap-4">
            <a href="#" className="text-muted-foreground hover:text-foreground">
