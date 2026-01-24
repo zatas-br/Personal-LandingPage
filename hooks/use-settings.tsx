@@ -2,12 +2,13 @@
 
 import * as React from "react"
 
-export type Theme = "dark" | "light"
+export type Theme = string // Changed from "dark" | "light" to allow other themes
 
 export interface SectionConfig {
   id: string
   enabled: boolean
   label?: string
+  layout?: string // Added layout property
 }
 
 export interface WhatsappConfig {
@@ -32,21 +33,23 @@ export interface Settings {
 interface SettingsContextType {
   settings: Settings
   updateSettings: (newSettings: Partial<Settings>) => void
-  toggleSection: (id: string) => void // Função auxiliar específica
+  toggleSection: (id: string) => void
+  setSectionLayout: (id: string, layout: string) => void // Added helper
   resetSettings: () => void
+  setTheme: (theme: Theme) => void // Added helper alias
 }
 
 const defaultSections: SectionConfig[] = [
-  { id: "hero", enabled: true, label: "Hero (Início)" },
+  { id: "hero", enabled: true, label: "Hero (Início)", layout: "layout1" },
   { id: "about", enabled: true, label: "Sobre" },
   { id: "technology", enabled: true, label: "Tecnologias" },
   { id: "app", enabled: true, label: "App Showcase" },
   { id: "partners", enabled: true, label: "Parceiros" },
   { id: "how-it-works", enabled: true, label: "Como Funciona" },
-  { id: "features", enabled: true, label: "Recursos" },
+  { id: "features", enabled: true, label: "Recursos", layout: "layout1" },
   { id: "results", enabled: true, label: "Resultados" },
   { id: "testimonials", enabled: true, label: "Depoimentos" },
-  { id: "pricing", enabled: true, label: "Preços" },
+  { id: "pricing", enabled: true, label: "Preços", layout: "layout1" },
   { id: "guarantee", enabled: true, label: "Garantia" },
   { id: "faq", enabled: true, label: "FAQ" },
   { id: "newsletter", enabled: true, label: "Newsletter" },
@@ -96,7 +99,7 @@ export function SettingsProvider({ children }: { children: React.ReactNode }) {
       localStorage.setItem("landing-page-settings", JSON.stringify(settings))
       
       // Aplica tema
-      if (settings.theme === "dark") {
+      if (settings.theme === "dark" || settings.theme === "theme-dark") {
         document.documentElement.classList.add("dark")
       } else {
         document.documentElement.classList.remove("dark")
@@ -120,12 +123,25 @@ export function SettingsProvider({ children }: { children: React.ReactNode }) {
     }))
   }
 
+  const setSectionLayout = (id: string, layout: string) => {
+    setSettings((prev) => ({
+      ...prev,
+      sections: prev.sections.map((s) =>
+        s.id === id ? { ...s, layout } : s
+      )
+    }))
+  }
+
+  const setTheme = (theme: Theme) => {
+    updateSettings({ theme })
+  }
+
   const resetSettings = () => {
     setSettings(defaultSettings)
   }
 
   return (
-    <SettingsContext.Provider value={{ settings, updateSettings, toggleSection, resetSettings }}>
+    <SettingsContext.Provider value={{ settings, updateSettings, toggleSection, setSectionLayout, resetSettings, setTheme }}>
       {children}
     </SettingsContext.Provider>
   )
