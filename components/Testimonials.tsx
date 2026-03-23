@@ -40,11 +40,6 @@ export function Testimonials() {
       ></div>
       <div className="absolute inset-0 z-0 bg-gradient-to-b from-[#000000] to-[#111111]"></div>
 
-      {/* Texto gigante de fundo */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[20vw] font-black text-white/5 whitespace-nowrap select-none z-0">
-        {t.testimonials.backgroundText}
-      </div>
-
       <div className="container mx-auto px-4 sm:px-6 relative z-10">
         {/* Título da Seção */}
         <div className="text-center mb-12 md:mb-16 revealable-testimonial transition-all duration-700 ease-out opacity-0 translate-y-12 scale-95">
@@ -54,16 +49,14 @@ export function Testimonials() {
         </div>
 
         {/* Grid de Depoimentos */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 items-start">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 items-stretch">
           {t.testimonials.items.map((testimonial, index) => (
             <div
               key={index}
-              className={`revealable-testimonial bg-gray-900/50 backdrop-blur-sm ring-1 ring-white/10 rounded-lg p-6 flex flex-col gap-4 transition-all duration-700 ease-out opacity-0 translate-y-12 scale-95 ${
-                index % 2 !== 0 ? "lg:mt-8" : ""
-              }`}
+              className="revealable-testimonial bg-gray-900/50 backdrop-blur-sm ring-1 ring-white/10 rounded-lg p-6 flex flex-col gap-4 transition-all duration-700 ease-out opacity-0 translate-y-12 scale-95 h-full"
               style={{ transitionDelay: `${(index + 1) * 0.1}s` }}
             >
-              <div className="bg-gray-800 aspect-square rounded-lg overflow-hidden relative">
+              <div className="bg-gray-800 aspect-square rounded-lg overflow-hidden relative flex-shrink-0">
                 <Image
                   src="/img/cliente.png"
                   alt={`Foto do Cliente ${index + 1}`}
@@ -71,7 +64,7 @@ export function Testimonials() {
                   className="object-cover"
                 />
               </div>
-              <p className="text-gray-200 text-sm leading-relaxed">{testimonial.text}</p>
+              <p className="text-gray-200 text-sm leading-relaxed flex-grow">{testimonial.text}</p>
             </div>
           ))}
         </div>

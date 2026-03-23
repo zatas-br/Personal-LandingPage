@@ -30,13 +30,7 @@ export function Pricing() {
   return (
     <section
       id="planos"
-      className="py-20 md:py-32 relative overflow-hidden radial-glow bg-black"
-      style={{
-        backgroundImage: "linear-gradient(rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.95)), url('https://placehold.co/1920x1080/111827/cccccc?text=Imagem+de+Fundo+da+Academia')",
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-        backgroundAttachment: "fixed",
-      }}
+      className="py-20 md:py-32 relative overflow-hidden radial-glow bg-[#111111]"
     >
       <div className="container mx-auto px-4 sm:px-6 relative z-10">
         {/* Título da Seção */}

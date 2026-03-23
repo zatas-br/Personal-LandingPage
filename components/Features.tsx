@@ -39,11 +39,6 @@ export function Features() {
         }}
       ></div>
 
-      {/* Texto gigante de fundo */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[20vw] font-black text-white/5 whitespace-nowrap select-none z-0">
-        {t.product.backgroundText}
-      </div>
-
       <div className="container mx-auto px-4 sm:px-6 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Coluna da Esquerda (Celular) */}

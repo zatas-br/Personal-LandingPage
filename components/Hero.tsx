@@ -18,11 +18,6 @@ export function Hero() {
       }}
     >
       <main className="flex-grow flex items-center justify-center text-center relative px-4">
-        {/* Texto de fundo decorativo */}
-        <div className="text-[15vw] font-black text-white/[0.04] absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 whitespace-nowrap select-none">
-          {t.hero.backgroundText}
-        </div>
-
         <div className="relative z-10 pt-20">
           {/* Box de Destaque */}
           <div className="inline-block bg-white text-gray-900 p-3 md:p-4 rounded-lg shadow-lg mb-8 animate-fade-in-up" style={{ animationDelay: "0.4s" }}>

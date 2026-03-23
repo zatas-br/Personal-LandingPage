@@ -29,11 +29,6 @@ export function AbsWorkout() {
 
   return (
     <section id="abs-workout" className="py-20 md:py-32 bg-[#000000] relative overflow-hidden radial-glow">
-      {/* Texto gigante de fundo */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[20vw] font-black text-white/5 whitespace-nowrap select-none z-0">
-        {t.absWorkout.backgroundText}
-      </div>
-
       <div className="container mx-auto px-4 sm:px-6 relative z-10">
         <div className="text-center mb-12 md:mb-16 revealable-abs transition-all duration-700 ease-out opacity-0 translate-y-12 scale-95">
           <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tighter">

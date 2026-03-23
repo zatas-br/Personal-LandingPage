@@ -135,7 +135,7 @@ export const translations = {
       successMessage: "Mensagem enviada com sucesso! Em breve entraremos em contato."
     },
     footer: {
-      copyright: "© 2025 Sua Marca. Todos os direitos reservados.",
+      copyright: "© 2026 Deusmar Personal Trainer | Todos os direitos reservados.",
       terms: "Termos de Serviço",
       privacy: "Política de Privacidade"
     }
@@ -274,7 +274,7 @@ export const translations = {
       successMessage: "Message sent successfully! We will contact you soon."
     },
     footer: {
-      copyright: "© 2025 Your Brand. All rights reserved.",
+      copyright: "© 2026 Deusmar Personal Trainer | All rights reserved.",
       terms: "Terms of Service",
       privacy: "Privacy Policy"
     }

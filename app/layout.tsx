@@ -5,7 +5,7 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 
 export const metadata: Metadata = {
-  title: "Personal Trainer Bryan Page",
+  title: "Personal Deusmar",
   description: "Abdomem Definido: 30 dias para resultados reais",
 };
 
