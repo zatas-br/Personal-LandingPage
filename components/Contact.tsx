@@ -2,10 +2,14 @@
 
 import { useEffect, useRef, useState, FormEvent } from "react";
 import { useLanguage } from "./LanguageProvider";
+import { siteConfig } from "@/data/config";
+import PhoneInput from "react-phone-number-input";
+import "react-phone-number-input/style.css";
 
 export function Contact() {
   const { t } = useLanguage();
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [phoneValue, setPhoneValue] = useState<string | undefined>();
   const observerRef = useRef<IntersectionObserver | null>(null);
 
   useEffect(() => {
@@ -73,14 +77,40 @@ export function Contact() {
               />
             </div>
             <div>
-              <input
-                type="tel"
+              <PhoneInput
+                international
+                defaultCountry="BR"
                 name="phone"
                 id="phone"
+                value={phoneValue}
+                onChange={setPhoneValue}
                 required
                 placeholder={t.contact.form.phone}
-                className="w-full bg-transparent border-2 border-red-500 rounded-lg p-3 text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-red-500 transition"
+                className="w-full bg-transparent border-2 border-red-500 rounded-lg p-3 text-white placeholder-gray-300 focus-within:ring-2 focus-within:ring-red-500 transition"
               />
+              <style jsx global>{`
+                .PhoneInputInput {
+                  background: transparent;
+                  border: none;
+                  color: white;
+                  outline: none;
+                  width: 100%;
+                  margin-left: 10px;
+                }
+                .PhoneInputInput::placeholder {
+                  color: #d1d5db;
+                }
+                .PhoneInputCountryIcon {
+                  box-shadow: none;
+                }
+                .PhoneInputCountrySelect {
+                  color: black;
+                }
+                .PhoneInputCountrySelect option {
+                  color: black;
+                  background-color: white;
+                }
+              `}</style>
             </div>
             <div>
               <button
@@ -99,7 +129,7 @@ export function Contact() {
           </div>
 
           <a
-            href="https://wa.me/5500999999999"
+            href={`https://wa.me/${siteConfig.contact.whatsappNumber}`}
             target="_blank"
             rel="noopener noreferrer"
             className="w-full bg-green-500 text-white font-bold py-4 px-8 rounded-lg uppercase tracking-wider hover:bg-green-600 transition-all duration-300 flex items-center justify-center"

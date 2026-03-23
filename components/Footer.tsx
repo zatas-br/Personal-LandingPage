@@ -2,18 +2,13 @@
 
 import Image from "next/image";
 import { useLanguage } from "./LanguageProvider";
+import { siteConfig } from "@/data/config";
 
 const InstagramIcon = () => (
   <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
     <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
     <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
     <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-  </svg>
-);
-
-const FacebookIcon = () => (
-  <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-    <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
   </svg>
 );
 
@@ -34,13 +29,10 @@ export function Footer() {
             <Image src="/img/logo.png" alt="Personal Deusmar Logo" width={160} height={42} className="h-10 w-auto" />
           </div>
           <div className="flex space-x-6">
-            <a href="#" className="text-gray-400 hover:text-white transition-colors duration-300" aria-label="Instagram">
+            <a href={siteConfig.social.instagram} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors duration-300" aria-label="Instagram">
               <InstagramIcon />
             </a>
-            <a href="#" className="text-gray-400 hover:text-white transition-colors duration-300" aria-label="Facebook">
-              <FacebookIcon />
-            </a>
-            <a href="#" className="text-gray-400 hover:text-white transition-colors duration-300" aria-label="WhatsApp">
+            <a href={`https://wa.me/${siteConfig.contact.whatsappNumber}`} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors duration-300" aria-label="WhatsApp">
               <WhatsAppIcon />
             </a>
           </div>

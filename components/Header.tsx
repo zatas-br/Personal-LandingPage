@@ -1,10 +1,11 @@
 "use client";
 
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import { useLanguage } from "./LanguageProvider";
 import { LanguageSwitcher } from "./LanguageSwitcher";
-import { Menu, X, Instagram, Facebook } from "lucide-react";
+import { Menu, X, Instagram } from "lucide-react";
+import { siteConfig } from "@/data/config";
 
 export function Header() {
   const { t } = useLanguage();
@@ -52,11 +53,8 @@ export function Header() {
 
             <div className="flex items-center space-x-4 pl-4 border-l border-gray-700">
               <LanguageSwitcher />
-              <a href="#" aria-label="Instagram">
+              <a href={siteConfig.social.instagram} target="_blank" rel="noopener noreferrer" aria-label="Instagram">
                 <Instagram className="w-5 h-5 text-gray-200 hover:text-white transition-colors duration-300" />
-              </a>
-              <a href="#" aria-label="Facebook">
-                <Facebook className="w-5 h-5 text-gray-200 hover:text-white transition-colors duration-300" />
               </a>
             </div>
           </nav>

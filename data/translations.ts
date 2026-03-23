@@ -24,21 +24,26 @@ export const translations = {
     },
     product: {
       backgroundText: "PRODUTO",
+      title: "Um aplicativo único disponível na",
+      titleHighlight: "Play Store e Apple Store",
       features: [
         {
           title: "Feature Destaque 1",
           description: "Descrição concisa sobre como esta funcionalidade incrível pode beneficiar o usuário final.",
           highlight: false,
+          image: "/img/Tela-Login-DPJ-App.png"
         },
         {
           title: "Feature Destaque 2",
           description: "Descrição concisa sobre como esta funcionalidade incrível pode beneficiar o usuário final.",
           highlight: true,
+          image: "/img/academia.png"
         },
         {
           title: "Feature Destaque 3",
           description: "Descrição concisa sobre como esta funcionalidade incrível pode beneficiar o usuário final.",
           highlight: false,
+          image: "/img/cliente.png"
         },
       ]
     },
@@ -65,19 +70,25 @@ export const translations = {
       backgroundText: "ABS",
       titleStart: "Planilha de Treinos de",
       titleHighlight: "Abs",
-      subtitle: "Abdomem Definido: 30 dias para resultados reais",
+      subtitle: "Abdômen Definido: 30 dias para resultados reais",
       features: [
         "Treinos diários",
         "Guia de execução",
         "Foco em queima de gordura",
         "Acesso vitalício"
       ],
-      button: "Quero definir meu abdômen"
+      mainTitle: "Tenha o abdômen definido!",
+      description: "Ideal para quem quer ter um treino bem montado, com progressão de carga e periodização, mas ainda não pode investir em acompanhamento presencial. A planilha é entregue em formato digital e pode ser acessada pelo celular.",
+      buttonBuy: "Adquira agora",
+      buttonMore: "Saiba mais",
+      button: "Quero definir meu abdômen",
+      whatsappMessage: "Olá! Gostaria de mais informações sobre a *Planilha de Treinos de Abs - Abdômen Definido*. Tenho interesse em adquirir!"
     },
     pricing: {
       titleStart: "Escolha o plano da",
       titleHighlight: "sua transformação",
       button: "Comprar agora",
+      whatsappMessageTemplate: "Olá! Tenho interesse no plano *{{planName}}* (Plano {{period}}). Pode me passar mais detalhes?",
       periods: {
         bimestral: "Bimestral",
         semestral: "Semestral",
@@ -86,7 +97,8 @@ export const translations = {
       plans: {
         bimestral: [
           {
-            name: "Planos LIGHT (100% Online)",
+            name: "Planos LIGHT",
+            tag: "100% Online",
             slogan: "Tenha acompanhamento COMIGO de qualquer lugar do mundo.",
             price: "R$ 550,00",
             period: "à vista ou 2x de R$ 275,00",
@@ -99,7 +111,8 @@ export const translations = {
             highlight: false,
           },
           {
-            name: "Planos PREMIUM (Mais Escolhido)",
+            name: "Planos PREMIUM",
+            tag: "Mais Escolhido",
             slogan: "Acompanhamento completo, com contato presencial ou videochamada.",
             price: "R$ 650,00",
             period: "à vista ou 2x de R$ 325,00",
@@ -128,7 +141,8 @@ export const translations = {
         ],
         semestral: [
           {
-            name: "Planos LIGHT (100% Online)",
+            name: "Planos LIGHT",
+            tag: "100% Online",
             slogan: "Tenha acompanhamento COMIGO de qualquer lugar do mundo.",
             price: "R$ 1.499,00",
             period: "ou até 6x de R$ 250,00",
@@ -142,7 +156,8 @@ export const translations = {
             highlight: false,
           },
           {
-            name: "Planos PREMIUM (Mais Escolhido)",
+            name: "Planos PREMIUM",
+            tag: "Mais Escolhido",
             slogan: "Acompanhamento completo, com contato presencial ou videochamada.",
             price: "R$ 1.650,00",
             period: "ou até 6x de R$ 275,00",
@@ -173,7 +188,8 @@ export const translations = {
         ],
         anual: [
           {
-            name: "Planos LIGHT (100% Online)",
+            name: "Planos LIGHT",
+            tag: "100% Online",
             slogan: "Tenha acompanhamento COMIGO de qualquer lugar do mundo.",
             price: "R$ 2.699,00",
             period: "ou até 12x de R$ 225,00",
@@ -187,7 +203,8 @@ export const translations = {
             highlight: false,
           },
           {
-            name: "Planos PREMIUM (Mais Escolhido)",
+            name: "Planos PREMIUM",
+            tag: "Mais Escolhido",
             slogan: "Acompanhamento completo, com contato presencial ou videochamada.",
             price: "R$ 2.999,00",
             period: "ou até 12x de R$ 249,00",
@@ -261,21 +278,26 @@ export const translations = {
     },
     product: {
       backgroundText: "PRODUCT",
+      title: "A unique app available on",
+      titleHighlight: "Play Store and Apple Store",
       features: [
         {
           title: "Highlight Feature 1",
           description: "Concise description of how this incredible feature can benefit the end user.",
           highlight: false,
+          image: "/img/Tela-Login-DPJ-App.png"
         },
         {
           title: "Highlight Feature 2",
           description: "Concise description of how this incredible feature can benefit the end user.",
           highlight: true,
+          image: "/img/academia.png"
         },
         {
           title: "Highlight Feature 3",
           description: "Concise description of how this incredible feature can benefit the end user.",
           highlight: false,
+          image: "/img/cliente.png"
         },
       ]
     },
@@ -309,12 +331,18 @@ export const translations = {
         "Fat burning focus",
         "Lifetime access"
       ],
-      button: "I want to define my abs"
+      mainTitle: "Get defined abs!",
+      description: "Ideal for those who want a well-structured workout with load progression and periodization, but cannot yet invest in face-to-face follow-up. The spreadsheet is delivered in digital format and can be accessed via mobile.",
+      buttonBuy: "Buy now",
+      buttonMore: "Learn more",
+      button: "I want to define my abs",
+      whatsappMessage: "Hello! I would like more information about the *Abs Workout Plan - Defined Abs*. I'm interested in buying it!"
     },
     pricing: {
       titleStart: "Choose the plan for",
       titleHighlight: "your transformation",
       button: "Buy now",
+      whatsappMessageTemplate: "Hello! I am interested in the *{{planName}}* plan ({{period}} plan). Can you give me more details?",
       periods: {
         bimestral: "Bi-monthly",
         semestral: "Semi-annual",
@@ -323,7 +351,8 @@ export const translations = {
       plans: {
         bimestral: [
           {
-            name: "LIGHT Plans (100% Online)",
+            name: "LIGHT Plans",
+            tag: "100% Online",
             slogan: "Get tracking with ME from anywhere in the world.",
             price: "R$ 550,00",
             period: "cash or 2x of R$ 275,00",
@@ -336,7 +365,8 @@ export const translations = {
             highlight: false,
           },
           {
-            name: "PREMIUM Plans (Most Chosen)",
+            name: "PREMIUM Plans",
+            tag: "Most Chosen",
             slogan: "Complete tracking, with face-to-face contact or video call.",
             price: "R$ 650,00",
             period: "cash or 2x of R$ 325,00",
@@ -365,7 +395,8 @@ export const translations = {
         ],
         semestral: [
           {
-            name: "LIGHT Plans (100% Online)",
+            name: "LIGHT Plans",
+            tag: "100% Online",
             slogan: "Get tracking with ME from anywhere in the world.",
             price: "R$ 1.499,00",
             period: "or up to 6x of R$ 250,00",
@@ -379,7 +410,8 @@ export const translations = {
             highlight: false,
           },
           {
-            name: "PREMIUM Plans (Most Chosen)",
+            name: "PREMIUM Plans",
+            tag: "Most Chosen",
             slogan: "Complete tracking, with face-to-face contact or video call.",
             price: "R$ 1.650,00",
             period: "or up to 6x of R$ 275,00",
@@ -410,7 +442,8 @@ export const translations = {
         ],
         anual: [
           {
-            name: "LIGHT Plans (100% Online)",
+            name: "LIGHT Plans",
+            tag: "100% Online",
             slogan: "Get tracking with ME from anywhere in the world.",
             price: "R$ 2.699,00",
             period: "or up to 12x of R$ 225,00",
@@ -424,7 +457,8 @@ export const translations = {
             highlight: false,
           },
           {
-            name: "PREMIUM Plans (Most Chosen)",
+            name: "PREMIUM Plans",
+            tag: "Most Chosen",
             slogan: "Complete tracking, with face-to-face contact or video call.",
             price: "R$ 2.999,00",
             period: "or up to 12x of R$ 249,00",

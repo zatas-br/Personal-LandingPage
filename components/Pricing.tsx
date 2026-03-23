@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { useLanguage } from "./LanguageProvider";
 import { Check } from "lucide-react";
+import { siteConfig } from "@/data/config";
 
 type BillingPeriod = "bimestral" | "semestral" | "anual";
 
@@ -30,8 +31,7 @@ export function Pricing() {
     return () => observerRef.current?.disconnect();
   }, [billingPeriod]);
 
-  // @ts-ignore
-  const activePlans = t.pricing.plans[billingPeriod];
+  const activePlans = (t.pricing.plans as Record<BillingPeriod, Array<{ name: string, tag?: string, highlight: boolean, slogan: string, originalPrice?: string, price: string, period: string, features: string[] }>>)[billingPeriod];
 
   return (
     <section
@@ -57,8 +57,7 @@ export function Pricing() {
                     : "text-gray-400 hover:text-white"
                 }`}
               >
-                {/* @ts-ignore */}
-                {t.pricing.periods[period]}
+                {(t.pricing.periods as Record<string, string>)[period]}
               </button>
             ))}
           </div>
@@ -66,21 +65,25 @@ export function Pricing() {
 
         {/* Grid de Planos */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto items-stretch">
-          {activePlans.map((plan: any, index: number) => (
+          {activePlans.map((plan: { name: string, tag?: string, highlight: boolean, slogan: string, originalPrice?: string, price: string, period: string, features: string[] }, index: number) => (
             <div
               key={`${billingPeriod}-${index}`}
-              className={`revealable-pricing flex flex-col text-center h-full transition-all duration-700 ease-out opacity-0 translate-y-12 scale-95 ${
-                plan.highlight
-                  ? "bg-gray-900/80 backdrop-blur-sm rounded-lg p-8 ring-2 ring-red-500 shadow-2xl shadow-red-500/30 transform lg:scale-105"
-                  : "bg-gray-900/60 backdrop-blur-sm ring-1 ring-white/10 rounded-lg p-8"
-              }`}
+              className={`revealable-pricing flex flex-col text-center h-full transition-all duration-700 ease-out opacity-0 translate-y-12 scale-95 bg-gray-900/60 backdrop-blur-sm ring-1 ring-white/10 rounded-lg p-8`}
               style={{ transitionDelay: `${(index + 1) * 0.15}s` }}
             >
-              <h3 className={`text-2xl font-black mb-2 ${plan.highlight ? "text-red-500" : "text-white"}`}>
+              <h3 className="text-2xl font-black text-white">
                 {plan.name}
               </h3>
               
-              <p className="text-sm text-gray-400 mb-6 italic h-12">"{plan.slogan}"</p>
+              {plan.tag && (
+                <div className="mt-2 mb-2 flex justify-center">
+                  <span className="bg-red-600/20 text-red-500 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">
+                    {plan.tag}
+                  </span>
+                </div>
+              )}
+              
+              <p className={`text-sm text-gray-400 mb-6 italic h-12 ${!plan.tag ? "mt-4" : ""}`}>&quot;{plan.slogan}&quot;</p>
 
               <div className="my-2 min-h-[80px]">
                 {plan.originalPrice && (
@@ -104,12 +107,12 @@ export function Pricing() {
               </ul>
 
               <a
-                href="#contato"
-                className={`mt-auto w-full font-bold py-3 px-8 rounded-lg uppercase tracking-wider transition-all duration-300 ${
-                  plan.highlight 
-                    ? "bg-red-600 text-white hover:bg-red-700" 
-                    : "bg-gray-800 text-white hover:bg-gray-700 border border-gray-700"
-                }`}
+                href={`https://wa.me/${siteConfig.contact.whatsappNumber}?text=${encodeURIComponent(
+                  (t.pricing as { whatsappMessageTemplate: string }).whatsappMessageTemplate.replace("{{planName}}", plan.name).replace("{{period}}", (t.pricing.periods as Record<string, string>)[billingPeriod])
+                )}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-auto w-full font-bold py-3 px-8 rounded-lg uppercase tracking-wider transition-all duration-300 bg-gray-800 text-white hover:bg-gray-700 border border-gray-700"
               >
                 {t.pricing.button}
               </a>

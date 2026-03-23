@@ -20,14 +20,17 @@ export const LanguageProvider = ({ children }: { children: React.ReactNode }) =>
   useEffect(() => {
     const savedLang = localStorage.getItem("lang") as Language;
     if (savedLang && (savedLang === "pt" || savedLang === "en")) {
-      setLanguageState(savedLang);
+      if (savedLang !== language) {
+        // Use timeout to avoid set state in render/sync effect
+        setTimeout(() => setLanguageState(savedLang), 0);
+      }
     } else {
       const browserLang = navigator.language;
-      if (browserLang.toLowerCase().includes("en")) {
-        setLanguageState("en");
+      if (browserLang.toLowerCase().includes("en") && language !== "en") {
+        setTimeout(() => setLanguageState("en"), 0);
       }
     }
-  }, []);
+  }, [language]);
 
   const setLanguage = (lang: Language) => {
     setLanguageState(lang);

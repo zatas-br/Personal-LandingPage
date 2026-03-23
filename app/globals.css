@@ -118,6 +118,15 @@ body::-webkit-scrollbar-thumb:hover {
   animation: fadeInUp 1s ease-out forwards;
 }
 
+@keyframes progress {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
 /* Ajuste para o iframe preencher a tela do dispositivo */
 .device-screen iframe {
     width: 100%;
