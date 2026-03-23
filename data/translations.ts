@@ -78,47 +78,145 @@ export const translations = {
       titleStart: "Escolha o plano da",
       titleHighlight: "sua transformação",
       button: "Comprar agora",
-      plans: [
-        {
-          name: "Consultoria online",
-          price: "R$48",
-          period: "/mês",
-          features: [
-            "Avaliação Física Completa",
-            "Plano de treino personalizado",
-            "Acompanhamento via app",
-            "Ajustes mensais no programa",
-            "Suporte via WhatsApp",
-          ],
-          highlight: false,
-        },
-        {
-          name: "Acompanhamento premium",
-          price: "R$88",
-          period: "/mês",
-          features: [
-            "Tudo do plano anterior",
-            "Consultoria nutricional",
-            "Videochamadas semanais",
-            "Análise postural detalhada",
-            "Suporte 24/7",
-          ],
-          highlight: true,
-        },
-        {
-          name: "Consultoria online",
-          price: "R$48",
-          period: "/mês",
-          features: [
-            "Avaliação Física Completa",
-            "Plano de treino personalizado",
-            "Acompanhamento via app",
-            "Ajustes mensais no programa",
-            "Suporte via WhatsApp",
-          ],
-          highlight: false,
-        }
-      ]
+      periods: {
+        bimestral: "Bimestral",
+        semestral: "Semestral",
+        anual: "Anual",
+      },
+      plans: {
+        bimestral: [
+          {
+            name: "Planos LIGHT (100% Online)",
+            slogan: "Tenha acompanhamento COMIGO de qualquer lugar do mundo.",
+            price: "R$ 550,00",
+            period: "à vista ou 2x de R$ 275,00",
+            features: [
+              "Avaliação física e postural por fotos",
+              "1 prescrição de treino",
+              "Nutrição + ajustes",
+              "Suporte via WhatsApp",
+            ],
+            highlight: false,
+          },
+          {
+            name: "Planos PREMIUM (Mais Escolhido)",
+            slogan: "Acompanhamento completo, com contato presencial ou videochamada.",
+            price: "R$ 650,00",
+            period: "à vista ou 2x de R$ 325,00",
+            features: [
+              "Avaliação física e postural presencial",
+              "1 consulta presencial ou videochamada",
+              "1 prescrição de treino",
+              "Nutrição + ajustes",
+              "Suporte via WhatsApp",
+            ],
+            highlight: true,
+          },
+          {
+            name: "Planos para TREINO",
+            slogan: "Para quem busca evolução no treino, com contato presencial ou videochamada.",
+            price: "R$ 400,00",
+            period: "à vista ou 2x de R$ 200,00",
+            features: [
+              "Avaliação física e postural presencial",
+              "1 consulta presencial ou videochamada",
+              "1 prescrição de treino",
+              "Suporte via WhatsApp",
+            ],
+            highlight: false,
+          }
+        ],
+        semestral: [
+          {
+            name: "Planos LIGHT (100% Online)",
+            slogan: "Tenha acompanhamento COMIGO de qualquer lugar do mundo.",
+            price: "R$ 1.499,00",
+            period: "ou até 6x de R$ 250,00",
+            originalPrice: "R$ 1.650,00",
+            features: [
+              "Avaliação física e postural por fotos",
+              "3 prescrições de treino",
+              "Nutrição + ajustes",
+              "Suporte via WhatsApp",
+            ],
+            highlight: false,
+          },
+          {
+            name: "Planos PREMIUM (Mais Escolhido)",
+            slogan: "Acompanhamento completo, com contato presencial ou videochamada.",
+            price: "R$ 1.650,00",
+            period: "ou até 6x de R$ 275,00",
+            originalPrice: "R$ 1.950,00",
+            features: [
+              "Avaliação física e postural presencial",
+              "3 consultas presenciais ou videochamada",
+              "3 prescrições de treino",
+              "Nutrição + ajustes",
+              "Suporte via WhatsApp",
+            ],
+            highlight: true,
+          },
+          {
+            name: "Planos para TREINO",
+            slogan: "Para quem busca evolução no treino, com contato presencial ou videochamada.",
+            price: "R$ 999,00",
+            period: "ou até 6x de R$ 166,50",
+            originalPrice: "R$ 1.200,00",
+            features: [
+              "Avaliação física e postural presencial",
+              "3 consultas presenciais ou videochamada",
+              "3 prescrições de treino",
+              "Suporte via WhatsApp",
+            ],
+            highlight: false,
+          }
+        ],
+        anual: [
+          {
+            name: "Planos LIGHT (100% Online)",
+            slogan: "Tenha acompanhamento COMIGO de qualquer lugar do mundo.",
+            price: "R$ 2.699,00",
+            period: "ou até 12x de R$ 225,00",
+            originalPrice: "R$ 3.300,00",
+            features: [
+              "Avaliação física e postural por fotos",
+              "6 prescrições de treino",
+              "Nutrição + ajustes",
+              "Suporte via WhatsApp",
+            ],
+            highlight: false,
+          },
+          {
+            name: "Planos PREMIUM (Mais Escolhido)",
+            slogan: "Acompanhamento completo, com contato presencial ou videochamada.",
+            price: "R$ 2.999,00",
+            period: "ou até 12x de R$ 249,00",
+            originalPrice: "R$ 3.600,00",
+            features: [
+              "Avaliação física e postural presencial",
+              "6 consultas presenciais ou videochamada",
+              "6 prescrições de treino",
+              "Nutrição + ajustes",
+              "Suporte via WhatsApp",
+            ],
+            highlight: true,
+          },
+          {
+            name: "Planos para TREINO",
+            slogan: "Para quem busca evolução no treino, com contato presencial ou videochamada.",
+            price: "R$ 1.799,00",
+            period: "ou até 12x de R$ 150,00",
+            originalPrice: "R$ 2.400,00",
+            features: [
+              "Avaliação física e postural presencial",
+              "6 consultas presenciais ou videochamada",
+              "6 prescrições de treino",
+              "Suporte via WhatsApp",
+            ],
+            highlight: false,
+          }
+        ]
+      }
     },
     contact: {
       titleStart: "Pronto para",
@@ -217,47 +315,145 @@ export const translations = {
       titleStart: "Choose the plan for",
       titleHighlight: "your transformation",
       button: "Buy now",
-      plans: [
-        {
-          name: "Online Consulting",
-          price: "$48",
-          period: "/month",
-          features: [
-            "Complete Physical Assessment",
-            "Personalized workout plan",
-            "Tracking via app",
-            "Monthly program adjustments",
-            "WhatsApp support",
-          ],
-          highlight: false,
-        },
-        {
-          name: "Premium Tracking",
-          price: "$88",
-          period: "/month",
-          features: [
-            "Everything from previous plan",
-            "Nutritional consulting",
-            "Weekly video calls",
-            "Detailed postural analysis",
-            "24/7 Support",
-          ],
-          highlight: true,
-        },
-        {
-          name: "Online Consulting",
-          price: "$48",
-          period: "/month",
-          features: [
-            "Complete Physical Assessment",
-            "Personalized workout plan",
-            "Tracking via app",
-            "Monthly program adjustments",
-            "WhatsApp support",
-          ],
-          highlight: false,
-        }
-      ]
+      periods: {
+        bimestral: "Bi-monthly",
+        semestral: "Semi-annual",
+        anual: "Annual",
+      },
+      plans: {
+        bimestral: [
+          {
+            name: "LIGHT Plans (100% Online)",
+            slogan: "Get tracking with ME from anywhere in the world.",
+            price: "R$ 550,00",
+            period: "cash or 2x of R$ 275,00",
+            features: [
+              "Physical and postural assessment by photos",
+              "1 workout prescription",
+              "Nutrition + adjustments",
+              "WhatsApp support",
+            ],
+            highlight: false,
+          },
+          {
+            name: "PREMIUM Plans (Most Chosen)",
+            slogan: "Complete tracking, with face-to-face contact or video call.",
+            price: "R$ 650,00",
+            period: "cash or 2x of R$ 325,00",
+            features: [
+              "Face-to-face physical and postural assessment",
+              "1 face-to-face consultation or video call",
+              "1 workout prescription",
+              "Nutrition + adjustments",
+              "WhatsApp support",
+            ],
+            highlight: true,
+          },
+          {
+            name: "Plans for TRAINING",
+            slogan: "For those seeking evolution in training, with face-to-face contact or video call.",
+            price: "R$ 400,00",
+            period: "cash or 2x of R$ 200,00",
+            features: [
+              "Face-to-face physical and postural assessment",
+              "1 face-to-face consultation or video call",
+              "1 workout prescription",
+              "WhatsApp support",
+            ],
+            highlight: false,
+          }
+        ],
+        semestral: [
+          {
+            name: "LIGHT Plans (100% Online)",
+            slogan: "Get tracking with ME from anywhere in the world.",
+            price: "R$ 1.499,00",
+            period: "or up to 6x of R$ 250,00",
+            originalPrice: "R$ 1.650,00",
+            features: [
+              "Physical and postural assessment by photos",
+              "3 workout prescriptions",
+              "Nutrition + adjustments",
+              "WhatsApp support",
+            ],
+            highlight: false,
+          },
+          {
+            name: "PREMIUM Plans (Most Chosen)",
+            slogan: "Complete tracking, with face-to-face contact or video call.",
+            price: "R$ 1.650,00",
+            period: "or up to 6x of R$ 275,00",
+            originalPrice: "R$ 1.950,00",
+            features: [
+              "Face-to-face physical and postural assessment",
+              "3 face-to-face consultations or video calls",
+              "3 workout prescriptions",
+              "Nutrition + adjustments",
+              "WhatsApp support",
+            ],
+            highlight: true,
+          },
+          {
+            name: "Plans for TRAINING",
+            slogan: "For those seeking evolution in training, with face-to-face contact or video call.",
+            price: "R$ 999,00",
+            period: "or up to 6x of R$ 166,50",
+            originalPrice: "R$ 1.200,00",
+            features: [
+              "Face-to-face physical and postural assessment",
+              "3 face-to-face consultations or video calls",
+              "3 workout prescriptions",
+              "WhatsApp support",
+            ],
+            highlight: false,
+          }
+        ],
+        anual: [
+          {
+            name: "LIGHT Plans (100% Online)",
+            slogan: "Get tracking with ME from anywhere in the world.",
+            price: "R$ 2.699,00",
+            period: "or up to 12x of R$ 225,00",
+            originalPrice: "R$ 3.300,00",
+            features: [
+              "Physical and postural assessment by photos",
+              "6 workout prescriptions",
+              "Nutrition + adjustments",
+              "WhatsApp support",
+            ],
+            highlight: false,
+          },
+          {
+            name: "PREMIUM Plans (Most Chosen)",
+            slogan: "Complete tracking, with face-to-face contact or video call.",
+            price: "R$ 2.999,00",
+            period: "or up to 12x of R$ 249,00",
+            originalPrice: "R$ 3.600,00",
+            features: [
+              "Face-to-face physical and postural assessment",
+              "6 face-to-face consultations or video calls",
+              "6 workout prescriptions",
+              "Nutrition + adjustments",
+              "WhatsApp support",
+            ],
+            highlight: true,
+          },
+          {
+            name: "Plans for TRAINING",
+            slogan: "For those seeking evolution in training, with face-to-face contact or video call.",
+            price: "R$ 1.799,00",
+            period: "or up to 12x of R$ 150,00",
+            originalPrice: "R$ 2.400,00",
+            features: [
+              "Face-to-face physical and postural assessment",
+              "6 face-to-face consultations or video calls",
+              "6 workout prescriptions",
+              "WhatsApp support",
+            ],
+            highlight: false,
+          }
+        ]
+      }
     },
     contact: {
       titleStart: "Ready to",

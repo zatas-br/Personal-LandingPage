@@ -31,8 +31,7 @@ export function Footer() {
       <div className="container mx-auto px-6">
         <div className="flex flex-col md:flex-row justify-between items-center mb-8 gap-6">
           <div className="flex-shrink-0">
-            <Image src="/img/logo-claro.png" alt="Personal Deusmar Logo" width={160} height={42} className="h-10 w-auto dark:hidden" />
-            <Image src="/img/logo-escuro.png" alt="Personal Deusmar Logo" width={160} height={42} className="h-10 w-auto hidden dark:block" />
+            <Image src="/img/logo.png" alt="Personal Deusmar Logo" width={160} height={42} className="h-10 w-auto" />
           </div>
           <div className="flex space-x-6">
             <a href="#" className="text-gray-400 hover:text-white transition-colors duration-300" aria-label="Instagram">

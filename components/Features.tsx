@@ -43,17 +43,24 @@ export function Features() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Coluna da Esquerda (Celular) */}
           <div className="revealable-feature flex justify-center transition-all duration-700 ease-out opacity-0 translate-y-12 scale-95">
-            <div className="bg-gray-900 p-4 rounded-[40px] shadow-2xl ring-2 ring-gray-700 w-full max-w-xs">
-              <div className="bg-gray-800 rounded-[30px] aspect-[9/19.5] overflow-hidden">
-                {/* Imagem Placeholder para a Tela do App */}
-                <Image
-                  src="https://placehold.co/375x812/1a202c/ffffff?text=Tela+do+App"
-                  alt="Tela do aplicativo"
-                  width={375}
-                  height={812}
-                  className="w-full h-full object-cover"
-                />
+            <div className="device-iphone-14">
+              <div className="device-frame">
+                <div className="device-screen">
+                  <Image
+                    src="/img/Tela-Login-DPJ-App.png"
+                    alt="Tela do aplicativo"
+                    fill
+                    className="object-cover"
+                  />
+                </div>
               </div>
+              <div className="device-stripe"></div>
+              <div className="device-header">
+                <div className="device-sensors"></div>
+              </div>
+              <div className="device-btns"></div>
+              <div className="device-power"></div>
+              <div className="device-home"></div>
             </div>
           </div>
 

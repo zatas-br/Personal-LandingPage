@@ -29,8 +29,7 @@ export function Header() {
       >
         <div className="container mx-auto px-4 md:px-8 flex justify-between items-center">
           <a href="#hero" className="text-2xl font-bold tracking-wider">
-            <Image src="/img/logo-claro.png" alt="Personal Deusmar Logo" width={120} height={32} className="h-8 w-auto dark:hidden" priority />
-            <Image src="/img/logo-escuro.png" alt="Personal Deusmar Logo" width={120} height={32} className="h-8 w-auto hidden dark:block" priority />
+            <Image src="/img/logo.png" alt="Personal Deusmar Logo" width={120} height={32} className="h-8 w-auto" priority />
           </a>
 
           {/* Navegação Desktop */}
