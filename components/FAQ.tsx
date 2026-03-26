@@ -6,7 +6,8 @@ import { Plus, Minus } from "lucide-react";
 
 export function FAQ() {
   const { t } = useLanguage();
-  const [openIndex, setOpenIndex] = useState<number | null>(null);
+  const [openIndices, setOpenIndices] = useState<Record<number, boolean>>({});
+  const [revealedItems, setRevealedItems] = useState<Record<number, boolean>>({});
   const observerRef = useRef<IntersectionObserver | null>(null);
 
   const faqs = t.faq?.items ?? [
@@ -59,6 +60,12 @@ export function FAQ() {
           if (entry.isIntersecting) {
             entry.target.classList.add("opacity-100", "translate-y-0");
             entry.target.classList.remove("opacity-0", "translate-y-8");
+            
+            const indexStr = (entry.target as HTMLElement).dataset.index;
+            if (indexStr !== undefined) {
+              const index = parseInt(indexStr, 10);
+              setRevealedItems(prev => ({ ...prev, [index]: true }));
+            }
           }
         });
       },
@@ -70,7 +77,10 @@ export function FAQ() {
   }, []);
 
   const toggle = (index: number) => {
-    setOpenIndex(openIndex === index ? null : index);
+    setOpenIndices((prev) => ({
+      ...prev,
+      [index]: !prev[index],
+    }));
   };
 
   return (
@@ -87,28 +97,22 @@ export function FAQ() {
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/40 z-0" />
 
       <div className="container mx-auto px-4 sm:px-6 relative z-10 max-w-4xl">
-        {/* Cabeçalho */}
         <div className="text-center mb-14 revealable-faq opacity-0 translate-y-8 transition-all duration-700">
-          <p className="text-red-500 text-xs uppercase tracking-[0.3em] font-semibold mb-3">
-            {t.faq?.eyebrow ?? "Perguntas Frequentes"}
-          </p>
           <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tighter">
             {t.faq?.titleStart ?? "Tire suas"}{" "}
             <span className="text-red-500">{t.faq?.titleHighlight ?? "Dúvidas"}</span>
           </h2>
-          <p className="text-gray-400 mt-4 max-w-xl mx-auto text-sm md:text-base">
-            {t.faq?.description ?? "Respondemos as perguntas mais comuns para você começar com confiança."}
-          </p>
         </div>
 
-        {/* Acordeão */}
         <div className="space-y-3">
           {faqs.map((faq, index) => {
-            const isOpen = openIndex === index;
+            const isOpen = openIndices[index];
+            const isRevealed = revealedItems[index];
             return (
               <div
                 key={index}
-                className={`revealable-faq opacity-0 translate-y-8 transition-all duration-500 rounded-lg overflow-hidden ring-1 ${
+                data-index={index}
+                className={`revealable-faq ${isRevealed ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"} transition-all duration-500 rounded-lg overflow-hidden ring-1 ${
                   isOpen ? "ring-red-600/50 bg-red-950/10" : "ring-white/8 bg-gray-900/40"
                 }`}
                 style={{ transitionDelay: `${index * 0.05}s` }}
@@ -134,7 +138,6 @@ export function FAQ() {
                   </span>
                 </button>
 
-                {/* Conteúdo com animação */}
                 <div
                   className={`overflow-hidden transition-all duration-400 ease-in-out ${
                     isOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
@@ -147,19 +150,6 @@ export function FAQ() {
               </div>
             );
           })}
-        </div>
-
-        {/* CTA abaixo do FAQ */}
-        <div className="revealable-faq opacity-0 translate-y-8 transition-all duration-700 mt-12 text-center">
-          <p className="text-gray-400 text-sm mb-4">
-            {t.faq?.ctaText ?? "Ainda tem dúvidas? Fale comigo diretamente."}
-          </p>
-          <a
-            href="#contato"
-            className="inline-block bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-8 rounded-lg uppercase tracking-wider transition-all duration-300 text-sm"
-          >
-            {t.faq?.ctaButton ?? "Entrar em Contato"}
-          </a>
         </div>
       </div>
     </section>

@@ -39,13 +39,11 @@ export function Pricing() {
       className="py-20 md:py-32 relative overflow-hidden radial-glow bg-[#111111]"
     >
       <div className="container mx-auto px-4 sm:px-6 relative z-10">
-        {/* Título da Seção */}
         <div className="text-center mb-12 md:mb-16 revealable-pricing transition-all duration-700 ease-out opacity-0 translate-y-12 scale-95">
           <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tighter">
             {t.pricing.titleStart} <span className="text-red-500">{t.pricing.titleHighlight}</span>
           </h2>
           
-          {/* Seletor de Período (Toggle Switch) */}
           <div className="mt-8 inline-flex bg-gray-900 rounded-full p-1 border border-gray-800">
             {(["bimestral", "semestral", "anual"] as BillingPeriod[]).map((period) => (
               <button
@@ -63,7 +61,6 @@ export function Pricing() {
           </div>
         </div>
 
-        {/* Grid de Planos */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto items-stretch">
           {activePlans.map((plan: { name: string, tag?: string, highlight: boolean, slogan: string, originalPrice?: string, price: string, period: string, features: string[] }, index: number) => (
             <div
@@ -106,16 +103,25 @@ export function Pricing() {
                 ))}
               </ul>
 
-              <a
-                href={`https://wa.me/${siteConfig.contact.whatsappNumber}?text=${encodeURIComponent(
-                  (t.pricing as { whatsappMessageTemplate: string }).whatsappMessageTemplate.replace("{{planName}}", plan.name).replace("{{period}}", (t.pricing.periods as Record<string, string>)[billingPeriod])
-                )}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-auto w-full font-bold py-3 px-8 rounded-lg uppercase tracking-wider transition-all duration-300 bg-gray-800 text-white hover:bg-gray-700 border border-gray-700"
-              >
-                {t.pricing.button}
-              </a>
+              {plan.price === "Indisponível" || plan.price === "Unavailable" ? (
+                <button
+                  disabled
+                  className="mt-auto w-full font-bold py-3 px-8 rounded-lg uppercase tracking-wider transition-all duration-300 bg-gray-800/50 text-gray-500 cursor-not-allowed border border-gray-700/50"
+                >
+                  {plan.price}
+                </button>
+              ) : (
+                <a
+                  href={`https://wa.me/${siteConfig.contact.whatsappNumber}?text=${encodeURIComponent(
+                    (t.pricing as { whatsappMessageTemplate: string }).whatsappMessageTemplate.replace("{{planName}}", plan.name).replace("{{period}}", (t.pricing.periods as Record<string, string>)[billingPeriod])
+                  )}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-auto w-full font-bold py-3 px-8 rounded-lg uppercase tracking-wider transition-all duration-300 bg-gray-800 text-white hover:bg-gray-700 border border-gray-700"
+                >
+                  {t.pricing.button}
+                </a>
+              )}
             </div>
           ))}
         </div>

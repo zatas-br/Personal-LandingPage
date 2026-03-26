@@ -109,7 +109,7 @@ export const translations = {
       plans: {
         bimestral: [
           {
-            name: "Planos LIGHT",
+            name: "LIGHT",
             tag: "100% Online",
             slogan: "Tenha acompanhamento COMIGO de qualquer lugar do mundo.",
             price: "R$ 550,00",
@@ -123,7 +123,7 @@ export const translations = {
             highlight: false,
           },
           {
-            name: "Planos PREMIUM",
+            name: "PREMIUM",
             tag: "Mais Escolhido",
             slogan: "Acompanhamento completo, com contato presencial ou videochamada.",
             price: "R$ 650,00",
@@ -138,7 +138,7 @@ export const translations = {
             highlight: true,
           },
           {
-            name: "Planos para TREINO",
+            name: "TREINO",
             slogan: "Para quem busca evolução no treino, com contato presencial ou videochamada.",
             price: "R$ 400,00",
             period: "à vista ou 2x de R$ 200,00",
@@ -153,7 +153,7 @@ export const translations = {
         ],
         semestral: [
           {
-            name: "Planos LIGHT",
+            name: "LIGHT",
             tag: "100% Online",
             slogan: "Tenha acompanhamento COMIGO de qualquer lugar do mundo.",
             price: "R$ 1.499,00",
@@ -168,7 +168,7 @@ export const translations = {
             highlight: false,
           },
           {
-            name: "Planos PREMIUM",
+            name: "PREMIUM",
             tag: "Mais Escolhido",
             slogan: "Acompanhamento completo, com contato presencial ou videochamada.",
             price: "R$ 1.650,00",
@@ -184,7 +184,7 @@ export const translations = {
             highlight: true,
           },
           {
-            name: "Planos para TREINO",
+            name: "TREINO",
             slogan: "Para quem busca evolução no treino, com contato presencial ou videochamada.",
             price: "R$ 999,00",
             period: "ou até 6x de R$ 166,50",
@@ -200,7 +200,7 @@ export const translations = {
         ],
         anual: [
           {
-            name: "Planos LIGHT",
+            name: "LIGHT",
             tag: "100% Online",
             slogan: "Tenha acompanhamento COMIGO de qualquer lugar do mundo.",
             price: "R$ 2.699,00",
@@ -215,12 +215,11 @@ export const translations = {
             highlight: false,
           },
           {
-            name: "Planos PREMIUM",
+            name: "PREMIUM",
             tag: "Mais Escolhido",
-            slogan: "Acompanhamento completo, com contato presencial ou videochamada.",
-            price: "R$ 2.999,00",
-            period: "ou até 12x de R$ 249,00",
-            originalPrice: "R$ 3.600,00",
+            slogan: "Plano indisponível para o período anual.",
+            price: "Indisponível",
+            period: "",
             features: [
               "Avaliação física e postural presencial",
               "6 consultas presenciais ou videochamada",
@@ -231,11 +230,10 @@ export const translations = {
             highlight: true,
           },
           {
-            name: "Planos para TREINO",
-            slogan: "Para quem busca evolução no treino, com contato presencial ou videochamada.",
-            price: "R$ 1.799,00",
-            period: "ou até 12x de R$ 150,00",
-            originalPrice: "R$ 2.400,00",
+            name: "TREINO",
+            slogan: "Plano indisponível para o período anual.",
+            price: "Indisponível",
+            period: "",
             features: [
               "Avaliação física e postural presencial",
               "6 consultas presenciais ou videochamada",
@@ -417,7 +415,7 @@ export const translations = {
       plans: {
         bimestral: [
           {
-            name: "LIGHT Plans",
+            name: "LIGHT",
             tag: "100% Online",
             slogan: "Get tracking with ME from anywhere in the world.",
             price: "R$ 550,00",
@@ -431,7 +429,7 @@ export const translations = {
             highlight: false,
           },
           {
-            name: "PREMIUM Plans",
+            name: "PREMIUM",
             tag: "Most Chosen",
             slogan: "Complete tracking, with face-to-face contact or video call.",
             price: "R$ 650,00",
@@ -446,7 +444,7 @@ export const translations = {
             highlight: true,
           },
           {
-            name: "Plans for TRAINING",
+            name: "TRAINING",
             slogan: "For those seeking evolution in training, with face-to-face contact or video call.",
             price: "R$ 400,00",
             period: "cash or 2x of R$ 200,00",
@@ -461,7 +459,7 @@ export const translations = {
         ],
         semestral: [
           {
-            name: "LIGHT Plans",
+            name: "LIGHT",
             tag: "100% Online",
             slogan: "Get tracking with ME from anywhere in the world.",
             price: "R$ 1.499,00",
@@ -476,7 +474,7 @@ export const translations = {
             highlight: false,
           },
           {
-            name: "PREMIUM Plans",
+            name: "PREMIUM",
             tag: "Most Chosen",
             slogan: "Complete tracking, with face-to-face contact or video call.",
             price: "R$ 1.650,00",
@@ -492,7 +490,7 @@ export const translations = {
             highlight: true,
           },
           {
-            name: "Plans for TRAINING",
+            name: "TRAINING",
             slogan: "For those seeking evolution in training, with face-to-face contact or video call.",
             price: "R$ 999,00",
             period: "or up to 6x of R$ 166,50",
@@ -508,7 +506,7 @@ export const translations = {
         ],
         anual: [
           {
-            name: "LIGHT Plans",
+            name: "LIGHT",
             tag: "100% Online",
             slogan: "Get tracking with ME from anywhere in the world.",
             price: "R$ 2.699,00",
@@ -523,12 +521,11 @@ export const translations = {
             highlight: false,
           },
           {
-            name: "PREMIUM Plans",
+            name: "PREMIUM",
             tag: "Most Chosen",
-            slogan: "Complete tracking, with face-to-face contact or video call.",
-            price: "R$ 2.999,00",
-            period: "or up to 12x of R$ 249,00",
-            originalPrice: "R$ 3.600,00",
+            slogan: "Plan unavailable for annual billing.",
+            price: "Unavailable",
+            period: "",
             features: [
               "Face-to-face physical and postural assessment",
               "6 face-to-face consultations or video calls",
@@ -539,11 +536,10 @@ export const translations = {
             highlight: true,
           },
           {
-            name: "Plans for TRAINING",
-            slogan: "For those seeking evolution in training, with face-to-face contact or video call.",
-            price: "R$ 1.799,00",
-            period: "or up to 12x of R$ 150,00",
-            originalPrice: "R$ 2.400,00",
+            name: "TRAINING",
+            slogan: "Plan unavailable for annual billing.",
+            price: "Unavailable",
+            period: "",
             features: [
               "Face-to-face physical and postural assessment",
               "6 face-to-face consultations or video calls",

@@ -85,11 +85,9 @@ export function Stats() {
 
   return (
     <section className="py-20 md:py-28 bg-[#0a0a0a] relative overflow-hidden">
-      {/* Linha decorativa vermelha */}
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-red-600 to-transparent" />
       <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-red-600 to-transparent" />
 
-      {/* Fundo com grid sutil */}
       <div
         className="absolute inset-0 opacity-[0.03]"
         style={{
@@ -99,23 +97,16 @@ export function Stats() {
         }}
       />
 
-      {/* Glow central */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
         <div className="w-[600px] h-[300px] bg-red-600/5 rounded-full blur-3xl" />
       </div>
 
       <div className="container mx-auto px-4 sm:px-6 relative z-10">
         <div className="text-center mb-14 revealable-stat opacity-0 translate-y-8 transition-all duration-700">
-          <p className="text-red-500 text-xs uppercase tracking-[0.3em] font-semibold mb-3">
-            {t.stats?.eyebrow ?? "Números que Falam"}
-          </p>
           <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tighter">
             {t.stats?.titleStart ?? "Resultados"}{" "}
             <span className="text-red-500">{t.stats?.titleHighlight ?? "Reais"}</span>
           </h2>
-          <p className="text-gray-400 mt-4 max-w-xl mx-auto text-sm md:text-base">
-            {t.stats?.description ?? "Cada número representa uma história de superação, dedicação e transformação real."}
-          </p>
         </div>
 
         <div className="grid grid-cols-2 md:grid-cols-3 gap-px bg-white/5 rounded-2xl overflow-hidden ring-1 ring-white/5">
