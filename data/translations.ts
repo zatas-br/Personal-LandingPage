@@ -84,6 +84,18 @@ export const translations = {
       button: "Quero definir meu abdômen",
       whatsappMessage: "Olá! Gostaria de mais informações sobre a *Planilha de Treinos de Abs - Abdômen Definido*. Tenho interesse em adquirir!"
     },
+    stats: {
+      eyebrow: "Números que Falam",
+      titleStart: "Resultados",
+      titleHighlight: "Reais",
+      description: "Cada número representa uma história de superação, dedicação e transformação real.",
+      completedProjects: "Projetos Concluídos",
+      satisfiedClients: "Clientes Satisfeitos",
+      yearsExperience: "Anos de Experiência",
+      totalStudents: "Alunos Transformados",
+      countriesReached: "Países Alcançados",
+      kgLost: "kg Perdidos pelos Alunos",
+    },
     pricing: {
       titleStart: "Escolha o plano da",
       titleHighlight: "sua transformação",
@@ -235,6 +247,48 @@ export const translations = {
         ]
       }
     },
+    faq: {
+      eyebrow: "Perguntas Frequentes",
+      titleStart: "Tire suas",
+      titleHighlight: "Dúvidas",
+      description: "Respondemos as perguntas mais comuns para você começar com confiança.",
+      ctaText: "Ainda tem dúvidas? Fale comigo diretamente.",
+      ctaButton: "Entrar em Contato",
+      items: [
+        {
+          question: "Como funciona o acompanhamento online?",
+          answer: "O acompanhamento online é feito 100% pelo WhatsApp e por videochamada. Você recebe sua planilha de treino personalizada, acompanhamento nutricional e suporte para tirar dúvidas a qualquer momento. Funciona para qualquer lugar do mundo.",
+        },
+        {
+          question: "Preciso ter experiência na academia para começar?",
+          answer: "Não! Os treinos são adaptados ao seu nível, seja iniciante, intermediário ou avançado. O objetivo é sempre a progressão segura e eficiente, respeitando suas limitações e objetivos.",
+        },
+        {
+          question: "Com que frequência recebo novos treinos?",
+          answer: "A prescrição de treino varia conforme o plano escolhido — bimestral, semestral ou anual. Em todos os planos há revisões periódicas com ajuste de carga e periodização para garantir evolução contínua.",
+        },
+        {
+          question: "A nutrição está incluída nos planos?",
+          answer: "Nos planos Light e Premium, sim! O acompanhamento nutricional com ajustes está incluso. No plano Para Treino, o foco é exclusivamente na prescrição e evolução dos treinos.",
+        },
+        {
+          question: "Quanto tempo leva para ver resultados?",
+          answer: "Os primeiros resultados visíveis costumam aparecer entre 3 e 8 semanas, dependendo da consistência, alimentação e sono. Resultados sólidos e duradouros são construídos ao longo de meses de dedicação.",
+        },
+        {
+          question: "Posso treinar em casa ou preciso de academia?",
+          answer: "Os treinos podem ser adaptados tanto para academia quanto para treino em casa, com ou sem equipamentos. Basta informar sua situação no início do acompanhamento.",
+        },
+        {
+          question: "Como faço para adquirir a Planilha de Abs?",
+          answer: "É só entrar em contato pelo WhatsApp ou pelo formulário de contato nesta página. A entrega é digital e imediata após a confirmação do pagamento.",
+        },
+        {
+          question: "Posso cancelar ou pausar meu plano?",
+          answer: "Sim, entre em contato pelo WhatsApp para verificar as condições de cancelamento ou pausa conforme o plano contratado. Buscamos sempre a melhor solução para cada caso.",
+        },
+      ],
+    },
     contact: {
       titleStart: "Pronto para",
       titleHighlight: "Transformar Seu Corpo?",
@@ -337,6 +391,18 @@ export const translations = {
       buttonMore: "Learn more",
       button: "I want to define my abs",
       whatsappMessage: "Hello! I would like more information about the *Abs Workout Plan - Defined Abs*. I'm interested in buying it!"
+    },
+    stats: {
+      eyebrow: "Numbers That Speak",
+      titleStart: "Real",
+      titleHighlight: "Results",
+      description: "Each number represents a story of overcoming, dedication, and real transformation.",
+      completedProjects: "Completed Projects",
+      satisfiedClients: "Satisfied Clients",
+      yearsExperience: "Years of Experience",
+      totalStudents: "Students Transformed",
+      countriesReached: "Countries Reached",
+      kgLost: "kg Lost by Students",
     },
     pricing: {
       titleStart: "Choose the plan for",
@@ -488,6 +554,48 @@ export const translations = {
           }
         ]
       }
+    },
+    faq: {
+      eyebrow: "Frequently Asked Questions",
+      titleStart: "Clear your",
+      titleHighlight: "Doubts",
+      description: "We answer the most common questions so you can start with confidence.",
+      ctaText: "Still have questions? Talk to me directly.",
+      ctaButton: "Get in Touch",
+      items: [
+        {
+          question: "How does online coaching work?",
+          answer: "Online coaching is done 100% via WhatsApp and video call. You receive your personalized workout plan, nutritional guidance, and support to answer questions at any time. It works from anywhere in the world.",
+        },
+        {
+          question: "Do I need gym experience to start?",
+          answer: "No! Workouts are adapted to your level, whether beginner, intermediate, or advanced. The goal is always safe and efficient progression, respecting your limitations and goals.",
+        },
+        {
+          question: "How often do I receive new workouts?",
+          answer: "Workout prescriptions vary by plan — bi-monthly, semi-annual, or annual. All plans include periodic reviews with load adjustments and periodization to ensure continuous progress.",
+        },
+        {
+          question: "Is nutrition included in the plans?",
+          answer: "In the Light and Premium plans, yes! Nutritional coaching with adjustments is included. In the Training plan, the focus is exclusively on workout prescription and progression.",
+        },
+        {
+          question: "How long does it take to see results?",
+          answer: "The first visible results usually appear between 3 and 8 weeks, depending on consistency, diet, and sleep. Solid, lasting results are built over months of dedication.",
+        },
+        {
+          question: "Can I train at home or do I need a gym?",
+          answer: "Workouts can be adapted for both gym and home training, with or without equipment. Just let us know your situation at the start of your coaching.",
+        },
+        {
+          question: "How do I get the Abs Workout Plan?",
+          answer: "Just contact us via WhatsApp or the contact form on this page. Delivery is digital and immediate after payment confirmation.",
+        },
+        {
+          question: "Can I cancel or pause my plan?",
+          answer: "Yes, contact us via WhatsApp to check the cancellation or pause conditions for your plan. We always seek the best solution for each case.",
+        },
+      ],
     },
     contact: {
       titleStart: "Ready to",

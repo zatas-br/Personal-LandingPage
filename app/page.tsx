@@ -6,6 +6,8 @@ import { Features } from "@/components/Features";
 import { Testimonials } from "@/components/Testimonials";
 import { AbsWorkout } from "@/components/AbsWorkout";
 import { Pricing } from "@/components/Pricing";
+import { Stats } from "@/components/Stats";
+import { FAQ } from "@/components/FAQ";
 import { Contact } from "@/components/Contact";
 import { Footer } from "@/components/Footer";
 import { FloatingWhatsApp } from "@/components/FloatingWhatsApp";
@@ -21,7 +23,9 @@ export default function Home() {
           <Features />
           <Testimonials />
           <AbsWorkout />
+          <Stats />
           <Pricing />
+          <FAQ />
           <Contact />
         </main>
         <Footer />
